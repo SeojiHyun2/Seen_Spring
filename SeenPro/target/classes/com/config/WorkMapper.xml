@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WorkMapper">
+
+	<select id="workList" parameterType="string" resultType="WorkDTO">
+		select artistname, wCode, wCategory, wName, wDescribe, wWork
+		from work
+		where wCategory = #{wCategory}
+		order by 1
+	</select>
+	
+	<select id="totalRecord" resultType="int">
+		select count(*)
+		from work
+		where wCategory = #{wCategory}
+	</select>
+	
+	
+	<insert id="workUp" parameterType="WorkDTO">
+		insert into work ( wCode, artistname, wName, wCategory, wDescribe, wWork )
+		values ( wcode_seq.nextval, #{artistname}, #{wName}, #{wCategory}, #{wDescribe}, #{wWork} )
+	</insert>
+	
+	<select id="listAll" resultType="WorkDTO" 
+	parameterType="hashmap">
+		select wName,artistname,wWork
+		from work
+		<if test="searchName== 'search_a'">
+			where artistname LIKE '%'||#{searchValue}||'%'
+		</if>
+	    <if test="searchName== 'search_w'">
+	    	where wName LIKE '%'||#{searchValue}||'%'
+	    </if>
+		
+	</select>
+	
+	<select id="workDetail" resultType="WorkDTO">
+
+		
+
+		select wName, wWork, artistname, wDescribe, to_char(inputDay, 'yyyy/MM/dd') inputDay, wCode
+		from work
+		where wCode = #{wCode}
+	</select>
+	
+	<select id="myWorkList" parameterType="string" resultType="WorkDTO">
+		select wCode, artistname, wWork, wName, wDescribe, to_char(inputDay, 'yyyy/MM/dd') inputDay
+		from work
+		where artistname = #{aName}
+	</select>
+	
+	<select id="cartByNum" parameterType="string" 
+	resultType="WorkDTO">
+	 select artistname, wCode, wCategory, wName, wDescribe, wWork
+	from work
+	 where wCode=#{wCode}
+	</select>
+	
+	<delete id="workDel" parameterType="string">
+		delete from work
+		where wCode = #{wCode}
+	</delete>
+	
+
+	
+</mapper>

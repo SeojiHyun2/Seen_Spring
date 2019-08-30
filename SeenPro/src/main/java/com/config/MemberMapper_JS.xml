@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberMapper_JS">
+
+	<select id="memberArtLogin" parameterType="hashmap"
+		resultType="MemberADTO">
+		select
+		artistname,a_passwd,a_username,a_post,a_addr1,a_addr2,
+		a_phone1,a_phone2,a_phone3,a_email1,a_email2
+		from artist
+		where
+		artistname =#{artistname} and a_passwd=#{a_passwd}
+	</select>
+	
+
+	<select id="memIdConfirm" parameterType="string"
+		resultType="MemberDTO">
+		select
+		userid,m_username
+		from member
+		where
+		userid
+		=#{userid}
+	</select>
+
+
+
+
+	<select id="memberLogin" parameterType="hashmap"
+		resultType="MemberDTO">
+		select userid,m_passwd,m_username,m_post,m_addr1,m_addr2,
+		m_phone1,m_phone2,m_phone3,m_email1,m_email2
+		from member
+		where userid=#{userid} and m_passwd=#{m_passwd}
+	</select>
+
+
+<select id="mailCheck" parameterType="hashmap"
+		resultType="MemberDTO">
+		select userid,m_passwd,m_username,m_post,m_addr1,m_addr2,
+		m_phone1,m_phone2,m_phone3,m_email1,m_email2
+		from member
+		where m_username=#{m_username} and m_email1=#{m_email1} and m_email2=#{m_email2}
+	</select>
+
+
+
+	<select id="mypage" parameterType="string"
+		resultType="MemberDTO">
+		select userid,m_passwd,m_username,m_post,m_addr1,m_addr2,
+		m_phone1,m_phone2,m_phone3,m_email1,m_email2
+		from member
+		where userid
+		=#{userid}
+	</select>
+
+
+
+	<select id="Amypage" parameterType="String"
+		resultType="MemberADTO">
+		select
+		artistname,a_passwd,a_username,a_post,a_addr1,a_addr2,
+		a_phone1,a_phone2,a_phone3,a_email1,a_email2
+		from artist
+		where
+		artistname =#{artistname}
+	</select>
+
+
+	<insert id="memberAdd" parameterType="MemberDTO">
+		insert into
+		member(userid,m_passwd,m_username,m_post,m_addr1,m_addr2,
+		m_phone1,m_phone2,m_phone3,m_email1,m_email2)
+		values(
+		#{userid},#{m_passwd},#{m_username},#{m_post},#{m_addr1},#{m_addr2},
+		#{m_phone1},#{m_phone2},#{m_phone3},#{m_email1},#{m_email2})
+	</insert>
+
+	<insert id="memberArtAdd" parameterType="MemberADTO">
+		insert into
+		artist(artistname,a_passwd,a_username,a_post,a_addr1,a_addr2,
+		a_phone1,a_phone2,a_phone3,a_email1,a_email2)
+		values(
+		#{artistname},#{a_passwd},#{a_username},#{a_post},#{a_addr1},#{a_addr2},
+		#{a_phone1},#{a_phone2},#{a_phone3},#{a_email1},#{a_email2})
+	</insert>
+
+	<update id="memberUpdate" parameterType="MemberDTO">
+		update member
+		set m_post=#{m_post},
+		m_username=#{m_username},
+		m_addr1=#{m_addr1},
+		m_addr2=#{m_addr2},
+		m_phone1=#{m_phone1},
+		m_phone2=#{m_phone2},
+		m_phone3=#{m_phone3},
+		m_email1=#{m_email1},
+		m_email2=#{m_email2}
+		where userid=#{userid}
+	</update>
+	
+	
+
+	<update id="memberAUpdate" parameterType="MemberADTO">
+		update artist
+		set a_post=#{a_post},
+		a_username=#{a_username},
+		a_addr1=#{a_addr1},
+		a_addr2=#{a_addr2},
+		a_phone1=#{a_phone1},
+		a_phone2=#{a_phone2},
+		a_phone3=#{a_phone3},
+		a_email1=#{a_email1},
+		a_email2=#{a_email2}
+		where artistname=#{artistname}
+	</update>
+
+	<select id="idCheck" parameterType="string" resultType="MemberADTO">
+
+		select m_password
+		from member
+		where userid=#{userid}
+
+	</select>
+
+	<update id="passwdchange" parameterType="hashmap">
+		update member
+		set m_passwd=#{m_passwd}
+		
+	where m_username=#{m_username} and m_email1=#{m_email1} and m_email2=#{m_email2}
+	</update>
+	
+	
+	<update id="passwdmychange" parameterType="hashmap">
+		update member
+		set m_passwd=#{m_newpasswd}
+		
+	where userid=#{userid} and m_passwd=#{m_passwd}
+	</update>
+</mapper>

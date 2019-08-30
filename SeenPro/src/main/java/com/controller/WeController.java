@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-public class MainController {
+public class WeController {
 
-	@RequestMapping(value = "/")
+	@RequestMapping(value = "/joinUI")
 	public String test() {
-		System.out.println("MainController");
-		return "main";
+		System.out.println("WeController");
+		
+		return "joinUI";
 	}
-	
 }
