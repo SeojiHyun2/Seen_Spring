@@ -16,6 +16,8 @@
 	<mvc:view-controller path="/joinUI" view-name="joinUI"/>
 	<mvc:view-controller path="/join_mem" view-name="join_mem"/>
 	<mvc:view-controller path="/join_art" view-name="join_art"/>
+	<mvc:view-controller path="/loginUI" view-name="loginUI"/>
+	
 
     <mvc:resources location="/WEB-INF/views/images/" mapping="/images/**" />
 

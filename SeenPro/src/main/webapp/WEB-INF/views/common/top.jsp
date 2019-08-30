@@ -38,7 +38,7 @@
 
 <p class="join">
 
-<c:if test="${empty mem_login and empty art_login }">
+<c:if test="${empty login_mem and empty login_art }">
 
 <a href="loginUI" id="J">LOGIN</a><br>
 <a href="joinUI" id="J">JOIN</a>
@@ -48,14 +48,14 @@
 
 
 <c:choose>
-	<c:when test="${! empty mem_login}">
-	반갑습니다 ${mem_login.m_username }님!<br>
+	<c:when test="${! empty login_mem}">
+	반갑습니다 ${login_mem.m_username }님!<br>
 	<br> 
 	<a href="MypageServlet" id="J">mypage</a><br><br>
 	<a href="LogOutServlet" id="J">로그아웃</a>
 	</c:when>
-	<c:when test="${! empty art_login}">
-	반갑습니다 ${art_login.a_username }님!<br>
+	<c:when test="${! empty login_art}">
+	반갑습니다 ${login_art.a_username }님!<br>
 	<br>
 	<a href="MypageServlet" id="J">mypage</a><br>
 	<a href="InputWorkUIServlt" id="J">작품올리기</a><br>
