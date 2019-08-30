@@ -39,8 +39,8 @@
 <B>See-N 과 함께 시작하세요.</B><br><br>
 <hr>
 
-<input class="user" type="button" onClick="location.href='joinpeo.jsp'">
-<input class="artist" type="button"onClick="location.href='joinart.jsp'" >
+<input class="user" type="button" onClick="location.href='join_mem'">
+<input class="artist" type="button" onClick="location.href='join_art'" >
 
 <hr>
 <jsp:include page="common/bottom.jsp" flush="true" />
