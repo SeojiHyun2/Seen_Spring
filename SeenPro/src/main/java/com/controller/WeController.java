@@ -14,4 +14,11 @@ public class WeController {
 		
 		return "joinUI";
 	}
+	
+	@RequestMapping(value = "/loinUI")
+	public String login() {
+		System.out.println("WeController");
+		
+		return "loinUI";
+	}
 }

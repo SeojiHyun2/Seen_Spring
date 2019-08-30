@@ -40,7 +40,7 @@
 
 <c:if test="${empty mem_login and empty art_login }">
 
-<a href=" LoginUIServlet" id="J">LOGIN</a><br>
+<a href="loginUI" id="J">LOGIN</a><br>
 <a href="joinUI" id="J">JOIN</a>
 </c:if>
 
