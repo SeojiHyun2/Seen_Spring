@@ -25,7 +25,7 @@
 	}
 </script>
     
-<form action="MemberArtAddServlet" method="get">
+<form action="joinArtist" method="get">
 작가명<input type="text" name="userid" id="userid">
 <span id="result"></span>
 <br> 
