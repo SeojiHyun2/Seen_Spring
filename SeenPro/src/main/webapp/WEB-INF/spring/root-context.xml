@@ -46,6 +46,7 @@
 				<value>com.dto.MemberDTO</value>
 				<value>com.dto.MemberADTO</value>
 				<value>com.dto.WorkDTO</value>
+				<value>com.dto.PageDTO</value>
 			</list>
 		</property>
 
