@@ -13,6 +13,7 @@
     <mvc:default-servlet-handler/>
 
 	<mvc:view-controller path="/" view-name="main"/>
+	<mvc:view-controller path="/aa" view-name="main"/>
 	<mvc:view-controller path="/joinUI" view-name="joinUI"/>
 	<mvc:view-controller path="/join_mem" view-name="join_mem"/>
 	<mvc:view-controller path="/join_art" view-name="join_art"/>
