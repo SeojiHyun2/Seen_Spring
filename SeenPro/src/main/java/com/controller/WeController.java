@@ -85,5 +85,46 @@ public class WeController {
 			}
 	}
 
+		
+		@RequestMapping(value="/loginCheck/logout")
+		public String logout(HttpSession session){
+			
+			session.invalidate();
+			return "redirect:../";
+		}
+		
+		
+		@RequestMapping(value="/loginCheck/mypage")
+	
+		public String mypage(HttpSession session ) {
+			
+			MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
+			String userid = dto.getUserid();
+			
+			dto = service.mypage(userid);
+			session.setAttribute("login_mem",dto );
+			return "redirect:../mypage";
+			
+	
+	
+		}
+		
+		@RequestMapping(value="/loginCheck/mypage_art")
+		
+		public String mypage_art(HttpSession session ) {
+			
+			MemberADTO dto = (MemberADTO) session.getAttribute("login_art");
+			String userid = dto.getArtistname();
+			
+			dto = service.mypage_art(userid);
+			session.setAttribute("login_art",dto );
+			return "redirect:../mypage_art";
+		
+		}
+		
+		
+		
+		
+		
 	
 }

@@ -28,5 +28,19 @@ public class MemberDAO {
 		return dto;
 	}
 
+
+	public MemberDTO mypage(String userid) {
+		
+		MemberDTO dto = template.selectOne("MemberMapper_JS.mypage", userid);
+		return dto;
+	}
+	
+public MemberADTO mypage_art(String userid) {
+		
+		MemberADTO dto = template.selectOne("MemberMapper_JS.Amypage", userid);
+		return dto;
+	}
+
+
 	
 }

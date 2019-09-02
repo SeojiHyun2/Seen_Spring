@@ -45,21 +45,19 @@
 </c:if>
 
 
-
-
 <c:choose>
 	<c:when test="${! empty login_mem}">
 	반갑습니다 ${login_mem.m_username }님!<br>
 	<br> 
-	<a href="MypageServlet" id="J">mypage</a><br><br>
-	<a href="LogOutServlet" id="J">로그아웃</a>
+	<a href="loginCheck/mypage" id="J">mypage</a><br><br>
+	<a href="loginCheck/logout" id="J">로그아웃</a>
 	</c:when>
 	<c:when test="${! empty login_art}">
 	반갑습니다 ${login_art.a_username }님!<br>
 	<br>
-	<a href="MypageServlet" id="J">mypage</a><br>
+	<a href="loginCheck/mypage_art" id="J">mypage</a><br>
 	<a href="InputWorkUIServlt" id="J">작품올리기</a><br>
-	<a href="LogOutServlet" id="J">로그아웃</a>
+	<a href="loginCheck/logout" id="J">로그아웃</a>
 	</c:when>
 </c:choose>
 

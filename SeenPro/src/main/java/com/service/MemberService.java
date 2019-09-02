@@ -25,4 +25,18 @@ public class MemberService {
 		return dto;
 	}
 
+	public MemberDTO mypage(String userid) {
+		
+		MemberDTO dto = dao.mypage(userid);
+		
+		return dto;
+	}
+	
+	public MemberADTO mypage_art(String userid) {
+		
+		MemberADTO dto = dao.mypage_art(userid);
+		
+		return dto;
+	}
+
 }
