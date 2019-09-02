@@ -34,7 +34,7 @@
 </style>
 
 
-<a href="MainServlet" id="T"><h1>&nbsp;See-N</h1></a>
+<a href="main" id="T"><h1>&nbsp;See-N</h1></a>
 
 <p class="join">
 
