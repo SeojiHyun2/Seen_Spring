@@ -49,7 +49,7 @@ form{position: relative; left:480px;
 
 
 
-<form action="MemberUpdateServlet" method="get">
+<form action="loginCheck/memberUpdate_art" method="get">
 <input type="hidden"name="artistname" id="artistname" 
 value="${login_art.artistname}">
 <span id="result"></span>

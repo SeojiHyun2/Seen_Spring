@@ -48,7 +48,7 @@ form{position: relative; left:480px;
 
 </style>
   
-<form action="memberUpdate" method="get">
+<form action="loginCheck/memberUpdate" method="get">
 <input type="hidden"name="userid" id="userid" 
 value="${login_mem.userid}">
 <span id="result"></span>

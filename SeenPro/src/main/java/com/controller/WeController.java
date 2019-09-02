@@ -123,8 +123,19 @@ public class WeController {
 		}
 		
 		
+		@RequestMapping("/loginCheck/memberUpdate")
+		public String memberUpdate(MemberDTO m) {
+			service.memberUpdate(m);
+			return "redirect:../loginCheck/mypage";
+	
+		}
 		
-		
-		
+	
+		@RequestMapping("/loginCheck/memberUpdate_art")
+		public String memberUpdate_art(MemberADTO m) {
+			service.memberUpdate_art(m);
+			return "redirect:../loginCheck/mypage_art";
+	
+		}
 	
 }

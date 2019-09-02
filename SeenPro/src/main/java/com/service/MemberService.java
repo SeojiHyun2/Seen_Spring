@@ -39,4 +39,14 @@ public class MemberService {
 		return dto;
 	}
 
+	public void memberUpdate(MemberDTO m) {
+		dao.memberUpdate(m);
+		
+	}
+
+	public void memberUpdate_art(MemberADTO m) {
+		dao.memberUpdate_art(m);
+	
+	}
+
 }

@@ -42,5 +42,18 @@ public MemberADTO mypage_art(String userid) {
 	}
 
 
+public void memberUpdate(MemberDTO m) {
+	int n = template.update("MemberMapper_JS.memberUpdate", m);
+
+	
+}
+
+
+public void memberUpdate_art(MemberADTO m) {
+	int n = template.update("MemberMapper_JS.memberAUpdate", m);
+	
+}
+
+
 	
 }
