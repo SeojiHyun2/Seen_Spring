@@ -10,13 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-<<<<<<< HEAD
-=======
+
 
 import com.dto.MemberADTO;
 import com.dto.MemberDTO;
 import com.service.MemberService;
->>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
+
 
 
 @Controller
