@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<c:if test="${!empty success}">
+  <script>
+    alert("${success}");
+  </script>
+</c:if>
+
 
 
 <jsp:include page="common/top.jsp" flush="true" />

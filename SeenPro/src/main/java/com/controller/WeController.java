@@ -34,13 +34,21 @@ public class WeController {
 	public String joinArtist() {
 		System.out.println("joinArtist");
 		
-		
-		
-		
 		return "main";
 	}
 	
 	
+		
+		@RequestMapping("/memberPeoAdd")
+		
+		public String memberPeoAdd(MemberDTO m, Model model) {
+			
+			service.memberPeoAdd(m);
+			model.addAttribute("success", "See-N에 오신 것을 환영합니다. 로그인을 해주세요.");
+			return "main";
+		}
+		
+		
 	
 
 	@RequestMapping(value = "/loginUI")

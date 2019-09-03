@@ -2,12 +2,19 @@ package com.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dto.MemberDTO;
+import com.dto.SweetDTO;
 import com.dto.WorkDTO;
 import com.service.MemberService;
 import com.service.WorkService;
@@ -17,21 +24,58 @@ public class WorkController {
 
 	@Autowired
 	MemberService service;
-	
+
 	@Autowired
 	WorkService wservice;
-	
-	
+
 	@RequestMapping("/workList")
 	public ModelAndView workList(@RequestParam("wCategory") String wCategory) {
-		
+
 		System.out.println(wCategory);
 		List<WorkDTO> list = wservice.workList(wCategory);
 		System.out.println(list);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("workList",list);
+		mav.addObject("workList", list);
 		mav.setViewName("workList");
 		return mav;
 	}
+
+	@RequestMapping("/workDetail")
+	@ModelAttribute("detail")
+	public WorkDTO workDetail(@RequestParam("wCode") String wCode) {
+
+		WorkDTO dto = wservice.workDetail(wCode);
+		return dto;
+	}
+
+	@RequestMapping("/loginCheck/sweetAdd")
+	public String sweetAdd(SweetDTO sweet, HttpSession session) {
+
+		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
+		sweet.setUserid(dto.getUserid());
+		wservice.sweetAdd(sweet);
+
+		return "redirect:../workList";
+	}
 	
+	@RequestMapping("/loginCheck/sweetList")
+	public String sweetList(RedirectAttributes attr, HttpSession session) {
+
+		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
+		String userid = dto.getUserid();
+		List<SweetDTO> list = wservice.sweetList(userid);
+		attr.addFlashAttribute("sweetList", list);
+		
+
+		return "redirect:../sweetList";
+	}
+	
+	
+	@RequestMapping("/loginCheck/sweetDel")
+	@ResponseBody
+	public void sweetDel(@RequestParam("num") int num) {
+
+		wservice.sweetDel(num);
+	}
+
 }
