@@ -5,17 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
 
-
-
 <jsp:include page="common/top.jsp" flush="true" />
-<hr>
-<a href="loginCheck/sweetList">작품모아보기</a><br>
-<a href="mem_mypage">내정보보기</a><br>
-<a href="passwdmychange.jsp">비밀번호변경하기</a><br>
+<jsp:include page="common/menu.jsp" flush="true" /><hr><br>
+
+<jsp:include page="work/workDetail.jsp" flush="true" /><br>
+
 
 <hr>
 <jsp:include page="common/bottom.jsp" flush="true" />

@@ -49,4 +49,10 @@ public class MemberService {
 	
 	}
 
+	public void memberPeoAdd(MemberDTO m) {
+	
+		dao.memberPeoAdd(m);
+		
+	}
+
 }

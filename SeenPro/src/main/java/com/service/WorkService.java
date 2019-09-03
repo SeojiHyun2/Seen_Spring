@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.WorkDAO;
+import com.dto.SweetDTO;
 import com.dto.WorkDTO;
 
 @Service
@@ -20,8 +21,31 @@ public class WorkService {
 		return list;
 	}
 
+<<<<<<< HEAD
 	public void workUp(WorkDTO wDTO) {
 		dao.workUp(wDTO);
+=======
+	public WorkDTO workDetail(String wCode) {
+		
+		WorkDTO dto = dao.workDetail(wCode);
+		return dto;
+	}
+
+	public void sweetAdd(SweetDTO sweet) {
+		
+		dao.sweetAdd(sweet);
+		
+	}
+
+	public List<SweetDTO> sweetList(String userid) {
+	
+		List<SweetDTO> dto = dao.sweetList(userid);
+		return dto;
+	}
+
+	public void sweetDel(int num) {
+		dao.sweetDel(num);
+>>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
 		
 	}
 

@@ -5,6 +5,32 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+
+$(document).ready(function(){
+
+	$(".sweet").on("click",function(){
+		 $("form").attr("action","loginCheck/sweetAdd");
+	});
+	
+});
+
+
+
+
+
+
+</script>
+
+
+
+
+
 <style type="text/css">
 #name:link {
 	color: black;
@@ -62,7 +88,7 @@
 						<td>
 							<table style='padding: 15px'>
 								<tr>
-									<td><a href="WorkDetailServlet?wCode=${workUp.wCode}">
+									<td><a href="workDetail?wCode=${workUp.wCode}">
 											<img src="/images/${workUp.wWork}" border="0" align="center"
 											width="200">
 									</a></td>
@@ -72,7 +98,7 @@
 								</tr>
 								<tr>
 									<td class="td_default" align="center"><a id="name"
-										class="a_black" href="WorkDetailServlet?wCode=${workUp.wCode}">
+										class="a_black" href="workDetail?wCode=${workUp.wCode}">
 											${workUp.wName}<br>
 									</a> <font color="gray"> ------------------------- </font></td>
 								</tr>
@@ -82,8 +108,7 @@
 								<tr>
 									<td class="td_gray" align="center">
 
-										<FORM name="workListForm" method="GET"
-											action="SweetAddServlet">
+										<fORM name="workListForm" method="GET" action="#">
 
 											<input type="hidden" name="wCode" value="${workUp.wCode}">
 											<input type="hidden" name="wName" value="${workUp.wName}">
@@ -91,7 +116,7 @@
 											<input type="hidden" name="artistname"
 												value="${workUp.artistname}"> <input type="submit"
 												class="sweet" >
-										</FORM>
+										</fORM>
 										
 									
 										
