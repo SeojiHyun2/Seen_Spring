@@ -21,10 +21,11 @@ public class WorkService {
 		return list;
 	}
 
-<<<<<<< HEAD
+
 	public void workUp(WorkDTO wDTO) {
-		dao.workUp(wDTO);
-=======
+		dao.workUp(wDTO);	
+	}
+
 	public WorkDTO workDetail(String wCode) {
 		
 		WorkDTO dto = dao.workDetail(wCode);
@@ -45,8 +46,6 @@ public class WorkService {
 
 	public void sweetDel(int num) {
 		dao.sweetDel(num);
->>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
-		
 	}
 
 }

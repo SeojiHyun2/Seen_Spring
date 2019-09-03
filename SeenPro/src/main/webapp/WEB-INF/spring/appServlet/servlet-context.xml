@@ -26,14 +26,10 @@
 	<mvc:view-controller path="/mypage_art" view-name="art_FirstMypage"/>
 	<mvc:view-controller path="/mem_mypage" view-name="mem_mypage"/>
 	<mvc:view-controller path="/art_mypage" view-name="art_mypage"/>
-<<<<<<< HEAD
 	<mvc:view-controller path="/inputWorkUI" view-name="inputWorkUI"/>
-=======
 	<mvc:view-controller path="/sweetList" view-name="sweetList"/>
 
-	
->>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
-	
+
 	<mvc:interceptors>
       <mvc:interceptor>
         <mvc:mapping path="/loginCheck/**"/>
