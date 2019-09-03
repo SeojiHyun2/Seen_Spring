@@ -56,7 +56,7 @@
 	반갑습니다 ${login_art.a_username }님!<br>
 	<br>
 	<a href="loginCheck/mypage_art" id="J">mypage</a><br>
-	<a href="InputWorkUIServlt" id="J">작품올리기</a><br>
+	<a href="inputWorkUI" id="J">작품올리기</a><br>
 	<a href="loginCheck/logout" id="J">로그아웃</a>
 	</c:when>
 </c:choose>

@@ -1,6 +1,7 @@
 package com.dto;
 
 import org.apache.ibatis.type.Alias;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 @Alias("WorkDTO")
 public class WorkDTO {
@@ -10,8 +11,9 @@ public class WorkDTO {
 	private String wName;
 	private String wDescribe;
 	private String artistname;
-	private String wWork;
 	private String inputDay;
+	private String wWork;
+	private CommonsMultipartFile realWork;
 	
 	public WorkDTO() {
 		super();
@@ -20,29 +22,34 @@ public class WorkDTO {
 	
 	
 	
-	public String getInputDay() {
-		return inputDay;
+	
+	public CommonsMultipartFile getRealWork() {
+		return realWork;
 	}
 
 
 
-	public void setInputDay(String inputDay) {
-		this.inputDay = inputDay;
+
+	public void setRealWork(CommonsMultipartFile realWork) {
+		this.realWork = realWork;
 	}
 
 
 
-	public WorkDTO(String wCode, String wCategory, String wName, String wDescribe, String artistname, String wWork,
-			String inputDay) {
+
+	public WorkDTO(String wCode, String wCategory, String wName, String wDescribe, String artistname, String inputDay,
+			String wWork, CommonsMultipartFile realWork) {
 		super();
 		this.wCode = wCode;
 		this.wCategory = wCategory;
 		this.wName = wName;
 		this.wDescribe = wDescribe;
 		this.artistname = artistname;
-		this.wWork = wWork;
 		this.inputDay = inputDay;
+		this.wWork = wWork;
+		this.realWork = realWork;
 	}
+
 
 
 
@@ -76,6 +83,12 @@ public class WorkDTO {
 	public void setArtistname(String artistname) {
 		this.artistname = artistname;
 	}
+	public String getInputDay() {
+		return inputDay;
+	}
+	public void setInputDay(String inputDay) {
+		this.inputDay = inputDay;
+	}
 	public String getwWork() {
 		return wWork;
 	}
@@ -85,13 +98,17 @@ public class WorkDTO {
 
 
 
+
 	@Override
 	public String toString() {
 		return "WorkDTO [wCode=" + wCode + ", wCategory=" + wCategory + ", wName=" + wName + ", wDescribe=" + wDescribe
-				+ ", artistname=" + artistname + ", wWork=" + wWork + ", inputDay=" + inputDay + "]";
+				+ ", artistname=" + artistname + ", inputDay=" + inputDay + ", wWork=" + wWork + ", realWork="
+				+ realWork + "]";
 	}
-
 	
+	
+
+
 	
 	
 }

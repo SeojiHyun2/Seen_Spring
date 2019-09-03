@@ -20,4 +20,9 @@ public class WorkService {
 		return list;
 	}
 
+	public void workUp(WorkDTO wDTO) {
+		dao.workUp(wDTO);
+		
+	}
+
 }

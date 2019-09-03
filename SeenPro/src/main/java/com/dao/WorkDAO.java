@@ -21,4 +21,9 @@ public class WorkDAO {
 		
 	}
 
+	public void workUp(WorkDTO wDTO) {
+		int n = template.insert("WorkMapper.workUp",wDTO);
+		
+	}
+
 }
