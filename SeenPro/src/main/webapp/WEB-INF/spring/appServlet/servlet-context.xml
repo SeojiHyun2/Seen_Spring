@@ -13,12 +13,26 @@
     <mvc:default-servlet-handler/>
 
 	<mvc:view-controller path="/" view-name="main"/>
+	<mvc:view-controller path="/aa" view-name="main"/>
 	<mvc:view-controller path="/joinUI" view-name="joinUI"/>
 	<mvc:view-controller path="/join_mem" view-name="join_mem"/>
 	<mvc:view-controller path="/join_art" view-name="join_art"/>
 	<mvc:view-controller path="/loginUI" view-name="loginUI"/>
+	<mvc:view-controller path="/mypage" view-name="mem_FirstMypage"/>
+	<mvc:view-controller path="/mypage_art" view-name="art_FirstMypage"/>
+	<mvc:view-controller path="/mem_mypage" view-name="mem_mypage"/>
+	<mvc:view-controller path="/art_mypage" view-name="art_mypage"/>
 	
-
+	<mvc:interceptors>
+      <mvc:interceptor>
+        <mvc:mapping path="/loginCheck/**"/>
+        <ref bean="loginCheckInterceptor"/>
+      </mvc:interceptor>
+    </mvc:interceptors>
+    
+    <bean id="loginCheckInterceptor" class="com.interceptor.LoginCheckInterceptor"></bean>
+    
+    
     <mvc:resources location="/WEB-INF/views/images/" mapping="/images/**" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

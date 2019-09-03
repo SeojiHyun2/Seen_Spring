@@ -1,60 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-    
-<script language="javascript"src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
+
+<style type="text/css">
+
+#name{
+   width: 80px;
+}
+#sample4_postcode{
+  width: 60px;
+}
+#sample4_roadAddress{ width: 350px;}
+#sample4_jibunAddress{width:80px;}
+#email1{width:100px;}
+#email2{width:80px;}
+#phone{width:40px;}
 
 
-<script type="text/javascript">
-	function check() {
-		console.log($("#passwd").val());
-		console.log($("#passwd2").val());
+.aa{
+Background:#F2F2F2;
+font:15px Arial;
+    padding: 3px;
+border:none;
+  height: 22px;
 
-		if ($("#passwd").val() != $("#passwd2").val()) {
-			$("#result2").text("비밀번호가 일치하지 않습니다.");
-			$("#result2").css("color", "red");
-			$("#passwd2").focus();
+}
 
-			return false;
-		} else if ($("#passwd").val() == $("#passwd2").val()) {
+.Post {
+        background: url("images/ADD.JPG") no-repeat;
+        border: none;
+        width: 60px;
+        height: 32px;
+        cursor: pointer;
+        position: relative; top:17px;
+}
 
-			$("#result2").text("비밀번호가 동일합니다.");
-			$("#result2").css("color", "blue");
-		}
+.a {
+color :#111111;
+Font : 10px arial;
+Background : #FFFFFF;
+padding:5px 30px;
+border: 1px solid;
+}
+form{position: relative; left:480px;
+ top:10px;}
+</style>
 
-	}
-</script>
-    
-<form action="joinArtist" method="get">
-작가명<input type="text" name="userid" id="userid">
+
+
+<form action="loginCheck/memberUpdate_art" method="get">
+<input type="hidden"name="artistname" id="artistname" 
+value="${login_art.artistname}">
 <span id="result"></span>
 <br> 
-비밀번호:<input type="password" name="a_passwd" id="passwd"><br> 
-비빌번호확인:<input type="password" name="passwd2" id="passwd2"  onkeyup="check()">
-<span id="result2"></span>
-<br> 
-이름:<input type="text" name="a_username"><br> 
-<input type="text" name="a_post" id="sample4_postcode" placeholder="우편번호">
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" name="a_addr1" id="sample4_roadAddress" placeholder="도로명주소">
-<input type="text" name="a_addr2" id="sample4_jibunAddress" placeholder="지번주소">
+<span>이름</span>&nbsp;&nbsp;&nbsp;<input class="aa" id="name" type="text" name="a_username" value="${login_art.a_username }"><br> <br>
+<span>주소</span>&nbsp;&nbsp;&nbsp;<input class="aa" type="text" value="${login_art.a_post }"name="a_post" id="sample4_postcode" placeholder="우편번호">
+<input class="Post" type="button" onclick="sample4_execDaumPostcode()" ><br><br> 
+<input class="aa" type="text" value="${login_art.a_addr1 }" name="a_addr1" id="sample4_roadAddress" placeholder="도로명주소">
+<input class="aa" type="text" value="${login_art.a_addr2 }" name="a_addr2" id="sample4_jibunAddress" placeholder="지번주소">
 <span id="guide" style="color:#999"></span>
 <br>
-전화번호:<select name="a_phone1">
-  <option value="010">010</option>
-  <option value="011">011</option>
-</select>-
-<input type="text" name="a_phone2" >-<input type="text" name="a_phone3" >
 <br>
-이메일:<input type="text" name="a_email1" id="email1">@
-       <input type="text" name="a_email2" id="email2" placeholder="직접입력">
-       <select  id="emailSelect">
+<span>전화번호</span>&nbsp;&nbsp;&nbsp;<select name="a_phone1">
+  <option value="010" 
+    <c:if test="${login_art.a_phone1=='010'}">selected </c:if>
+  >010</option>
+  <option value="011"
+    <c:if test="${login_art.a_phone1=='011'}">selected </c:if>
+  >011</option>
+</select>-
+<input id="phone"class="aa" type="text" value="${login_art.a_phone2}" name="a_phone2" >
+-<input id="phone" class="aa" type="text" value="${login_art.a_phone3 }" name="a_phone3" >
+<br><br>
+<span>이메일</span>&nbsp;&nbsp;&nbsp;<input class="aa" type="text" value="${login_art.a_email1 }" name="a_email1" id="email1">@
+       <input class="aa" type="text" value="${login_art.a_email2 }" name="a_email2" id="email2" placeholder="직접입력">
+       <select  class="aa" id="emailSelect">
         <option value="daum.net">daum.net</option>
         <option value="naver.com">naver.com</option>
        </select>
 <br>
-<input type="submit" value="회원가입">
-<input type="reset" value="취소">
+<br>
+<input class="a" type="submit" value="수정">
+<input class="a" type="reset" value="취소"><br><br><br>
 </form>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
