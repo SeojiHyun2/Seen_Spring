@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
@@ -49,7 +49,7 @@ public class WorkController {
 		List<WorkDTO> list = wservice.workList(wCategory);
 		System.out.println(list);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("workList", list);
+		mav.addObject("workUp", list);
 		mav.setViewName("workList");
 		return mav;
 	}
@@ -79,7 +79,7 @@ public class WorkController {
 	}
 	
 	@RequestMapping(value = "/inputWork", method = RequestMethod.POST)
-	public String inputWork(WorkDTO wDTO, Model model) {
+	public String inputWork(WorkDTO wDTO, HttpServletRequest req) {
 	
 		System.out.println("여기");
 		
@@ -104,8 +104,9 @@ public class WorkController {
 		}
 		
 		wservice.workUp(wDTO);
-		model.addAttribute("workUp",wDTO);
-	
+		req.setAttribute("workUp",wDTO);
+		System.out.println(wDTO);
+		
 		
 		return "thanks";
 	}

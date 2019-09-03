@@ -20,11 +20,6 @@ $(document).ready(function(){
 	
 });
 
-
-
-
-
-
 </script>
 
 
@@ -83,7 +78,6 @@ $(document).ready(function(){
 				<tr>
 
 					<!-- 반복시작 -->
-
 					<c:forEach var="workUp" items="${workUp}" varStatus="status">
 						<td>
 							<table style='padding: 15px'>

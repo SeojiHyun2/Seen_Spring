@@ -34,7 +34,7 @@
 </head>
 <body>
 	
-	<a href="/" id="H" ><input type="button" class="home"></a>
+	<a href="main" id="H" ><input type="button" class="home"></a>
 	
 	<h1 align="center" id="title">작가님의 소중한 작품, <b>See-N</b>에서 더욱 빛날거에요!</h1>
 	<br>

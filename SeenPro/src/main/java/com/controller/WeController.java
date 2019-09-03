@@ -111,9 +111,9 @@ public class WeController {
 			
 			dto = service.mypage(userid);
 			session.setAttribute("login_mem",dto );
-			return "redirect:../mypage";
 			
-	
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
+			return "redirect:../mypage";//
 	
 		}
 		
