@@ -48,6 +48,16 @@ public class WeController {
 			return "main";
 		}
 		
+		@RequestMapping("/memberArtAdd")
+		public String memberArtAdd(MemberADTO a, Model model) {
+			
+			System.out.println(a.toString());
+			service.memberArtAdd(a);
+			model.addAttribute("success", "See-N에 오신 것을 환영합니다. 로그인을 해주세요.");
+			return "main";
+		}
+		
+		
 		
 	
 

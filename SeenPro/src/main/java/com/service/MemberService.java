@@ -55,4 +55,9 @@ public class MemberService {
 		
 	}
 
+	public void memberArtAdd(MemberADTO a) {
+		dao.memberArtAdd(a);
+		
+	}
+
 }

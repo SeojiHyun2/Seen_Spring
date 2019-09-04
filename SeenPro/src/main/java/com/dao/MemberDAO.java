@@ -62,5 +62,11 @@ public void memberPeoAdd(MemberDTO m) {
 }
 
 
+public void memberArtAdd(MemberADTO a) {
+	int n = template.insert("MemberMapper_JS.memberArtAdd",a);
+	
+}
+
+
 	
 }
