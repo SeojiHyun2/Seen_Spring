@@ -2,6 +2,7 @@ package com.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -69,7 +70,7 @@ public class WorkController {
 		sweet.setUserid(dto.getUserid());
 		wservice.sweetAdd(sweet);
 
-		return "redirect:../workList";
+		return "redirect:sweetList?userid" +sweet.getUserid();
 	}
 	
 	
@@ -129,8 +130,22 @@ public class WorkController {
 	@ResponseBody
 	public void sweetDel(@RequestParam("num") int num) {
 
+		System.out.println(num);
 		wservice.sweetDel(num);
 	}
+	
+	@RequestMapping("/loginCheck/delAllSweet")
+	public String delAllSweet(@RequestParam("wCode") ArrayList<String> list) {
+
+		System.out.println(">>>"+list);
+		
+		wservice.delAllSweet(list);
+		
+		return "redirect:../sweetList";
+		
+		
+	}
+	
 
 
 }

@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -43,6 +44,12 @@ public class WorkDAO {
 
 	public void workUp(WorkDTO wDTO) {
 		int n = template.insert("WorkMapper.workUp",wDTO);
+		
+	}
+
+	public void delAllSweet(ArrayList<String> list) {
+		
+		int n = template.delete("SweetMapper.delAllSweet",list);
 		
 	}
 

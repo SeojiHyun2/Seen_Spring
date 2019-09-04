@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,12 @@ public class WorkService {
 
 	public void sweetDel(int num) {
 		dao.sweetDel(num);
+	}
+
+
+	public void delAllSweet(ArrayList<String> list) {
+		dao.delAllSweet(list);
+		
 	}
 
 }
