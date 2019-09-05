@@ -35,9 +35,9 @@ $(document).ready(function(){
 			alert("아이디를 입력하지 않았습니다.")
 			return;
 		} else {
-			input.action = "MemberPeoAddServlet"
+			input.action = "memberPeoAdd"
 		}
-		url = "Mem_ConfirmServlet?userid=" + input.userid.value;
+		url = "Mem_Confirm?userid=" + input.userid.value;
 		open(
 				url,
 				"confirm",

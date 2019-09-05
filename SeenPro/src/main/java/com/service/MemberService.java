@@ -60,4 +60,18 @@ public class MemberService {
 		
 	}
 
+	public MemberDTO memIdConfirm(String userid) {
+		
+		 MemberDTO dto = dao.memIdConfirm(userid);
+		
+		return dto;
+	}
+
+	public MemberADTO artIdConfirm(String artistname) {
+		
+		 MemberADTO dto = dao.artIdConfirm(artistname);
+		
+		return dto;
+	}
+
 }

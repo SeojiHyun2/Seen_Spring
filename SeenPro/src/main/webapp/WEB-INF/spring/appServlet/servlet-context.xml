@@ -17,6 +17,7 @@
     <property name="maxUploadSize" value="100000"/>
 	</bean>
 
+	
 	<mvc:view-controller path="/" view-name="main"/>
 	<mvc:view-controller path="/joinUI" view-name="joinUI"/>
 	<mvc:view-controller path="/join_mem" view-name="join_mem"/>

@@ -24,6 +24,39 @@ public class WeController {
 	@Autowired
 	MemberService service;
 
+	@RequestMapping(value = "/Mem_Confirm")
+	public String Mem_Confirm(@RequestParam("userid") String userid,HttpSession session) {
+		session.setAttribute("userid", userid);
+	
+
+		MemberDTO dto = service.memIdConfirm(userid);
+	
+		if (dto == null) {
+			session.setAttribute("mem_confirmId", "0");
+		} else {
+			session.setAttribute("mem_confirmId", "1");
+		}
+		
+		return "confirmUserId";
+	}
+	
+	@RequestMapping(value = "/Art_Confirm")
+	public String Art_Confirm(@RequestParam("artistname") String artistname,HttpSession session) {
+		session.setAttribute("artistname", artistname);
+	
+
+		MemberADTO dto = service.artIdConfirm(artistname);
+	
+		if (dto == null) {
+			session.setAttribute("art_confirmId", "0");
+		} else {
+			session.setAttribute("art_confirmId", "1");
+		}
+		
+		return "confirmartistname";
+	}
+
+	
 	@RequestMapping(value = "/joinUI")
 	public String test() {
 		System.out.println("WeController");
