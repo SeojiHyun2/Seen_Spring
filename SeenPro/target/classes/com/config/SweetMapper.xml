@@ -26,18 +26,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	
 	<delete id="sweetDel" parameterType="int">
 		delete from sweet
 		where num=#{num}
 	</delete>
 	
-	<delete id="delAllSweet" parameterType="int">
-		delete from sweet
-		where  num IN 
-	  <foreach item="sweet" index="index" collection="list" open="("
+	<delete id="delAllSweet" parameterType="arrayList">
+		delete 
+		from sweet
+		where wCode IN 
+	  <foreach item="item" index="index" collection="list" open="("
 			separator="," close=")">
-			#{sweet}
+			#{item.wCode}
 		</foreach>
 	</delete>
 	
