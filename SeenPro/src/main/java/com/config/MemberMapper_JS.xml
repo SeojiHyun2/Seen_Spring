@@ -78,7 +78,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{m_phone1},#{m_phone2},#{m_phone3},#{m_email1},#{m_email2})
 	</insert>
 
-	<insert id="memberArtAdd" parameterType="MemberADTO">
+	<insert id="memberArtAdd" parameterType="MemberADTO" >
 		insert into
 		artist(artistname,a_passwd,a_username,a_post,a_addr1,a_addr2,
 		a_phone1,a_phone2,a_phone3,a_email1,a_email2)

@@ -32,5 +32,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where num=#{num}
 	</delete>
 	
+	<delete id="delAllSweet" parameterType="int">
+		delete from sweet
+		where  num IN 
+	  <foreach item="sweet" index="index" collection="list" open="("
+			separator="," close=")">
+			#{sweet}
+		</foreach>
+	</delete>
 	
 </mapper>

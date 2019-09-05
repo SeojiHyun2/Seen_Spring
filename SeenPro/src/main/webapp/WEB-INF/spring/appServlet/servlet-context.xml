@@ -11,9 +11,13 @@
 	
     <mvc:annotation-driven />
     <mvc:default-servlet-handler/>
+    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    <!-- one of the properties available; the maximum file size in bytes -->
+    <property name="maxUploadSize" value="100000"/>
+	</bean>
 
 	<mvc:view-controller path="/" view-name="main"/>
-	<mvc:view-controller path="/aa" view-name="main"/>
 	<mvc:view-controller path="/joinUI" view-name="joinUI"/>
 	<mvc:view-controller path="/join_mem" view-name="join_mem"/>
 	<mvc:view-controller path="/join_art" view-name="join_art"/>
@@ -22,10 +26,10 @@
 	<mvc:view-controller path="/mypage_art" view-name="art_FirstMypage"/>
 	<mvc:view-controller path="/mem_mypage" view-name="mem_mypage"/>
 	<mvc:view-controller path="/art_mypage" view-name="art_mypage"/>
+	<mvc:view-controller path="/inputWorkUI" view-name="inputWorkUI"/>
 	<mvc:view-controller path="/sweetList" view-name="sweetList"/>
 
-	
-	
+
 	<mvc:interceptors>
       <mvc:interceptor>
         <mvc:mapping path="/loginCheck/**"/>
@@ -45,6 +49,12 @@
     
    
     <context:component-scan base-package="com.*" />
+    
+    <!-- scan for mappers and let them be autowired -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.saltlux.rms.rest" />
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+    </bean>
     
 		
 </beans>

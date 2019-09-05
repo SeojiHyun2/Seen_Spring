@@ -2,31 +2,35 @@
     pageEncoding="UTF-8"%>
     
     
-<script language="javascript"src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-	function check() {
-		console.log($("#passwd").val());
-		console.log($("#passwd2").val());
 
-		if ($("#passwd").val() != $("#passwd2").val()) {
-			$("#result2").text("비밀번호가 일치하지 않습니다.");
-			$("#result2").css("color", "red");
-			$("#passwd2").focus();
 
-			return false;
-		} else if ($("#passwd").val() == $("#passwd2").val()) {
+$(document).ready(function(){
+	
+	$("#passwd2").on("keyup",function(){
+		 if ($("#passwd").val() != $("#passwd2").val()) {
+		       $("#result2").text("비밀번호가 일치하지 않습니다.");
+		       $("#result2").css("color", "red");
+		       $("#passwd2").focus();
 
-			$("#result2").text("비밀번호가 동일합니다.");
-			$("#result2").css("color", "blue");
-		}
+		       return false;
+		    } else if ($("#passwd").val() == $("#passwd2").val()) {
 
-	}
+		       $("#result2").text("비밀번호가 동일합니다.");
+		       $("#result2").css("color", "blue");
+		    }
+
+		
+	});
+});
+
+
 </script>
     
-<form action="joinArtist" method="get">
-작가명<input type="text" name="userid" id="userid">
+<form action="memberArtAdd" method="get">
+작가명<input type="text" name="artistname" id="artistname">
 <span id="result"></span>
 <br> 
 비밀번호:<input type="password" name="a_passwd" id="passwd"><br> 
