@@ -2,12 +2,22 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script>
+
+<script type="text/javascript">
 
 function delWork(wCode,artistname){
 	location.href="DeleteWorkServlet?wCode="+wCode + "&artistname="+artistname;
 }
+
+$(document).ready(function(){
+	$(".donation").on("click",function(){
+		
+		var wCode = $(this).attr("data-num");
+		location.href="loginCheck/donation?wCode"+wCode;
+	});
+};
 
 </script>
 
@@ -32,7 +42,7 @@ function delWork(wCode,artistname){
 
 
   <tr>
- 	<td><c:forEach var="detail" items="${detail}">
+ 	<td>
  	
  		<table class="DD">
  			<tr id="ww">
@@ -53,15 +63,16 @@ function delWork(wCode,artistname){
 
  			<tr align="center">
  			<td>
- 			<FORM name="donationForm" method="GET"action="DonationServlet?wCode=${detail.wCode}">
+ 			<FORM name="donationForm" method="GET"action="donation?wCode=${detail.wCode}">
 
 											<input type="hidden" name="wCode" value="${detail.wCode}">
 											<input type="hidden" name="wName" value="${detail.wName}">
 											<input type="hidden" name="wWork" value="${detail.wWork}">
 											<input type="hidden" name="artistname"
 												value="${detail.artistname}"> 
-												<input type="submit"
-												class="donation" >
+												<input type="button"
+												class="donation" 
+												data-num="${detail.wCode}" >
 										</FORM>
 							
 							</td>			
@@ -81,6 +92,6 @@ function delWork(wCode,artistname){
 
  		</table>
  	
- 	</c:forEach></td>
+ 	</td>
   </tr>
 </table>

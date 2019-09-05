@@ -36,7 +36,7 @@ $(".deletbtn").on("click",function(){
 $("#delAllSweet").on("click",function(){
 	
 	type='get',
-	$("form").attr("action","logincheck/dellAllSweet");
+	$("form").attr("action","loginCheck/delAllSweet");
 	$("form").submit();
 	
 });
@@ -74,7 +74,7 @@ $("#delAllSweet").on("click",function(){
 
 
 
-<form>
+
 
 <table width="100%" cellspacing="0" cellpadding="0" class="allList">
 
@@ -94,17 +94,18 @@ $("#delAllSweet").on("click",function(){
 					<td height="10"></td>
 				</tr>
 				<tr>
-
+<form name="myForm">
 					<!-- 반복시작 -->
 
 					<c:forEach var="sweetList" items="${sweetList}" varStatus="status">
 						<td>
 							<table style='padding: 15px' >
 							
-							
+							<input type="hidden" name="wCode" id="wCode">
+			
 							
 								<tr>
-									<td><a href="workDetail?wCode=${sweetList.wCode}"> <img
+									<td><a href="workDetail?wCode=${sweetList.wCode}" > <img
 											src="images/work/${sweetList.wWork}.jpg" border="0"
 											align="center" width="200">
 									</a></td>
@@ -125,6 +126,8 @@ $("#delAllSweet").on("click",function(){
 									<td class="td_gray" align="center"><input type="button"
 										value="삭제" class="deletbtn" id="sweet"
 										data-num="${sweetList.num}"></td>
+										
+										<input type >
 
 								</tr>
 								<tr>
@@ -132,7 +135,6 @@ $("#delAllSweet").on("click",function(){
 								</tr>
 
 							
-							</form>
 						</td>
 						<!-- 한 줄에1개씩 -->
 						<c:if test="${status.count %1 ==0}">
@@ -142,6 +144,8 @@ $("#delAllSweet").on("click",function(){
 						</c:if>
 						<!-- 반복끝-->
 					</c:forEach>
+					
+							</form>
 				</tr>
 			</table>
 		</td>
@@ -153,8 +157,8 @@ $("#delAllSweet").on("click",function(){
 
 	<tr>
 		<a href="javascript:">후원하기</a>
-<button id="delAllSweet">전체 삭제하기</button>
 	</tr>
 </table>
 
+<button id="delAllSweet">전체 삭제하기</button>
 			</form>
