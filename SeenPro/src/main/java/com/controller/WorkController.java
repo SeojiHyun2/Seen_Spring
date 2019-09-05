@@ -81,10 +81,6 @@ public class WorkController {
 	
 	@RequestMapping(value = "/inputWork", method = RequestMethod.POST)
 	public String inputWork(WorkDTO wDTO, HttpServletRequest req) {
-	
-		System.out.println("여기");
-		
-		System.out.println(wDTO.getwName());
 
 		CommonsMultipartFile theFile = wDTO.getRealWork();
 		String wWork = theFile.getOriginalFilename();  //파일 이름을 wWork에 저장함
