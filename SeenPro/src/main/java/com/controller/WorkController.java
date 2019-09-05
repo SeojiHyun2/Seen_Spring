@@ -3,6 +3,7 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,10 +24,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import org.springframework.web.bind.annotation.ResponseBody;
-
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dto.MemberADTO;
 import com.dto.MemberDTO;
 import com.dto.SweetDTO;
 import com.dto.WorkDTO;
@@ -76,9 +78,9 @@ public class WorkController {
 	}
 	
 	
-	@RequestMapping("/inputWorkUI")
+	@RequestMapping("loginCheck/inputWorkUI")
 	public String inputWorkUI() {
-		return "inputWorkUI";
+		return "redirect:../inputWorkUI";
 	}
 	
 	@RequestMapping(value = "/inputWork", method = RequestMethod.POST)
@@ -122,6 +124,21 @@ public class WorkController {
 
 		return "redirect:../sweetList";
 	}
+	
+
+	@RequestMapping("myWorkList")
+	public String myWorkList(HttpSession session) {
+		
+		MemberADTO aDTO = (MemberADTO)session.getAttribute("login_art");
+		
+		String artistname = aDTO.getArtistname();
+		List<WorkDTO> dto = wservice.myWorkList(artistname);
+		
+		session.setAttribute("workUp", dto);
+		
+		return "workList";
+	}
+	
 	
 	
 	@RequestMapping("/loginCheck/sweetDel")

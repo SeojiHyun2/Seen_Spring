@@ -96,7 +96,7 @@ public class WeController {
 			{
 				session.setAttribute("login_art", dto);
 				return  "main";
-				
+		
 			}else {
 			model.addAttribute("mesg", "로그인이 실패했습니다.");
 			return "loginUI";
@@ -123,15 +123,14 @@ public class WeController {
 			session.setAttribute("login_mem",dto );
 			
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
-			return "redirect:../mypage";//
+			return "redirect:../mypage";
 	
 		}
 		
 		@RequestMapping(value="/loginCheck/mypage_art")
-		
 		public String mypage_art(HttpSession session ) {
 			
-			MemberADTO dto = (MemberADTO) session.getAttribute("login_art");
+			MemberADTO dto = (MemberADTO)session.getAttribute("login_art");
 			String userid = dto.getArtistname();
 			
 			dto = service.mypage_art(userid);

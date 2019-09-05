@@ -16,8 +16,8 @@
 
 
 <hr>
-<a href="MyWorkListServlet">내가 올린작품 모아보기</a><br>
-<a href="art_mypage">내정보보기</a><br>
+<a href="myWorkList">내가 올린작품 모아보기</a><br>
+<a href="art_mypage">내정보 보기</a><br>
 
 <hr>
 <jsp:include page="common/bottom.jsp" flush="true" />

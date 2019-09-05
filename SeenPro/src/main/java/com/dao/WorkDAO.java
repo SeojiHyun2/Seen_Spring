@@ -53,4 +53,9 @@ public class WorkDAO {
 		
 	}
 
+	public List<WorkDTO> myWorkList(String artistname) {
+		List<WorkDTO> list = template.selectList("WorkMapper.myWorkList",artistname);
+		return list;
+	}
+
 }
