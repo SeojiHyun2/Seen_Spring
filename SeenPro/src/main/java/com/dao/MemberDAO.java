@@ -55,5 +55,30 @@ public void memberUpdate_art(MemberADTO m) {
 }
 
 
+public void memberPeoAdd(MemberDTO m) {
+	
+	int n = template.insert("MemberMapper_JS.memberAdd",m);
+	
+}
+
+
+public void memberArtAdd(MemberADTO a) {
+	int n = template.insert("MemberMapper_JS.memberArtAdd",a);
+	
+}
+
+
+public MemberDTO memIdConfirm(String userid) {
+	MemberDTO dto = template.selectOne("MemberMapper_JS.memIdConfirm",userid);
+	return dto;
+}
+
+
+public MemberADTO artIdConfirm(String artistname) {
+	MemberADTO dto = template.selectOne("MemberMapper_JS.artIdConfirm",artistname);
+	return dto;
+}
+
+
 	
 }

@@ -49,4 +49,29 @@ public class MemberService {
 	
 	}
 
+	public void memberPeoAdd(MemberDTO m) {
+	
+		dao.memberPeoAdd(m);
+		
+	}
+
+	public void memberArtAdd(MemberADTO a) {
+		dao.memberArtAdd(a);
+		
+	}
+
+	public MemberDTO memIdConfirm(String userid) {
+		
+		 MemberDTO dto = dao.memIdConfirm(userid);
+		
+		return dto;
+	}
+
+	public MemberADTO artIdConfirm(String artistname) {
+		
+		 MemberADTO dto = dao.artIdConfirm(artistname);
+		
+		return dto;
+	}
+
 }

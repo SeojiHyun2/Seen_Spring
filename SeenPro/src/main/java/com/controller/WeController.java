@@ -24,6 +24,39 @@ public class WeController {
 	@Autowired
 	MemberService service;
 
+	@RequestMapping(value = "/Mem_Confirm")
+	public String Mem_Confirm(@RequestParam("userid") String userid,HttpSession session) {
+		session.setAttribute("userid", userid);
+	
+
+		MemberDTO dto = service.memIdConfirm(userid);
+	
+		if (dto == null) {
+			session.setAttribute("mem_confirmId", "0");
+		} else {
+			session.setAttribute("mem_confirmId", "1");
+		}
+		
+		return "confirmUserId";
+	}
+	
+	@RequestMapping(value = "/Art_Confirm")
+	public String Art_Confirm(@RequestParam("artistname") String artistname,HttpSession session) {
+		session.setAttribute("artistname", artistname);
+	
+
+		MemberADTO dto = service.artIdConfirm(artistname);
+	
+		if (dto == null) {
+			session.setAttribute("art_confirmId", "0");
+		} else {
+			session.setAttribute("art_confirmId", "1");
+		}
+		
+		return "confirmartistname";
+	}
+
+	
 	@RequestMapping(value = "/joinUI")
 	public String test() {
 		System.out.println("WeController");
@@ -34,13 +67,31 @@ public class WeController {
 	public String joinArtist() {
 		System.out.println("joinArtist");
 		
-		
-		
-		
 		return "main";
 	}
 	
 	
+		
+		@RequestMapping("/memberPeoAdd")
+		
+		public String memberPeoAdd(MemberDTO m, Model model) {
+			
+			service.memberPeoAdd(m);
+			model.addAttribute("success", "See-N에 오신 것을 환영합니다. 로그인을 해주세요.");
+			return "main";
+		}
+		
+		@RequestMapping("/memberArtAdd")
+		public String memberArtAdd(MemberADTO a, Model model) {
+			
+			System.out.println(a.toString());
+			service.memberArtAdd(a);
+			model.addAttribute("success", "See-N에 오신 것을 환영합니다. 로그인을 해주세요.");
+			return "main";
+		}
+		
+		
+		
 	
 
 	@RequestMapping(value = "/loginUI")
@@ -103,9 +154,9 @@ public class WeController {
 			
 			dto = service.mypage(userid);
 			session.setAttribute("login_mem",dto );
-			return "redirect:../mypage";
 			
-	
+			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
+			return "redirect:../mypage";//
 	
 		}
 		

@@ -2,32 +2,53 @@
     pageEncoding="UTF-8"%>
     
     
-<script language="javascript"src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
-	function check() {
-		console.log($("#passwd").val());
-		console.log($("#passwd2").val());
 
-		if ($("#passwd").val() != $("#passwd2").val()) {
-			$("#result2").text("비밀번호가 일치하지 않습니다.");
-			$("#result2").css("color", "red");
-			$("#passwd2").focus();
 
-			return false;
-		} else if ($("#passwd").val() == $("#passwd2").val()) {
+$(document).ready(function(){
+	
+	$("#passwd2").on("keyup",function(){
+		 if ($("#passwd").val() != $("#passwd2").val()) {
+		       $("#result2").text("비밀번호가 일치하지 않습니다.");
+		       $("#result2").css("color", "red");
+		       $("#passwd2").focus();
 
-			$("#result2").text("비밀번호가 동일합니다.");
-			$("#result2").css("color", "blue");
-		}
+		       return false;
+		    } else if ($("#passwd").val() == $("#passwd2").val()) {
 
+		       $("#result2").text("비밀번호가 동일합니다.");
+		       $("#result2").css("color", "blue");
+		    }
+
+		
+	});
+});
+function openConfirmid(e, input) {
+	e.preventDefault();
+	if (input.artistname.value == "") {
+
+		alert("작가명을 입력하지 않았습니다.")
+		return;
+	} else {
+		input.action = "memberArtAdd"
 	}
+	url = "Art_Confirm?artistname=" + input.artistname.value;
+	open(
+			url,
+			"confirm",
+			"toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180");
+	//e.stopPropagation();
+
+}
+
 </script>
     
-<form action="joinArtist" method="get">
-작가명<input type="text" name="userid" id="userid">
-<span id="result"></span>
+<form action="memberArtAdd" method="get">
+작가명<input type="text" name="artistname" id="artistname">
+<span id="result"></span><input type="submit" name="idCheck" value="중복확인"
+		onclick="openConfirmid(event,this.form)">
 <br> 
 비밀번호:<input type="password" name="a_passwd" id="passwd"><br> 
 비빌번호확인:<input type="password" name="passwd2" id="passwd2"  onkeyup="check()">
