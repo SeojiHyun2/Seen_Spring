@@ -55,4 +55,11 @@ public class WorkService {
 		
 	}
 
+
+	public WorkDTO cartByNum(String wCode) {
+		
+		WorkDTO wDTO = dao.cartByNum(wCode);
+		return wDTO;
+	}
+
 }

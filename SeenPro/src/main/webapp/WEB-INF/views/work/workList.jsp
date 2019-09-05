@@ -13,6 +13,8 @@
 
 		$(".sweet").on("click", function() {
 			$("form").attr("action", "loginCheck/sweetAdd");
+		//	$("form").submit(); <input type=button>인경우에만 사용
+			
 		});
 
 	});
@@ -97,18 +99,14 @@
 									<td class="td_gray" align="center">
 
 										<fORM name="workListForm" method="GET">
-											
-											
+								
 											<input type="hidden" name="wCode" value="${workUp.wCode}">
 											<input type="hidden" name="wName" value="${workUp.wName}">
 											<input type="hidden" name="wWork" value="${workUp.wWork}">
 											<input type="hidden" name="artistname"value="${workUp.artistname}"> 
 											<input type="submit" class="sweet" id="sweetAdd">
+										
 										</fORM>
-
-
-
-
 									</td>
 
 								</tr>

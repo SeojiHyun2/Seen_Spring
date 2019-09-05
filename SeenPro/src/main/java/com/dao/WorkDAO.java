@@ -53,4 +53,9 @@ public class WorkDAO {
 		
 	}
 
+	public WorkDTO cartByNum(String wCode) {
+		WorkDTO wDTO = template.selectOne("WorkMapper.cartByNum" , wCode);
+		return wDTO;
+	}
+
 }
