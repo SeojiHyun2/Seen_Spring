@@ -59,10 +59,12 @@ public class WorkController {
 	@ModelAttribute("detail")
 	public WorkDTO workDetail(@RequestParam("wCode") String wCode) {
 
+		System.out.println("kkkkkkkkkkk"+wCode);
 		WorkDTO dto = wservice.workDetail(wCode);
 		return dto;
 	}
 
+	
 	@RequestMapping("/loginCheck/sweetAdd")
 	public String sweetAdd(SweetDTO sweet, HttpSession session) {
 
@@ -133,14 +135,16 @@ public class WorkController {
 	@RequestMapping("/loginCheck/delAllSweet")
 	public String delAllSweet(@RequestParam("wCode") ArrayList<String> list) {
 
-		System.out.println(">>>"+list);
+		System.out.println("??????????????"+list);
 		
 		wservice.delAllSweet(list);
 		
-		return "redirect:../sweetList";
+		return "redirect:../loginCheck/sweetList";
 		
 		
 	}
+	
+	
 	
 
 
