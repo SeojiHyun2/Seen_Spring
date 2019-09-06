@@ -137,7 +137,7 @@ $("#delAllSweet").on("click",function(){
 							
 						</td>
 						<!-- 한 줄에1개씩 -->
-						<c:if test="${status.count %1 ==0}">
+						<c:if test="${status.count %3 == 0}">
 							<tr>
 								<td height="10">
 							</tr>
