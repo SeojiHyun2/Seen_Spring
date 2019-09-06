@@ -14,58 +14,51 @@ public class MemberDAO {
 
 	@Autowired
 	SqlSessionTemplate template;
-	
-	
+
 	public MemberDTO login_mem(Map<String, String> map) {
-		
+
 		MemberDTO dto = template.selectOne("MemberMapper_JS.memberLogin", map);
 		return dto;
 	}
-
 
 	public MemberADTO login_art(Map<String, String> map) {
 		MemberADTO dto = template.selectOne("MemberMapper_JS.memberArtLogin", map);
 		return dto;
 	}
 
-
 	public MemberDTO mypage(String userid) {
-		
+
 		MemberDTO dto = template.selectOne("MemberMapper_JS.mypage", userid);
 		return dto;
 	}
-	
-public MemberADTO mypage_art(String userid) {
-		
+
+	public MemberADTO mypage_art(String userid) {
+
 		MemberADTO dto = template.selectOne("MemberMapper_JS.Amypage", userid);
 		return dto;
 	}
 
+	public void memberUpdate(MemberDTO m) {
+		int n = template.update("MemberMapper_JS.memberUpdate", m);
 
-public void memberUpdate(MemberDTO m) {
-	int n = template.update("MemberMapper_JS.memberUpdate", m);
+	}
 
-	
-}
+	public void memberUpdate_art(MemberADTO m) {
+		int n = template.update("MemberMapper_JS.memberAUpdate", m);
 
+	}
 
-public void memberUpdate_art(MemberADTO m) {
-	int n = template.update("MemberMapper_JS.memberAUpdate", m);
-	
-}
+	public void memberPeoAdd(MemberDTO m) {
 
+		int n = template.insert("MemberMapper_JS.memberAdd", m);
 
-public void memberPeoAdd(MemberDTO m) {
-	
-	int n = template.insert("MemberMapper_JS.memberAdd",m);
-	
-}
+	}
 
+	public void memberArtAdd(MemberADTO a) {
+		int n = template.insert("MemberMapper_JS.memberArtAdd", a);
 
-public void memberArtAdd(MemberADTO a) {
-	int n = template.insert("MemberMapper_JS.memberArtAdd",a);
-	
-}
+	}
+
 
 
 public MemberDTO memIdConfirm(String userid) {
@@ -79,6 +72,4 @@ public MemberADTO artIdConfirm(String artistname) {
 	return dto;
 }
 
-
-	
 }

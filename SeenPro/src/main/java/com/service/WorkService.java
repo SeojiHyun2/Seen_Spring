@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.WorkDAO;
+import com.dto.MemberADTO;
 import com.dto.SweetDTO;
 import com.dto.WorkDTO;
 
@@ -54,5 +55,19 @@ public class WorkService {
 		dao.delAllSweet(list);
 		
 	}
+
+
+	public List<WorkDTO> myWorkList(String artistname) {
+		List<WorkDTO> list = dao.myWorkList(artistname);
+		return list;
+	}
+
+
+	public void workDel(String wCode) {
+		dao.workDel(wCode);
+		
+	}
+
+
 
 }

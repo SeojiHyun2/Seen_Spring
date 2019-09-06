@@ -130,8 +130,13 @@
 								</tr>
 							</table>
 						</td>
+<<<<<<< HEAD
 						<!-- 한 줄에3개씩 -->
 						<c:if test="${status.count %3 ==0}">
+=======
+						<!-- 한 줄에1개씩 -->
+						<c:if test="${status.count %3 == 0}">
+>>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
 							<tr>
 								<td height="10">
 							</tr>
