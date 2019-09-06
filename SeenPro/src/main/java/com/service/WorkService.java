@@ -45,7 +45,7 @@ public class WorkService {
 		return dto;
 	}
 
-	public void sweetDel(int num) {
+	public void sweetDel(String num) {
 		dao.sweetDel(num);
 	}
 

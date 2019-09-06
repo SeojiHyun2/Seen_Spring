@@ -37,7 +37,7 @@ public class WorkDAO {
 		return list;
 	}
 
-	public void sweetDel(int num) {
+	public void sweetDel(String num) {
 		int n = template.delete("SweetMapper.sweetDel", num);
 
 	}
