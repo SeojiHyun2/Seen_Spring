@@ -7,17 +7,13 @@
 
 <script type="text/javascript">
 
-function delWork(wCode,artistname){
-	location.href="DeleteWorkServlet?wCode="+wCode + "&artistname="+artistname;
-}
-
 $(document).ready(function(){
 	$(".donation").on("click",function(){
 		
 		var wCode = $(this).attr("data-num");
 		location.href="loginCheck/donation?wCode"+wCode;
 	});
-};
+}
 
 </script>
 
@@ -86,7 +82,11 @@ $(document).ready(function(){
 				</td>
  			<tr>
  				<td>
- 					<input type="button" value="삭제" onclick="delWork(${detail.wCode}, ${detail.artistname})" >
+ 					<form action="deleteWork">
+ 					<input type="submit" value="삭제" >
+ 					<input type="hidden" name="wCode" value="${detail.wCode}">
+ 					<input type="hidden" name="artistname" value="${detail.artistname}"> 
+ 					</form>
  				</td>
  			</tr>
 

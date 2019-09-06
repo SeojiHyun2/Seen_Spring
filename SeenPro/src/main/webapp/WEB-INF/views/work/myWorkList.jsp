@@ -3,7 +3,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-
 <style type="text/css" > 
 
 .home {  
@@ -36,7 +35,7 @@
 
 
 
-<a href="MainServlet" id="H" ><input type="button" class="home"></a>
+<a href="main" id="H" ><input type="button" class="home"></a>
 <table width="100%" cellspacing="0" cellpadding="0" class="allList">
 
 	<tr>
@@ -53,13 +52,13 @@
 					<td height="10"></td>
 				</tr>
 				<tr>
-				<h1 align="center">${art_login.artistname}님의 작품들</h1>
+				<h1 align="center">${login_art.artistname}님의 작품들</h1>
 <!-- 반복시작 -->
-<c:forEach var="myWork" items="${myWork}" varStatus="status">
+<c:forEach var="myWork" items="${workUp}" varStatus="status">
 						<td>
 							<table style='padding: 15px'>
 								<tr>
-									<td><a id="name" class="a_black" href="WorkDetailServlet?wCode=${myWork.wCode}">
+									<td><a id="name" class="a_black" href="workDetail?wCode=${myWork.wCode}">
 										<img src="/images/${myWork.wWork}" border="0" align="center" width="200">
 										</a>
 									</td> 
@@ -69,7 +68,7 @@
 								</tr>
 								<tr>
 									<td class="td_default" align="center">
-										<a id="name" class="a_black" href="WorkDetailServlet?wCode=${myWork.wCode}"> ${myWork.wName}<br>
+										<a id="name" class="a_black" href="workDetail?wCode=${myWork.wCode}"> ${myWork.wName}<br>
 										</a> 
 										<font color="gray"> ------------------------- </font>
 									</td>

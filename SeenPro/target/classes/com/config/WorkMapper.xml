@@ -63,8 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<delete id="workDel" parameterType="string">
 		delete from work
-		where wCode =
-		#{wCode}
+		where wCode = #{wCode}
 	</delete>
 
 

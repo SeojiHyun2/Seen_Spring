@@ -58,4 +58,9 @@ public class WorkDAO {
 		return list;
 	}
 
+	public void workDel(String wCode) {
+		int n = template.delete("WorkMapper.workDel",wCode);
+		
+	}
+
 }

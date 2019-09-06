@@ -28,6 +28,7 @@
 	<mvc:view-controller path="/art_mypage" view-name="art_mypage"/>
 	<mvc:view-controller path="/inputWorkUI" view-name="inputWorkUI"/>
 	<mvc:view-controller path="/sweetList" view-name="sweetList"/>
+	<mvc:view-controller path="/myWorkList" view-name="myWorkList"/>
 	<mvc:view-controller path="/thanks" view-name="thanks"/>
 
 

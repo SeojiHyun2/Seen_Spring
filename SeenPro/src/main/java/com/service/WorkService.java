@@ -63,5 +63,11 @@ public class WorkService {
 	}
 
 
+	public void workDel(String wCode) {
+		dao.workDel(wCode);
+		
+	}
+
+
 
 }

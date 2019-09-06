@@ -61,7 +61,6 @@ public class WorkController {
 	@ModelAttribute("detail")
 	public WorkDTO workDetail(@RequestParam("wCode") String wCode) {
 
-		System.out.println("kkkkkkkkkkk"+wCode);
 		WorkDTO dto = wservice.workDetail(wCode);
 		return dto;
 	}
@@ -126,7 +125,7 @@ public class WorkController {
 	}
 	
 
-	@RequestMapping("myWorkList")
+	@RequestMapping("/myWorkList")
 	public String myWorkList(HttpSession session) {
 		
 		MemberADTO aDTO = (MemberADTO)session.getAttribute("login_art");
@@ -135,8 +134,31 @@ public class WorkController {
 		List<WorkDTO> dto = wservice.myWorkList(artistname);
 		
 		session.setAttribute("workUp", dto);
+
+		return "myWorkList";
+	}
+	
+	
+
+	@RequestMapping("/deleteWork")
+	public ModelAndView deleteWork(String wCode, String artistname, HttpSession session, ModelAndView m ) {
 		
-		return "workList";
+		MemberADTO dto = (MemberADTO)session.getAttribute("login_art");
+
+		if(dto == null) {
+			session.setAttribute("cant", "해당 작품의 작가만 삭제 가능합니다ㅠ.ㅠ Home화면으로 이동합니다.");
+			m.setViewName("main");
+		
+		}else if(dto.getArtistname().equals(artistname)) {
+			wservice.workDel(wCode);
+			session.setAttribute("can", "게시물이 삭제되었습니다! MyPage목록으로 이동합니다.");
+			m.setViewName("art_FirstMypage");
+		}else {
+			session.setAttribute("cant", "해당 작품의 작가만 삭제 가능합니다ㅠ.ㅠ Home화면으로 이동합니다.");	
+			m.setViewName("main");
+		}
+		
+		return m;
 	}
 	
 	
