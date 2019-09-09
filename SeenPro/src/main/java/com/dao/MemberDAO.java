@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -70,6 +71,12 @@ public MemberDTO memIdConfirm(String userid) {
 public MemberADTO artIdConfirm(String artistname) {
 	MemberADTO dto = template.selectOne("MemberMapper_JS.artIdConfirm",artistname);
 	return dto;
+}
+
+public void passwdMyChange(Map<String, String> map) {
+	
+	int n = template.update("MemberMapper_JS.passwdmychange",map);
+	
 }
 
 }

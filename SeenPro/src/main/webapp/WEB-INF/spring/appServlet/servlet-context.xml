@@ -35,6 +35,7 @@
 
 	<mvc:view-controller path="/myWorkList" view-name="myWorkList"/>
 	<mvc:view-controller path="/thanks" view-name="thanks"/>
+	<mvc:view-controller path="/passwdmychange" view-name="passwdmychange"/>
 
 
 	<mvc:interceptors>

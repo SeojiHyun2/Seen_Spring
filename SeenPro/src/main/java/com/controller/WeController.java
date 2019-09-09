@@ -1,6 +1,7 @@
 package com.controller;
 
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -8,9 +9,11 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.MemberADTO;
 import com.dto.MemberDTO;
@@ -39,6 +42,47 @@ public class WeController {
 		
 		return "confirmUserId";
 	}
+	
+	@RequestMapping(value="/passwdmychangeUI")
+	public String passwdmychangeUI() {
+		return "passwdmychange";
+	}
+	
+	
+	
+	@RequestMapping(value="/loginCheck/passwdMyChange")
+	public String passwdMyChange(@RequestParam Map<String,String> map, @RequestParam("m_newpasswd") String m_newpasswd,
+			@RequestParam("m_passwd") String m_passwd,RedirectAttributes attr ,
+			HttpSession session){
+		
+		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
+		String userid = dto.getUserid();
+		
+		map.put("userid", userid);
+		map.put("m_passwd", m_passwd);
+		map.put("m_newpasswd", m_newpasswd);
+		
+		MemberDTO dto2 = service.login_mem(map);
+		
+		if (dto2 == null) { 
+			
+			System.out.println("<<<<<");
+			attr.addFlashAttribute("passwd", "기존 비밀번호 오류");
+			
+	
+
+			
+		} else if(dto2 != null) {
+			
+			attr.addFlashAttribute("passwdok", "비밀번호가 변경되었습니다.");
+			service.passwdMyChange(map);
+		
+
+		}
+		return "redirect:../passwdmychange";
+		
+	}
+	
 	
 	@RequestMapping(value = "/Art_Confirm")
 	public String Art_Confirm(@RequestParam("artistname") String artistname,HttpSession session) {
@@ -187,4 +231,8 @@ public class WeController {
 	
 		}
 	
+		
+		
+		
+		
 }
