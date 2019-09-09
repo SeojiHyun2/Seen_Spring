@@ -106,13 +106,6 @@
 											<input type="hidden" name="wName" value="${workUp.wName}">
 											<input type="hidden" name="wWork" value="${workUp.wWork}">
 											<input type="hidden" name="artistname"value="${workUp.artistname}"> 
-
-											<input type="submit" class="sweet" id="sweetAdd">
-
-											
-											
-											
-											
 											<input type="submit" class="sweet" id="sweetAdd" value="">
 
 										</fORM>
