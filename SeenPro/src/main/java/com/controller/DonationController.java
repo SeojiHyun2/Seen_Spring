@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.MemberDTO;
+import com.dto.WorkDTO;
 import com.service.MemberService;
 import com.service.WorkService;
 
@@ -23,11 +24,21 @@ WorkService wservice;
 
 	
 	
-	@RequestMapping("loginCheck/donation")
-	public void donation (@RequestParam("wCode") String wCode, HttpSession session,RedirectAttributes xxx) {
+	@RequestMapping("/loginCheck/donationConfirm")
+	public String donationConfirm (@RequestParam("wCode") String wCode, HttpSession session,RedirectAttributes xxx) {
 		
 		MemberDTO mDTO = (MemberDTO) session.getAttribute("login_mem"); 
+		String userid = mDTO.getUserid();
 		
+		mDTO = service.mypage(userid);
+		WorkDTO wDTO = wservice.cartByNum(wCode);
+		
+		xxx.addFlashAttribute("mDTO", mDTO);
+		xxx.addFlashAttribute("wDTO", wDTO);
+		
+		return "redirect:../donationConfirm";
 		
 	}
+	
+	
 }
