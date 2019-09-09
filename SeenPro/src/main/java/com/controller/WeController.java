@@ -145,7 +145,7 @@ public class WeController {
 		}
 		
 		
-		@RequestMapping(value="/loginCheck/mypage")
+		@RequestMapping(value="/loginCheck/mem_mypage")
 	
 		public String mypage(HttpSession session ) {
 			
@@ -155,8 +155,7 @@ public class WeController {
 			dto = service.mypage(userid);
 			session.setAttribute("login_mem",dto );
 			
-			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
-			return "redirect:../mypage";
+			return "redirect:../mem_mypage";
 	
 		}
 		
