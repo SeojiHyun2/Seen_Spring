@@ -31,14 +31,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where num=#{num}
 	</delete>
 	
-	<delete id="delAllSweet" parameterType="arrayList">
-		delete 
-		from sweet
-		where wCode IN 
-	  <foreach item="item" index="index" collection="list" open="("
-			separator="," close=")">
-			#{item.wCode}
-		</foreach>
+	<delete id="sweetAllDel" parameterType="string">
+		delete from sweet
+		where userid=#{userid}
 	</delete>
+	
+	
 	
 </mapper>

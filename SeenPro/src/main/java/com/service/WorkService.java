@@ -75,5 +75,11 @@ public class WorkService {
 	}
 
 
+	public void sweetAllDel(String userid) {
+		// TODO Auto-generated method stub
+		dao.sweetAllDel(userid);
+	}
+
+
 
 }
