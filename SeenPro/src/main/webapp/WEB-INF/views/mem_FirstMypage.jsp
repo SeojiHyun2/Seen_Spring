@@ -64,7 +64,7 @@
 <div class="wrap">
   	<a href="loginCheck/sweetList" class="button" id="aa"> 좋아요 누른 작품보기 </a>
   	<a href="mem_mypage" class="button2" id="aa"> 내정보 보기 </a>
-  	<a href="passwdmychange" class="butt-on2" id="aa"> 비밀번호 변경하기 </a>
+  	<a href="passwdmychange" class="button2" id="aa"> 비밀번호 변경하기 </a>
 </div>
 
 <br>
