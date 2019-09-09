@@ -53,6 +53,12 @@ public class WorkDAO {
 		
 	}
 
+
+	public WorkDTO cartByNum(String wCode) {
+		WorkDTO wDTO = template.selectOne("WorkMapper.cartByNum" , wCode);
+		return wDTO;
+	}
+	
 	public List<WorkDTO> myWorkList(String artistname) {
 		List<WorkDTO> list = template.selectList("WorkMapper.myWorkList",artistname);
 		return list;
@@ -61,6 +67,7 @@ public class WorkDAO {
 	public void workDel(String wCode) {
 		int n = template.delete("WorkMapper.workDel",wCode);
 		
+
 	}
 
 }

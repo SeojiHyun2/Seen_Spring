@@ -57,6 +57,12 @@ public class WorkService {
 	}
 
 
+	public WorkDTO cartByNum(String wCode) {
+		
+		WorkDTO wDTO = dao.cartByNum(wCode);
+		return wDTO;
+	}
+
 	public List<WorkDTO> myWorkList(String artistname) {
 		List<WorkDTO> list = dao.myWorkList(artistname);
 		return list;
