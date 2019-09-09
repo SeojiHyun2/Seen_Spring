@@ -5,23 +5,37 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-	
+	$(document).ready(function() {
 
-		$(document).ready(function() {
-
-			$(".del").on("click", function() {
-				$("form").attr("action", "sweetDel");
-			});
-
+		$(".del").on("click", function() {
+			$("form").attr("action", "sweetDel");
 		});
 
-		$("#delAllSweet").on("click", function() {
-
-			
-
-	
-
 	});
+	
+	
+	$(document).ready(function() {
+	$(".sweetAllDel").on("click", function() {
+		console.log("why?");
+		var userid="${login_mem.userid}"
+		 $.ajax({
+			   url:'sweetAllDel',
+			   type:"get",
+			   dataType:'text',
+			   data:{
+				 userid:userid
+			   },
+			   success:function(data,status,xhr){
+				   console.log("dddd");
+			
+					location.href="loginCheck/sweetList";
+					   
+			   },
+			   error:function(xhr,status,error){
+				   console.log(error);
+			   }
+		       });
+	});	});
 </script>
 
 <style type="text/css">
@@ -49,8 +63,11 @@
 	height: 32px;
 	cursor: pointer;
 }
-.delall{margin:0 auto;
-color: black;}
+
+.sweetAllDel {
+	position: relative;
+	left: 49%;
+}
 </style>
 
 
@@ -79,12 +96,9 @@ color: black;}
 					<c:forEach var="sweetList" items="${sweetList}" varStatus="status">
 						<td>
 							<table style='padding: 15px'>
+								
 								<tr>
-									<td class="td_default" width="80">
-										<input type="checkbox" name="check"
-										id="check" class="check" value="${sweetList.num}">
-									</td></tr>
-									<tr><td><a href="workDetail?wCode=${sweetList.wCode}"> <img
+									<td><a href="workDetail?wCode=${sweetList.wCode}"> <img
 											src="/images/${sweetList.wWork}" border="0" align="center"
 											width="200">
 									</a></td>
@@ -114,7 +128,7 @@ color: black;}
 											<input type="submit" class="del" name="del" id="del"
 												value="삭제">
 
-								</fORM>
+										</fORM>
 
 
 
@@ -142,18 +156,22 @@ color: black;}
 						</c:if>
 						<!-- 반복끝-->
 					</c:forEach>
-						
+
 				</tr>
-			
+
 			</table>
 		</td>
 	</tr>
 	<tr>
 		<td height="10">
 	</tr>
-	
+
 </table>
-<input class="delall" type="submit" value="전체ddddd삭제">
+<table>
+	<tr>
+		<input type="button" value="전체삭제" class="sweetAllDel"/>
+	</tr>
+</table>
 <table align="center">
 	<tr>
 		<td><c:forEach var="num" begin="1" end="${totalPage}"

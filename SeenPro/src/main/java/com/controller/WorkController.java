@@ -45,13 +45,14 @@ public class WorkController {
 	WorkService wservice;
 
 	@RequestMapping("/workList")
-	public ModelAndView workList(@RequestParam("wCategory") String wCategory) {
+	public ModelAndView workList(@RequestParam("wCategory") String wCategory,HttpSession ses) {
 
 		System.out.println(wCategory);
 		List<WorkDTO> list = wservice.workList(wCategory);
 		System.out.println(list);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("workUp", list);
+		ses.setAttribute("wCategory", wCategory);
 		mav.setViewName("workList");
 		return mav;
 	}
@@ -65,12 +66,15 @@ public class WorkController {
 	}
 
 	@RequestMapping("/loginCheck/sweetAdd")
-	public String sweetAdd(SweetDTO sweet, HttpSession session) {
+	public String sweetAdd(SweetDTO sweet, HttpSession session,HttpSession ses,RedirectAttributes red) {
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		sweet.setUserid(dto.getUserid());
 		wservice.sweetAdd(sweet);
+		
+		String wCategory=(String)ses.getAttribute("wCategory");
+	ses.setAttribute("addok", "sweet에 추가 되었습니다.");
 
-		return "redirect:sweetList?userid" + sweet.getUserid();
+		return "redirect:../workList?wCategory="+wCategory;
 
 	}
 
@@ -139,20 +143,17 @@ public class WorkController {
 	@RequestMapping("/sweetDel")
 	public String sweetDel(@RequestParam("num") String num) {
 
-		System.out.println("~~~~~~~~~~~~~@@~~~~~~~~~~~~~~~~~***********"+num);
+		System.out.println("~~~~~~~~~~~~~@@~~~~~~~~~~~~~~~~~***********" + num);
 		wservice.sweetDel(num);
 		return "redirect:/loginCheck/sweetList";
 	}
 
-	@RequestMapping("/loginCheck/delAllSweet")
-	public String delAllSweet(@RequestParam("num") ArrayList<String> list) {
+	@RequestMapping("/sweetAllDel")
+	@ResponseBody
+	public void delAllSweet(@RequestParam("userid") String userid) {
+		wservice.sweetAllDel(userid);
 
-		System.out.println("??????????????" + list);
-
-		wservice.delAllSweet(list);
-
-		return "redirect:../loginCheck/sweetList";
-
+		
 	}
 
 }

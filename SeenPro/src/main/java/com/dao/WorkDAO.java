@@ -70,4 +70,9 @@ public class WorkDAO {
 
 	}
 
+	public void sweetAllDel(String userid) {
+		// TODO Auto-generated method stub
+		int n = template.delete("SweetMapper.sweetAllDel",userid );
+	}
+
 }
