@@ -46,10 +46,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where wCode = #{wCode}
 	</select>
 
-	<select id="myWorkList" parameterType="string"
-		resultType="WorkDTO">
-		select wCode, artistname, wWork, wName, wDescribe,
-		to_char(inputDay, 'yyyy/MM/dd') inputDay
+	<select id="myWorkList" parameterType="string" resultType="WorkDTO">
+		select wCode, artistname, wWork, wName, wDescribe, to_char(inputDay, 'yyyy/MM/dd') inputDay
 		from work
 		where artistname = #{artistname}
 	</select>

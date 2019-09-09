@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,12 @@ public class MemberService {
 		 MemberADTO dto = dao.artIdConfirm(artistname);
 		
 		return dto;
+	}
+
+	
+	public void passwdMyChange(Map<String, String> map) {
+	
+		dao.passwdMyChange(map);
 	}
 
 }

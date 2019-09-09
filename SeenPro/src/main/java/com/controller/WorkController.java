@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
-
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +26,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.dto.MemberADTO;
 import com.dto.MemberDTO;
 import com.dto.SweetDTO;
 import com.dto.WorkDTO;
 import com.service.MemberService;
 import com.service.WorkService;
+
+import oracle.net.aso.s;
 
 @Controller
 public class WorkController {
@@ -58,7 +61,6 @@ public class WorkController {
 	@ModelAttribute("detail")
 	public WorkDTO workDetail(@RequestParam("wCode") String wCode) {
 
-		System.out.println("kkkkkkkkkkk" + wCode);
 		WorkDTO dto = wservice.workDetail(wCode);
 		return dto;
 	}
@@ -76,22 +78,22 @@ public class WorkController {
 
 	}
 
-	@RequestMapping("/inputWorkUI")
+	@RequestMapping("loginCheck/inputWorkUI")
 	public String inputWorkUI() {
-		return "inputWorkUI";
+
+		return "redirect:../inputWorkUI";
 	}
 
-	@RequestMapping(value = "/inputWork", method = RequestMethod.POST)
+	@RequestMapping(value = "inputWork", method = RequestMethod.POST)
 	public String inputWork(WorkDTO wDTO, HttpServletRequest req) {
 
-		System.out.println("여기");
 
 		System.out.println(wDTO.getwName());
 
 		CommonsMultipartFile theFile = wDTO.getRealWork();
 		String wWork = theFile.getOriginalFilename(); // 파일 이름을 wWork에 저장함
 		wDTO.setwWork(wWork);
-
+		
 		// 저장디렉토리
 		File f = new File("c://upload", wDTO.getwWork());
 
@@ -110,6 +112,21 @@ public class WorkController {
 		System.out.println(wDTO);
 
 		return "thanks";
+	}
+	
+	
+	@RequestMapping("/myWorkList")
+	public ModelAndView myWorkList(RedirectAttributes r, HttpSession session, ModelAndView m) {
+
+		MemberADTO aDTO = (MemberADTO)session.getAttribute("login_art");
+		String artistname = aDTO.getArtistname();
+		
+		List<WorkDTO> list = wservice.myWorkList(artistname);
+		
+		m.addObject("workUp",list);
+		m.setViewName("myWorkList");
+		
+		return m;
 	}
 
 	@RequestMapping("/loginCheck/sweetList")

@@ -28,7 +28,7 @@ $(document).ready(function(){
 		var wCode = $(this).attr("data-num");
 		location.href="loginCheck/donation?wCode"+wCode;
 	});
-}
+};
 
 </script>
 
@@ -76,7 +76,7 @@ $(document).ready(function(){
 				<td>작가 : ${detail.artistname}</td>
 			</tr>
 
-			<tr align="center">
+			<tr>
 				<td>
 					<FORM name="donationForm" method="GET"
 						action="loginCheck/donationConfirm">
@@ -91,37 +91,21 @@ $(document).ready(function(){
 
 				</td>
 
-			</tr>
+			
 
-
-
-
-			<td id="day" align="center"><span>업로드 날짜 :</span>&nbsp;${detail.inputDay}
-			</td>
-			<tr>
-				<td><input type="button" value="삭제"
-					onclick="delWork(${detail.wCode}, ${detail.artistname})">
+				<td id="day" align="center"><span>업로드 날짜 :</span>&nbsp;${detail.inputDay}
 				</td>
-			</tr>
 
+			</tr>
 		</table>
 
 	</td>
 </tr>
 
- 			<tr>
- 				<td>
- 					<form action="deleteWork">
- 					<input type="submit" value="삭제" >
- 					<input type="hidden" name="wCode" value="${detail.wCode}">
- 					<input type="hidden" name="artistname" value="${detail.artistname}"> 
- 					</form>
- 				</td>
- 			</tr>
 
- 		</table>
- 	
- 	</td>
-  </tr>
+</table>
+
+</td>
+</tr>
 
 </table>
