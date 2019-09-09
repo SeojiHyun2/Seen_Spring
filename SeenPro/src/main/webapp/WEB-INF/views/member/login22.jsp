@@ -8,8 +8,13 @@
 <script>
 alert('${mesg}')</script>
 
-</c:if>  
-    
+</c:if> 
+ 
+  <c:if test="${! empty notlogin}">
+<script>
+alert('${notlogin}')</script>
+<%session.removeAttribute("notlogin"); %>
+</c:if>   
    
 <table align="center">
   <tr>  

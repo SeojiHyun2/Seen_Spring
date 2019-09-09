@@ -25,13 +25,30 @@ $(document).ready(function(){
 		
 	});
 });
+function openConfirmid(e, input) {
+	e.preventDefault();
+	if (input.artistname.value == "") {
 
+		alert("작가명을 입력하지 않았습니다.")
+		return;
+	} else {
+		input.action = "memberArtAdd"
+	}
+	url = "Art_Confirm?artistname=" + input.artistname.value;
+	open(
+			url,
+			"confirm",
+			"toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=310,height=180");
+	//e.stopPropagation();
+
+}
 
 </script>
     
 <form action="memberArtAdd" method="get">
 작가명<input type="text" name="artistname" id="artistname">
-<span id="result"></span>
+<span id="result"></span><input type="submit" name="idCheck" value="중복확인"
+		onclick="openConfirmid(event,this.form)">
 <br> 
 비밀번호:<input type="password" name="a_passwd" id="passwd"><br> 
 비빌번호확인:<input type="password" name="passwd2" id="passwd2"  onkeyup="check()">

@@ -25,7 +25,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		=#{userid}
 	</select>
 
-
+<select id="artIdConfirm" parameterType="string"
+		resultType="MemberADTO">
+		select
+		artistname,a_username
+		from artist
+		where
+		artistname =#{artistname}
+	</select>
 
 
 	<select id="memberLogin" parameterType="hashmap"

@@ -8,7 +8,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -42,7 +41,6 @@ public class WorkController {
 	@Autowired
 	WorkService wservice;
 
-
 	@RequestMapping("/workList")
 	public ModelAndView workList(@RequestParam("wCategory") String wCategory) {
 
@@ -59,43 +57,40 @@ public class WorkController {
 	@ModelAttribute("detail")
 	public WorkDTO workDetail(@RequestParam("wCode") String wCode) {
 
-		System.out.println("kkkkkkkkkkk"+wCode);
+		System.out.println("kkkkkkkkkkk" + wCode);
 		WorkDTO dto = wservice.workDetail(wCode);
 		return dto;
 	}
 
-	
 	@RequestMapping("/loginCheck/sweetAdd")
 	public String sweetAdd(SweetDTO sweet, HttpSession session) {
-
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		sweet.setUserid(dto.getUserid());
 		wservice.sweetAdd(sweet);
 
-		return "redirect:sweetList?userid" +sweet.getUserid();
+		return "redirect:sweetList?userid" + sweet.getUserid();
+
 	}
-	
-	
+
 	@RequestMapping("/inputWorkUI")
 	public String inputWorkUI() {
 		return "inputWorkUI";
 	}
-	
+
 	@RequestMapping(value = "/inputWork", method = RequestMethod.POST)
 	public String inputWork(WorkDTO wDTO, HttpServletRequest req) {
-	
+
 		System.out.println("여기");
-		
+
 		System.out.println(wDTO.getwName());
 
 		CommonsMultipartFile theFile = wDTO.getRealWork();
-		String wWork = theFile.getOriginalFilename();  //파일 이름을 wWork에 저장함
+		String wWork = theFile.getOriginalFilename(); // 파일 이름을 wWork에 저장함
 		wDTO.setwWork(wWork);
 
-		
-		//저장디렉토리
+		// 저장디렉토리
 		File f = new File("c://upload", wDTO.getwWork());
-		
+
 		try {
 			theFile.transferTo(f);
 		} catch (IllegalStateException e) {
@@ -105,15 +100,13 @@ public class WorkController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		wservice.workUp(wDTO);
-		req.setAttribute("workUp",wDTO);
+		req.setAttribute("workUp", wDTO);
 		System.out.println(wDTO);
-		
-		
+
 		return "thanks";
 	}
-	
 
 	@RequestMapping("/loginCheck/sweetList")
 	public String sweetList(RedirectAttributes attr, HttpSession session) {
@@ -122,34 +115,27 @@ public class WorkController {
 		String userid = dto.getUserid();
 		List<SweetDTO> list = wservice.sweetList(userid);
 		attr.addFlashAttribute("sweetList", list);
-		
 
 		return "redirect:../sweetList";
 	}
-	
-	
-	@RequestMapping("/loginCheck/sweetDel")
-	@ResponseBody
-	public void sweetDel(@RequestParam("num") int num) {
 
-		System.out.println(num);
+	@RequestMapping("/sweetDel")
+	public String sweetDel(@RequestParam("num") String num) {
+
+		System.out.println("~~~~~~~~~~~~~@@~~~~~~~~~~~~~~~~~***********"+num);
 		wservice.sweetDel(num);
+		return "redirect:/loginCheck/sweetList";
 	}
-	
+
 	@RequestMapping("/loginCheck/delAllSweet")
-	public String delAllSweet(@RequestParam("wCode") ArrayList<String> list) {
+	public String delAllSweet(@RequestParam("num") ArrayList<String> list) {
 
-		System.out.println("??????????????"+list);
-		
+		System.out.println("??????????????" + list);
+
 		wservice.delAllSweet(list);
-		
-		return "redirect:../loginCheck/sweetList";
-		
-		
-	}
-	
-	
-	
 
+		return "redirect:../loginCheck/sweetList";
+
+	}
 
 }

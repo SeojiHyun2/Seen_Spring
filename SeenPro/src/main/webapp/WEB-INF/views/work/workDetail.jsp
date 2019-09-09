@@ -14,12 +14,21 @@ function delWork(wCode,artistname){
 
 //$(document).ready(function(){
 	//$(".donation").on("click",function(){
-		
+
+$(document).ready(function(){
+	$(".donation").on("click",function(){
+
+
 		//var wCode = $(this).attr("data-num");
 		//location.href="loginCheck/donationConfirm?wCode"+wCode;
 		//console.log(wCode);
 	//});
 //}
+
+		var wCode = $(this).attr("data-num");
+		location.href="loginCheck/donation?wCode"+wCode;
+	});
+}
 
 </script>
 
@@ -81,6 +90,7 @@ function delWork(wCode,artistname){
 					</FORM>
 
 				</td>
+
 			</tr>
 
 
@@ -98,4 +108,20 @@ function delWork(wCode,artistname){
 
 	</td>
 </tr>
+
+ 			<tr>
+ 				<td>
+ 					<form action="deleteWork">
+ 					<input type="submit" value="삭제" >
+ 					<input type="hidden" name="wCode" value="${detail.wCode}">
+ 					<input type="hidden" name="artistname" value="${detail.artistname}"> 
+ 					</form>
+ 				</td>
+ 			</tr>
+
+ 		</table>
+ 	
+ 	</td>
+  </tr>
+
 </table>

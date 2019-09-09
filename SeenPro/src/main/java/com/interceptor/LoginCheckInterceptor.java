@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -15,7 +16,7 @@ public class LoginCheckInterceptor  extends HandlerInterceptorAdapter{
 		
 		HttpSession session = request.getSession();
 		if(session.getAttribute("login_mem")==null && session.getAttribute("login_art")==null) {
-			
+			session.setAttribute("notlogin", "로그인이 필요한 작업입니다.");
 			response.sendRedirect("../loginUI");
 			return false;
 		}else {

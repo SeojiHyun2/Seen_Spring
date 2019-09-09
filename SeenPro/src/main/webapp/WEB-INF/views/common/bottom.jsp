@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 
- #J{ color: gray; text-decoration: none; font-family: 나눔손글씨 펜 ; font-size: 30px;}
+ #J{ color: gray; text-decoration: none; font-family: 나눔손글씨 펜 ; font-size: 15px;}
 
 </style>
 </head>

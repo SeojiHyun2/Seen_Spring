@@ -24,6 +24,39 @@ public class WeController {
 	@Autowired
 	MemberService service;
 
+	@RequestMapping(value = "/Mem_Confirm")
+	public String Mem_Confirm(@RequestParam("userid") String userid,HttpSession session) {
+		session.setAttribute("userid", userid);
+	
+
+		MemberDTO dto = service.memIdConfirm(userid);
+	
+		if (dto == null) {
+			session.setAttribute("mem_confirmId", "0");
+		} else {
+			session.setAttribute("mem_confirmId", "1");
+		}
+		
+		return "confirmUserId";
+	}
+	
+	@RequestMapping(value = "/Art_Confirm")
+	public String Art_Confirm(@RequestParam("artistname") String artistname,HttpSession session) {
+		session.setAttribute("artistname", artistname);
+	
+
+		MemberADTO dto = service.artIdConfirm(artistname);
+	
+		if (dto == null) {
+			session.setAttribute("art_confirmId", "0");
+		} else {
+			session.setAttribute("art_confirmId", "1");
+		}
+		
+		return "confirmartistname";
+	}
+
+	
 	@RequestMapping(value = "/joinUI")
 	public String test() {
 		System.out.println("WeController");
@@ -96,7 +129,7 @@ public class WeController {
 			{
 				session.setAttribute("login_art", dto);
 				return  "main";
-				
+		
 			}else {
 			model.addAttribute("mesg", "로그인이 실패했습니다.");
 			return "loginUI";
@@ -123,15 +156,14 @@ public class WeController {
 			session.setAttribute("login_mem",dto );
 			
 			System.out.println(">>>>>>>>>>>>>>>>>>>>>>>");
-			return "redirect:../mypage";//
+			return "redirect:../mypage";
 	
 		}
 		
 		@RequestMapping(value="/loginCheck/mypage_art")
-		
 		public String mypage_art(HttpSession session ) {
 			
-			MemberADTO dto = (MemberADTO) session.getAttribute("login_art");
+			MemberADTO dto = (MemberADTO)session.getAttribute("login_art");
 			String userid = dto.getArtistname();
 			
 			dto = service.mypage_art(userid);

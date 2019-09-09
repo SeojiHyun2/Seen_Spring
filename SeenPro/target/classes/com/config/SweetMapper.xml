@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
-	<delete id="sweetDel" parameterType="int">
+	<delete id="sweetDel" parameterType="string">
 		delete from sweet
 		where num=#{num}
 	</delete>
