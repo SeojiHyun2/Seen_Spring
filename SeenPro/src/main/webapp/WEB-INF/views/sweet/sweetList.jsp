@@ -49,6 +49,8 @@
 	height: 32px;
 	cursor: pointer;
 }
+.delall{margin:0 auto;
+color: black;}
 </style>
 
 
@@ -140,16 +142,18 @@
 						</c:if>
 						<!-- 반복끝-->
 					</c:forEach>
-							
+						
 				</tr>
+			
 			</table>
 		</td>
 	</tr>
 	<tr>
 		<td height="10">
 	</tr>
+	
 </table>
-
+<input class="delall" type="submit" value="전체ddddd삭제">
 <table align="center">
 	<tr>
 		<td><c:forEach var="num" begin="1" end="${totalPage}"
