@@ -2,6 +2,35 @@
     pageEncoding="UTF-8"%>
     
     
+<style type="text/css">
+
+#name {width: 80px;}
+#sample4_postcode {width: 60px;}
+#sample4_roadAddress {width: 250px;}
+#sample4_jibunAddress {width:80px;}
+
+.a {
+	color: #111111;
+	Font: 10px arial;
+	Background: #FFFFFF;
+	padding: 5px 30px;
+	border: 1px solid;
+}
+
+.aa{
+	Background:#F2F2F2;
+	font:15px Arial;
+    padding: 3px;
+	border:none;
+  	height: 22px;
+}
+
+form{
+	position: relative; left:480px;
+	top:10px;
+	}
+</style>   
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
@@ -46,36 +75,29 @@ function openConfirmid(e, input) {
 </script>
     
 <form action="memberArtAdd" method="get">
-작가명<input type="text" name="artistname" id="artistname">
-<span id="result"></span><input type="submit" name="idCheck" value="중복확인"
-		onclick="openConfirmid(event,this.form)">
-<br> 
-비밀번호:<input type="password" name="a_passwd" id="passwd"><br> 
-비빌번호확인:<input type="password" name="passwd2" id="passwd2"  onkeyup="check()">
-<span id="result2"></span>
-<br> 
-이름:<input type="text" name="a_username"><br> 
-<input type="text" name="a_post" id="sample4_postcode" placeholder="우편번호">
-<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" name="a_addr1" id="sample4_roadAddress" placeholder="도로명주소">
-<input type="text" name="a_addr2" id="sample4_jibunAddress" placeholder="지번주소">
-<span id="guide" style="color:#999"></span>
-<br>
-전화번호:<select name="a_phone1">
-  <option value="010">010</option>
-  <option value="011">011</option>
-</select>-
-<input type="text" name="a_phone2" >-<input type="text" name="a_phone3" >
-<br>
-이메일:<input type="text" name="a_email1" id="email1">@
-       <input type="text" name="a_email2" id="email2" placeholder="직접입력">
-       <select  id="emailSelect">
-        <option value="daum.net">daum.net</option>
-        <option value="naver.com">naver.com</option>
-       </select>
-<br>
-<input type="submit" value="회원가입">
-<input type="reset" value="취소">
+	작가명:<input type="text" name="userid" id="userid" id="name" class="aa"> <span id="result" ></span>
+		 <input type="submit" name="idCheck" value="중복확인"
+				onclick="openConfirmid(event,this.form)"> <br><br>
+	비밀번호:<input type="password" name="m_passwd" id="passwd" id="name" class="aa"><br><br>
+	비빌번호확인:<input type="password" name="m_passwd2" id="passwd2" onkeyup="check()" id="name" class="aa"><span id="result2"></span> <br>
+				<span id="result2"></span><br> 
+	이름:<input type="text" name="a_username"><br><br>
+		<input type="text" name="a_post" id="sample4_postcode" placeholder="우편번호">
+		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+		<input type="text" name="a_addr1" id="sample4_roadAddress" placeholder="도로명주소">
+		<input type="text" name="a_addr2" id="sample4_jibunAddress" placeholder="지번주소">
+		<span id="guide" style="color:#999"></span><br><br>
+	전화번호:<select name="a_phone1">
+  			<option value="010">010</option>
+  			<option value="011">011</option>
+		  </select>-<input type="text" name="a_phone2" id="name" class="aa">-<input type="text" name="a_phone3" id="name" class="aa" ><br><br>
+	이메일:<input type="text" name="a_email1" id="email1" id="name" class="aa">@<input type="text" name="a_email2" id="email2" placeholder="직접입력" id="name" class="aa">
+     		  <select  id="emailSelect">
+       			 <option value="daum.net">daum.net</option>
+        		 <option value="naver.com">naver.com</option>
+              </select><br><br>
+	<input type="submit" value="회원가입" class="a">
+	<input type="reset" value="취소" class="a"><br><br>
 </form>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
