@@ -2,7 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#emailSelect").click(function(){
+		var email2=$("#emailSelect option:selected").val();
+		$("#email2").val(email2);
+		
+	});
+	
+	
+});
+</script>
 <style type="text/css">
 
 #name{

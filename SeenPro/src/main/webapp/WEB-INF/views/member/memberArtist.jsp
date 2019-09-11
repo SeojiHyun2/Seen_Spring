@@ -42,7 +42,16 @@ function openConfirmid(e, input) {
 	//e.stopPropagation();
 
 }
-
+$(document).ready(function(){
+	
+	$("#emailSelect").click(function(){
+		var email2=$("#emailSelect option:selected").val();
+		$("#email2").val(email2);
+		
+	});
+	
+	
+});
 </script>
     
 <form action="memberArtAdd" method="get">
