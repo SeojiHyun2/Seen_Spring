@@ -81,5 +81,11 @@ public class WorkService {
 	}
 
 
+	public List<SweetDTO> sweetCheck(String userid) {
+		List<SweetDTO> dto = dao.sweetCheck(userid);
+		return dto;
+	}
+
+
 
 }

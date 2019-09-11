@@ -29,6 +29,7 @@ public class WeController {
 
 	@RequestMapping(value = "/Mem_Confirm")
 	public String Mem_Confirm(@RequestParam("userid") String userid,HttpSession session) {
+		
 		session.setAttribute("userid", userid);
 	
 
@@ -66,7 +67,7 @@ public class WeController {
 		
 		if (dto2 == null) { 
 			
-			System.out.println("<<<<<");
+			
 			attr.addFlashAttribute("passwd", "기존 비밀번호 오류");
 			
 	
