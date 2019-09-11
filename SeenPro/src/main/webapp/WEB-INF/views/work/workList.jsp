@@ -53,6 +53,7 @@
 	height: 32px;
 	cursor: pointer;
 }
+#img:hover{opacity: 0.5}
 </style>
 
 
@@ -82,7 +83,7 @@
 						<td>
 							<table style='padding: 15px'>
 								<tr>
-									<td><a href="workDetail?wCode=${workUp.wCode}"> <img
+									<td><a href="workDetail?wCode=${workUp.wCode}" id="img"> <img
 											src="/images/${workUp.wWork}" border="0" align="center"
 											width="200">
 									</a></td>
