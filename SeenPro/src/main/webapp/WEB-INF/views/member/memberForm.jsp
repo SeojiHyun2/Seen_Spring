@@ -25,7 +25,16 @@ $(document).ready(function(){
 	});
 });
 
-
+$(document).ready(function(){
+	
+	$("#emailSelect").click(function(){
+		var email2=$("#emailSelect option:selected").val();
+		$("#email2").val(email2);
+		
+	});
+	
+	
+});
 
 
 	function openConfirmid(e, input) {
@@ -69,8 +78,8 @@ $(document).ready(function(){
 	</select>- <input type="text" name="m_phone2">-<input type="text"
 		name="m_phone3"> <br> 이메일:<input type="text"
 		name="m_email1" id="email1">@ <input type="text"
-		name="m_email2" id="email2" placeholder="직접입력"> <select
-		id="emailSelect">
+		name="m_email2" id="email2" placeholder="직접입력">
+		 <select id="emailSelect">
 		<option value="daum.net">daum.net</option>
 		<option value="naver.com">naver.com</option>
 	</select> <br> <input type="submit" value="회원가입"> <input
