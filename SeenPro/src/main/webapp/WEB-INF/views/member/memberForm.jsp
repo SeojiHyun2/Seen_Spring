@@ -89,32 +89,7 @@ $(document).ready(function(){
 
 
 <form action="memberPeoAdd" method="get">
-<<<<<<< HEAD
-	아이디:<input type="text" name="userid" id="userid"> <span
-		id="result"></span> <input type="submit" name="idCheck" value="중복확인"
-		onclick="openConfirmid(event,this.form)"> <br> 비밀번호:<input
-		type="password" name="m_passwd" id="passwd"><br> 비빌번호확인:<input
-		type="password" name="m_passwd2" id="passwd2" onkeyup="check()" >
-	<span id="result2"></span> <br> 이름:<input type="text"
-		name="m_username"><br> <input type="text" name="m_post"
-		id="sample4_postcode" placeholder="우편번호"> <input type="button"
-		onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-	<input type="text" name="m_addr1" id="sample4_roadAddress"
-		placeholder="도로명주소"> <input type="text" name="m_addr2"
-		id="sample4_jibunAddress" placeholder="지번주소"> <span id="guide"
-		style="color: #999"></span> <br> 전화번호:<select name="m_phone1">
-		<option value="010">010</option>
-		<option value="011">011</option>
-	</select>- <input type="text" name="m_phone2">-<input type="text"
-		name="m_phone3"> <br> 이메일:<input type="text"
-		name="m_email1" id="email1">@ <input type="text"
-		name="m_email2" id="email2" placeholder="직접입력">
-		 <select id="emailSelect">
-		<option value="daum.net">daum.net</option>
-		<option value="naver.com">naver.com</option>
-	</select> <br> <input type="submit" value="회원가입"> <input
-		type="reset" value="취소">
-=======
+
 	아이디:<input type="text" name="userid" id="userid" id="name" class="aa"> <span id="result" ></span>
 		 <input type="submit" name="idCheck" value="중복확인"
 				onclick="openConfirmid(event,this.form)"> <br><br>
@@ -136,7 +111,7 @@ $(document).ready(function(){
 			</select> <br><br> 
 	<input class="a" type="submit" value="회원가입"> 
 	<input class="a" type="reset" value="취소"><br><br>
->>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
+
 </form>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
