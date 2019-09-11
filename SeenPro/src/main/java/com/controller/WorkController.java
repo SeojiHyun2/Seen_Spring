@@ -116,7 +116,7 @@ public class WorkController {
 	
 	
 	@RequestMapping("/myWorkList")
-	public ModelAndView myWorkList(RedirectAttributes r, HttpSession session, ModelAndView m) {
+	public ModelAndView myWorkList(HttpSession session, ModelAndView m) {
 
 		MemberADTO aDTO = (MemberADTO)session.getAttribute("login_art");
 		String artistname = aDTO.getArtistname();
