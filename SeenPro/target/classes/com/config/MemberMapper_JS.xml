@@ -56,6 +56,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		m_email2=#{m_email2}
 	</select>
 
+<select id="mailCheck_art" parameterType="hashmap"
+		resultType="MemberADTO">
+		select artistname,a_passwd,a_username,a_post,a_addr1,a_addr2,
+		a_phone1,a_phone2,a_phone3,a_email1,a_email2
+		from artist
+		where
+		a_username=#{a_username} and a_email1=#{a_email1} and
+		a_email2=#{a_email2}
+	</select>
+
 
 
 	<select id="mypage" parameterType="string"

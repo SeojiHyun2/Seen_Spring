@@ -37,6 +37,9 @@
 							id="loginbutton" type="submit" value="로그인"> <input
 							id="resetbutton" type="reset" value="취소">
 					</form>
+					<form class="loginfind" action="mailUI_art" method="get">
+				<input id="loginWonder" type="submit" value="ID/PW 찾기">
+			</form>
 				</div>
 			</div>
 		</td>
@@ -56,13 +59,14 @@
 							id="loginbutton" type="submit" value="로그인"> <input
 							id="resetbutton" type="reset" value="취소">
 					</form>
+					<form class="loginfind" action="mailUI" method="get">
+				<input id="loginWonder" type="submit" value="ID/PW 찾기">
+			</form>
 				</div>
 			</div>
 		</td>
 		<td>
-			<form class="loginfind" action="mailUI" method="get">
-				<input id="loginWonder" type="submit" value="ID/PW 찾기">
-			</form>
+			
 		</td>
 	</tr>
 </table>
