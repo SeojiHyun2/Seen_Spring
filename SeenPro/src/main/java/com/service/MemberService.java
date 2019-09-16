@@ -81,4 +81,14 @@ public class MemberService {
 		dao.passwdMyChange(map);
 	}
 
+	public MemberDTO mailCheck(HashMap<String, String> map) {
+		
+		MemberDTO dto = dao.mailCheck(map);
+		
+		
+		return dto;
+		
+		
+	}
+
 }

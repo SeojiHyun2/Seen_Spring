@@ -79,4 +79,12 @@ public void passwdMyChange(Map<String, String> map) {
 	
 }
 
+public MemberDTO mailCheck(HashMap<String, String> map) {
+	
+	MemberDTO dto = template.selectOne("MemberMapper_JS.mailCheck",map);
+	
+	
+	return dto;
+}
+
 }
