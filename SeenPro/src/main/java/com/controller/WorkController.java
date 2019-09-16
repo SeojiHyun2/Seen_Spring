@@ -66,13 +66,15 @@ public class WorkController {
 	}
 
 	@RequestMapping("/loginCheck/sweetAdd")
-	public String sweetAdd(SweetDTO sweet, HttpSession session,HttpSession ses,RedirectAttributes red) {
+	public String sweetAdd(SweetDTO sweet, HttpSession session,RedirectAttributes red) {
+		
+		
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		sweet.setUserid(dto.getUserid());
 		wservice.sweetAdd(sweet);
 		
-		String wCategory=(String)ses.getAttribute("wCategory");
-	ses.setAttribute("addok", "sweet에 추가 되었습니다.");
+		String wCategory=(String)session.getAttribute("wCategory");
+	session.setAttribute("addok", "sweet에 추가 되었습니다.");
 
 		return "redirect:../workList?wCategory="+wCategory;
 
