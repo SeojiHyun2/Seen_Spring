@@ -23,7 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select wCode
 	from sweet
 	where userid=#{userid}
-
 	</select>
 	
 	<select id="cartByNum" parameterType="string" 
