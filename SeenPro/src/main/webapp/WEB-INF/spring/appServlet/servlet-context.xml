@@ -37,6 +37,7 @@
 	<mvc:view-controller path="/mailUI" view-name="mailUI"/>
 	<mvc:view-controller path="/mailUI_art" view-name="mailUI_art"/>
 	<mvc:view-controller path="/board" view-name="board"/>
+	<mvc:view-controller path="/edit" view-name="edit"/>
 	
 
 	<mvc:interceptors>

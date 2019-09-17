@@ -7,7 +7,10 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-		
+		$("#write").on("click" , function(){
+			
+			 location.href = "edit";
+		});
 		
 		
 	});//finish
