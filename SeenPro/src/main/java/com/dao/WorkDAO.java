@@ -75,4 +75,9 @@ public class WorkDAO {
 		int n = template.delete("SweetMapper.sweetAllDel",userid );
 	}
 
+	public List<SweetDTO> sweetCheck(String userid) {
+		List<SweetDTO> list = template.selectList("SweetMapper.sweetCheck", userid);
+		return list;
+	}
+
 }

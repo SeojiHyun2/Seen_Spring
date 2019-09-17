@@ -3,26 +3,91 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+
+
+<c:choose>
+		<c:when test="${sweet_check=='1'}">
+	${userid}는 이미 사용 중인 아이디 입니다.
+<br><br><br><form action="Mem_Confirm" method="get">
+				<input type="text" name="userid" id="userid"> <span
+					id="result"></span> <input type="submit" name="idCheck"
+					value="중복확인" onclick="openConfirmid(event,this.form)"><br>
+			</form>
+		</c:when>
+		<c:when test="${mem_confirmId=='0'}">
+	${userid}는 사용 가능한 아이디 입니다.<br><br><br>
+	<input type="button" value="닫기" onclick="Idinput()">
+		</c:when>
+	</c:choose>
+
+
+
+<c:if test="${! empty ok}">
+<script>
+alert("${ok}");
+</script>
+</c:if>
+
+ <c:if test="${! empty no}">
+<script>
+alert("${no}");
+</script>
+</c:if>
+
+
+
 <c:if test="${! empty addok}">
-		<script>alert('${addok}')</script>
-	</c:if>
-<%session.removeAttribute("addok"); %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		alert('${addok}')
+	</script>
+</c:if>
+<%
+	session.removeAttribute("addok");
+%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
 <script type="text/javascript">
-	
-	
 	$(document).ready(function() {
 
 		$(".sweet").on("click", function() {
 			$("form").attr("action", "loginCheck/sweetAdd");
-		//	$("form").submit(); <input type=button>인경우에만 사용
-			
+			//	$("form").submit(); <input type=button>인경우에만 사용
+
 		});
 
 	});
+
+	$(document).ready(function() {
+
+		$("#img").on("mouseover", function() {
+			$("#sweetAdd").attr("type", "submit");
+
+			console.log("asdfasdfasdfasdfsadfsdf");
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#img").on("mouseout", function() {
+			$("#sweetAdd").attr("type", "hidden");
+
+			console.log("outouotoutoutout");
+		});
+
+	});
+	
+	
+	
+	
+	
+	
+	
+	
 </script>
+
 
 
 
@@ -53,7 +118,27 @@
 	height: 32px;
 	cursor: pointer;
 }
-#img:hover{opacity: 0.}
+
+
+#box:hover {
+	-webkit-filter: grayscale(100%);
+	-webkit-transition: .1s ease-in-out;
+	-moz-filter: grayscale(100%);
+	-moz-transition: .1s ease-in-out;
+	-o-filter: grayscale(100%);
+	-o-transition: .1s ease-in-out;
+	-background-image: url("images/hh.png") no-repeat;
+}
+
+#box {
+	-webkit-filter: grayscale(0%);
+	-webkit-transition: .1s ease-in-out;
+	-moz-filter: grayscale(0%);
+	-moz-transition: .1s ease-in-out;
+	-o-filter: grayscale(0%);
+	-o-transition: .1s ease-in-out;
+}
+
 </style>
 
 
@@ -83,12 +168,23 @@
 						<td>
 							<table style='padding: 15px'>
 								<tr>
-									<td><a href="workDetail?wCode=${workUp.wCode}" id="img"> <img
-											src="/images/${workUp.wWork}" border="0" align="center"
-											width="200">
-									</a></td>
-									
-								</tr>
+									<td><div id="box"><a href="workDetail?wCode=${workUp.wCode}" id="img">
+											<img src="/images/${workUp.wWork}" border="0" align="center"
+											width="200"></a>
+										<div style="position: absolute;">
+											<div style="position: relative; top: -50px; left: 85px;">
+												<fORM name="workListForm" method="GET">
+
+													<input type="hidden" name="wCode" value="${workUp.wCode}">
+													<input type="hidden" name="wName" value="${workUp.wName}">
+													<input type="hidden" name="wWork" value="${workUp.wWork}">
+													<input type="hidden" name="artistname" value="${workUp.artistname}"> 
+													<input type="hidden" class="sweet" id="sweetAdd" value="">
+												</fORM>
+
+
+											</div></div>
+										</div></td></tr>
 								<tr>
 									<td height="10">
 								</tr>
@@ -105,12 +201,12 @@
 									<td class="td_gray" align="center">
 
 										<fORM name="workListForm" method="GET">
-								
+
 											<input type="hidden" name="wCode" value="${workUp.wCode}">
 											<input type="hidden" name="wName" value="${workUp.wName}">
 											<input type="hidden" name="wWork" value="${workUp.wWork}">
-											<input type="hidden" name="artistname"value="${workUp.artistname}"> 
-											<input type="submit" class="sweet" id="sweetAdd" value="">
+											<input type="hidden" name="artistname"
+												value="${workUp.artistname}">
 
 										</fORM>
 									</td>

@@ -18,6 +18,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	</select>
 	
+	<select id="sweetCheck" parameterType="string" resultType="SweetDTO">
+	
+	select wCode
+	from sweet
+	where userid=#{userid}
+	</select>
+	
 	<select id="cartByNum" parameterType="string" 
 	resultType="SweetDTO">
 	 select artistname, wCode,  wName, wWork

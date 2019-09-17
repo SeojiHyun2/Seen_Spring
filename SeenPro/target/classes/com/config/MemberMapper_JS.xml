@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where
 		artistname =#{artistname} and a_passwd=#{a_passwd}
 	</select>
-	
+
 
 	<select id="memIdConfirm" parameterType="string"
 		resultType="MemberDTO">
@@ -25,13 +25,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		=#{userid}
 	</select>
 
-<select id="artIdConfirm" parameterType="string"
+	<select id="artIdConfirm" parameterType="string"
 		resultType="MemberADTO">
 		select
 		artistname,a_username
 		from artist
 		where
-		artistname =#{artistname}
+		artistname
+		=#{artistname}
 	</select>
 
 
@@ -40,16 +41,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select userid,m_passwd,m_username,m_post,m_addr1,m_addr2,
 		m_phone1,m_phone2,m_phone3,m_email1,m_email2
 		from member
-		where userid=#{userid} and m_passwd=#{m_passwd}
+		where
+		userid=#{userid} and m_passwd=#{m_passwd}
 	</select>
 
 
-<select id="mailCheck" parameterType="hashmap"
+	<select id="mailCheck" parameterType="hashmap"
 		resultType="MemberDTO">
 		select userid,m_passwd,m_username,m_post,m_addr1,m_addr2,
 		m_phone1,m_phone2,m_phone3,m_email1,m_email2
 		from member
-		where m_username=#{m_username} and m_email1=#{m_email1} and m_email2=#{m_email2}
+		where
+		m_username=#{m_username} and m_email1=#{m_email1} and
+		m_email2=#{m_email2}
+	</select>
+
+<select id="mailCheck_art" parameterType="hashmap"
+		resultType="MemberADTO">
+		select artistname,a_passwd,a_username,a_post,a_addr1,a_addr2,
+		a_phone1,a_phone2,a_phone3,a_email1,a_email2
+		from artist
+		where
+		a_username=#{a_username} and a_email1=#{a_email1} and
+		a_email2=#{a_email2}
 	</select>
 
 
@@ -85,7 +99,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{m_phone1},#{m_phone2},#{m_phone3},#{m_email1},#{m_email2})
 	</insert>
 
-	<insert id="memberArtAdd" parameterType="MemberADTO" >
+	<insert id="memberArtAdd" parameterType="MemberADTO">
 		insert into
 		artist(artistname,a_passwd,a_username,a_post,a_addr1,a_addr2,
 		a_phone1,a_phone2,a_phone3,a_email1,a_email2)
@@ -96,7 +110,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="memberUpdate" parameterType="MemberDTO">
 		update member
-		set m_post=#{m_post},
+		set
+		m_post=#{m_post},
 		m_username=#{m_username},
 		m_addr1=#{m_addr1},
 		m_addr2=#{m_addr2},
@@ -105,14 +120,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		m_phone3=#{m_phone3},
 		m_email1=#{m_email1},
 		m_email2=#{m_email2}
-		where userid=#{userid}
+		where
+		userid=#{userid}
 	</update>
-	
-	
+
+
 
 	<update id="memberAUpdate" parameterType="MemberADTO">
 		update artist
-		set a_post=#{a_post},
+		set
+		a_post=#{a_post},
 		a_username=#{a_username},
 		a_addr1=#{a_addr1},
 		a_addr2=#{a_addr2},
@@ -121,10 +138,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		a_phone3=#{a_phone3},
 		a_email1=#{a_email1},
 		a_email2=#{a_email2}
-		where artistname=#{artistname}
+		where
+		artistname=#{artistname}
 	</update>
 
-	<select id="idCheck" parameterType="string" resultType="MemberADTO">
+	<select id="idCheck" parameterType="string"
+		resultType="MemberADTO">
 
 		select m_password
 		from member
@@ -135,15 +154,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="passwdchange" parameterType="hashmap">
 		update member
 		set m_passwd=#{m_passwd}
-		
-	where m_username=#{m_username} and m_email1=#{m_email1} and m_email2=#{m_email2}
+
+		where m_username=#{m_username} and m_email1=#{m_email1} and
+		m_email2=#{m_email2}
 	</update>
-	
-	
+
+
 	<update id="passwdmychange" parameterType="hashmap">
 		update member
-		set m_passwd=#{m_newpasswd}
-		
-	where userid=#{userid} and m_passwd=#{m_passwd}
+		set
+		m_passwd=#{m_newpasswd}
+
+		where userid=#{userid} and m_passwd=#{m_passwd}
 	</update>
 </mapper>

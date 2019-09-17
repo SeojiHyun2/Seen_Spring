@@ -28,7 +28,7 @@ $(document).ready(function(){
 		var wCode = $(this).attr("data-num");
 		location.href="loginCheck/donation?wCode"+wCode;
 	});
-};
+});
 
 </script>
 

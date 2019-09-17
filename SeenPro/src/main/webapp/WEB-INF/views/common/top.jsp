@@ -41,7 +41,8 @@
 <c:if test="${empty login_mem and empty login_art }">
 
 <a href="loginUI" id="J">LOGIN</a><br>
-<a href="joinUI" id="J">JOIN</a>
+<a href="joinUI" id="J">JOIN</a><br>
+<a href="board" id="J">QnA</a>
 </c:if>
 
 
