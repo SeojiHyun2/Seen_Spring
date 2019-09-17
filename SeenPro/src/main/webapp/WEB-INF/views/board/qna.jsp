@@ -7,12 +7,49 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		
-		
+		$("#write").on("click" , function(){
+			
+			 location.href = "edit";
+		});
 		
 		
 	});//finish
 </script>
+<style>
 
+table.type {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+  margin : 20px 10px;
+}
+
+
+table.type th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+table.type td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+
+
+ .mouseOverHighlight {
+                   border-bottom: 1px solid blue;
+                   cursor: pointer !important;
+                   color: blue;
+                   pointer-events: auto;
+                }
+
+</style>
 
 
 <!DOCTYPE html>
@@ -25,13 +62,8 @@
 
 	<h2>당신의 궁금증을 풀어드립니다.</h2>
 	<div align="center">
-		<table width="1200px">
-			<tr>
-				<td align="right">
-					<button type="button" id="write" name="write">글 작성</button>
-				</td>
-			</tr>
-			<table border="1" width="1200px">
+		
+			<table width="1200px"  class="type">
 				<tr>
 					<th width="50px">No</th>
 					<th width="850px">제목</th>
@@ -57,6 +89,12 @@
 					</c:otherwise>
 				</c:choose>
 			</table>
+			<table width="1200px" >
+			<tr>
+				<td align="right">
+					<button type="button" id="write" name="write">글 작성</button>
+				</td>
+			</tr>
 			<br>
 			<div id="pagination"></div>
 			</div>

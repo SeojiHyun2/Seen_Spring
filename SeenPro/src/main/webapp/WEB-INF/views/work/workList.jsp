@@ -124,6 +124,7 @@ console.log("11111111111");
 	cursor: pointer;
 }
 
+
 #img:hover {
 	-webkit-filter: grayscale(100%);
 	-webkit-transition: .1s ease-in-out;
@@ -142,6 +143,7 @@ console.log("11111111111");
 	-o-filter: grayscale(0%);
 	-o-transition: .1s ease-in-out;
 }
+
 </style>
 
 
@@ -173,8 +175,7 @@ console.log("11111111111");
 								<tr>
 									<td><div id="box" class="box"><a href="workDetail?wCode=${workUp.wCode}" id="img">
 											<img src="/images/${workUp.wWork}" border="0" align="center"
-											width="200">
-									</a>
+											width="200"></a>
 										<div style="position: absolute;">
 											<div style="position: relative; top: -50px; left: 85px;">
 												<fORM name="workListForm" method="GET">
@@ -183,10 +184,12 @@ console.log("11111111111");
 													<input type="hidden" name="wName" value="${workUp.wName}">
 													<input type="hidden" name="wWork" value="${workUp.wWork}">
 													<input type="hidden" name="artistname" value="${workUp.artistname}"> 
+
 													<input type="hidden" class="sweet" id="sweetAdd${workUp.wCode}"  value="">
 												</fORM></div></div>
 </div></td>
 								</tr>
+
 								<tr>
 									<td height="10">
 								</tr>
