@@ -60,23 +60,33 @@ public class MemberDAO {
 
 	}
 
+	public MemberDTO memIdConfirm(String userid) {
+		MemberDTO dto = template.selectOne("MemberMapper_JS.memIdConfirm", userid);
+		return dto;
+	}
 
+	public MemberADTO artIdConfirm(String artistname) {
+		MemberADTO dto = template.selectOne("MemberMapper_JS.artIdConfirm", artistname);
+		return dto;
+	}
 
-public MemberDTO memIdConfirm(String userid) {
-	MemberDTO dto = template.selectOne("MemberMapper_JS.memIdConfirm",userid);
-	return dto;
-}
+	public void passwdMyChange(Map<String, String> map) {
 
+		int n = template.update("MemberMapper_JS.passwdmychange", map);
 
-public MemberADTO artIdConfirm(String artistname) {
-	MemberADTO dto = template.selectOne("MemberMapper_JS.artIdConfirm",artistname);
-	return dto;
-}
+	}
 
-public void passwdMyChange(Map<String, String> map) {
-	
-	int n = template.update("MemberMapper_JS.passwdmychange",map);
-	
-}
+	public MemberDTO mailCheck(HashMap<String, String> map) {
+
+		MemberDTO dto = template.selectOne("MemberMapper_JS.mailCheck", map);
+
+		return dto;
+	}
+
+	public MemberADTO mailCheck_art(HashMap<String, String> map) {
+		MemberADTO dto = template.selectOne("MemberMapper_JS.mailCheck_art", map);
+
+		return dto;
+	}
 
 }

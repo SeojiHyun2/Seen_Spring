@@ -67,8 +67,20 @@ public class WorkController {
 	}
 
 	@RequestMapping("/loginCheck/sweetAdd")
+<<<<<<< HEAD
 	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr,
 			@RequestParam("wCode") String wCode) {
+=======
+	public String sweetAdd(SweetDTO sweet, HttpSession session,RedirectAttributes red) {
+		
+		
+		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
+		sweet.setUserid(dto.getUserid());
+		wservice.sweetAdd(sweet);
+		
+		String wCategory=(String)session.getAttribute("wCategory");
+	session.setAttribute("addok", "sweet에 추가 되었습니다.");
+>>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
 
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		String userid = dto.getUserid();
@@ -126,7 +138,7 @@ public class WorkController {
 	}
 
 	@RequestMapping("/myWorkList")
-	public ModelAndView myWorkList(RedirectAttributes r, HttpSession session, ModelAndView m) {
+	public ModelAndView myWorkList(HttpSession session, ModelAndView m) {
 
 		MemberADTO aDTO = (MemberADTO) session.getAttribute("login_art");
 		String artistname = aDTO.getArtistname();

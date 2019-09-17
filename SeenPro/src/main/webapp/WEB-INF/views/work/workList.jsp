@@ -38,21 +38,43 @@ alert("${no}");
 
 
 <c:if test="${! empty addok}">
-		<script>alert('${addok}')</script>
-	</c:if>
-<%session.removeAttribute("addok"); %>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		alert('${addok}')
+	</script>
+</c:if>
+<%
+	session.removeAttribute("addok");
+%>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 
 <script type="text/javascript">
-	
-	
 	$(document).ready(function() {
 
 		$(".sweet").on("click", function() {
 			$("form").attr("action", "loginCheck/sweetAdd");
-		//	$("form").submit(); <input type=button>인경우에만 사용
-			
+			//	$("form").submit(); <input type=button>인경우에만 사용
+
+		});
+
+	});
+
+	$(document).ready(function() {
+
+		$("#img").on("mouseover", function() {
+			$("#sweetAdd").attr("type", "submit");
+
+			console.log("asdfasdfasdfasdfsadfsdf");
+		});
+
+	});
+	$(document).ready(function() {
+
+		$("#img").on("mouseout", function() {
+			$("#sweetAdd").attr("type", "hidden");
+
+			console.log("outouotoutoutout");
 		});
 
 	});
@@ -96,6 +118,25 @@ alert("${no}");
 	height: 32px;
 	cursor: pointer;
 }
+
+#box:hover {
+	-webkit-filter: grayscale(100%);
+	-webkit-transition: .1s ease-in-out;
+	-moz-filter: grayscale(100%);
+	-moz-transition: .1s ease-in-out;
+	-o-filter: grayscale(100%);
+	-o-transition: .1s ease-in-out;
+	-background-image: url("images/hh.png") no-repeat;
+}
+
+#box {
+	-webkit-filter: grayscale(0%);
+	-webkit-transition: .1s ease-in-out;
+	-moz-filter: grayscale(0%);
+	-moz-transition: .1s ease-in-out;
+	-o-filter: grayscale(0%);
+	-o-transition: .1s ease-in-out;
+}
 </style>
 
 
@@ -125,10 +166,24 @@ alert("${no}");
 						<td>
 							<table style='padding: 15px'>
 								<tr>
-									<td><a href="workDetail?wCode=${workUp.wCode}"> <img
-											src="/images/${workUp.wWork}" border="0" align="center"
+									<td><div id="box"><a href="workDetail?wCode=${workUp.wCode}" id="img">
+											<img src="/images/${workUp.wWork}" border="0" align="center"
 											width="200">
-									</a></td>
+									</a>
+										<div style="position: absolute;">
+											<div style="position: relative; top: -50px; left: 85px;">
+												<fORM name="workListForm" method="GET">
+
+													<input type="hidden" name="wCode" value="${workUp.wCode}">
+													<input type="hidden" name="wName" value="${workUp.wName}">
+													<input type="hidden" name="wWork" value="${workUp.wWork}">
+													<input type="hidden" name="artistname" value="${workUp.artistname}"> 
+													<input type="hidden" class="sweet" id="sweetAdd" value="">
+												</fORM>
+
+
+											</div></div>
+										</div></td>
 								</tr>
 								<tr>
 									<td height="10">
@@ -146,12 +201,12 @@ alert("${no}");
 									<td class="td_gray" align="center">
 
 										<fORM name="workListForm" method="GET">
-								
+
 											<input type="hidden" name="wCode" value="${workUp.wCode}">
 											<input type="hidden" name="wName" value="${workUp.wName}">
 											<input type="hidden" name="wWork" value="${workUp.wWork}">
-											<input type="hidden" name="artistname"value="${workUp.artistname}"> 
-											<input type="submit" class="sweet" id="sweetAdd" value="">
+											<input type="hidden" name="artistname"
+												value="${workUp.artistname}">
 
 										</fORM>
 									</td>

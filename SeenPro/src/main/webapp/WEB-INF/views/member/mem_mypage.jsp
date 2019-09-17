@@ -2,29 +2,37 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$("#emailSelect").click(function(){
+		var email2=$("#emailSelect option:selected").val();
+		$("#email2").val(email2);
+		
+	});
+	
+	
+});
+</script>
 
 <style type="text/css">
-#name{
-   width: 80px;
-}
-#sample4_postcode{
-  width: 60px;
-}
-#sample4_roadAddress{ width: 350px;}
-#sample4_jibunAddress{width:80px;}
-#email1{width:100px;}
-#email2{width:80px;}
-#phone{width:40px;}
 
+#name {width: 80px;}
+#sample4_postcode {width: 60px;}
+#sample4_roadAddress {width: 350px;}
+#sample4_jibunAddress {width:80px;}
+#email1 {width:100px;}
+#email2 {width:80px;}
+#phone {width:40px;}
 
 .aa{
-Background:#F2F2F2;
-font:15px Arial;
+	Background:#F2F2F2;
+	font:15px Arial;
     padding: 3px;
-border:none;
-  height: 22px;
-
+	border:none;
+  	height: 22px;
 }
 
 .Post {
@@ -37,14 +45,17 @@ border:none;
 }
 
 .a {
-color :#111111;
-Font : 10px arial;
-Background : #FFFFFF;
-padding:5px 30px;
-border: 1px solid;
+	color :#111111;
+	Font : 10px arial;
+	Background : #FFFFFF;
+	padding:5px 30px;
+	border: 1px solid;
 }
-form{position: relative; left:480px;
- top:10px;}
+
+form{
+	position: relative; left:480px;
+	top:10px;
+	}
 
 </style>
   
@@ -78,7 +89,7 @@ value="${login_mem.userid}">
         <option value="naver.com">naver.com</option>
        </select>
 <br><br> 
-<input class="a"type="submit" value="수정">
+<input class="a" type="submit" value="수정">
 <input class="a" type="reset" value="취소">
 <br><br><br>
 </form>

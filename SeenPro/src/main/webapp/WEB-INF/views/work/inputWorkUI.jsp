@@ -53,8 +53,8 @@
                   <td>	
                     <div class="wi_line"></div>
                     <div id="in_name">
-                    	<small>작가 아이디</small>
-                        <input type="text" name="artistname" id="uname">
+                    	
+                        <input type="hidden" name="artistname" id="uname" value="${login_art.artistname}">
                     </div>
                   </td>
                 </tr>  
