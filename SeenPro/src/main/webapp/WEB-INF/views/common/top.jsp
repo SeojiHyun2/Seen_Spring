@@ -42,6 +42,7 @@
 
 <a href="loginUI" id="J">LOGIN</a><br>
 <a href="joinUI" id="J">JOIN</a>
+<a href="board" id="J">QnA</a>
 </c:if>
 
 

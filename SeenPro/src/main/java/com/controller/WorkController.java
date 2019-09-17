@@ -160,20 +160,7 @@ public class WorkController {
 	}
 
 	
-	
-	@RequestMapping("/loginCheck/sweetList")
-	public String sweetCheck(RedirectAttributes attr, HttpSession session) {
-
-		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
-		String userid = dto.getUserid();
-		List<SweetDTO> list = wservice.sweetCheck(userid);
-		attr.addFlashAttribute("sweetList", list);
-
-		return "redirect:../sweetList";
-	}
-	
-	
-	
+		
 	
 	
 	
