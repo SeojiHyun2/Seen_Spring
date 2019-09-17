@@ -37,6 +37,7 @@
 				<value>classpath:com/config/MemberMapper_JS.xml</value>
 				<value>classpath:com/config/WorkMapper.xml</value>
 				<value>classpath:com/config/SweetMapper.xml</value>
+				<value>classpath:com/config/BoardMapper.xml</value>
 
 
 			</list>
@@ -49,6 +50,7 @@
 				<value>com.dto.WorkDTO</value>
 				<value>com.dto.PageDTO</value>
 				<value>com.dto.SweetDTO</value>
+				<value>com.dto.BoardDTO</value>
 			</list>
 		</property>
 
