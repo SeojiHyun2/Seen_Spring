@@ -25,7 +25,9 @@ public class WeController {
 	MemberService service;
 
 	@RequestMapping(value = "/Mem_Confirm")
+
 	public String Mem_Confirm(@RequestParam("userid") String userid, HttpSession session) {
+
 		session.setAttribute("userid", userid);
 
 		MemberDTO dto = service.memIdConfirm(userid);
@@ -57,9 +59,11 @@ public class WeController {
 
 		MemberDTO dto2 = service.login_mem(map);
 
+
 		if (dto2 == null) {
 
 			System.out.println("<<<<<");
+
 			attr.addFlashAttribute("passwd", "기존 비밀번호 오류");
 
 		} else if (dto2 != null) {

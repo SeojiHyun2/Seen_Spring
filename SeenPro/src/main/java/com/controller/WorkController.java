@@ -3,6 +3,7 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,7 +46,7 @@ public class WorkController {
 	WorkService wservice;
 
 	@RequestMapping("/workList")
-	public ModelAndView workList(@RequestParam("wCategory") String wCategory,HttpSession ses) {
+	public ModelAndView workList(@RequestParam("wCategory") String wCategory, HttpSession ses) {
 
 		System.out.println(wCategory);
 		List<WorkDTO> list = wservice.workList(wCategory);
@@ -66,8 +67,9 @@ public class WorkController {
 	}
 
 	@RequestMapping("/loginCheck/sweetAdd")
-	public String sweetAdd(SweetDTO sweet, HttpSession session,RedirectAttributes red) {
-		
+
+	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr,
+			@RequestParam("wCode") String wCode) {
 		
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		sweet.setUserid(dto.getUserid());
@@ -76,10 +78,27 @@ public class WorkController {
 		String wCategory=(String)session.getAttribute("wCategory");
 	session.setAttribute("addok", "sweet에 추가 되었습니다.");
 
-		return "redirect:../workList?wCategory="+wCategory;
+
+		
+		String userid = dto.getUserid();
+		sweet.setUserid(dto.getUserid());
+	
+		
+		session.setAttribute("wCode", wCode);
+		sweet = (SweetDTO) wservice.sweetCheck(userid);
+		
+		if(sweet==null) {
+			session.setAttribute("sweet_check", "0");
+		}else {
+			
+			session.setAttribute("sweet_check", "1");
+		}
+
+		return "redirect:../workList?wCategory=" + wCategory;
 
 	}
-
+	
+	
 	@RequestMapping("loginCheck/inputWorkUI")
 	public String inputWorkUI() {
 
@@ -89,13 +108,12 @@ public class WorkController {
 	@RequestMapping(value = "inputWork", method = RequestMethod.POST)
 	public String inputWork(WorkDTO wDTO, HttpServletRequest req) {
 
-
 		System.out.println(wDTO.getwName());
 
 		CommonsMultipartFile theFile = wDTO.getRealWork();
 		String wWork = theFile.getOriginalFilename(); // 파일 이름을 wWork에 저장함
 		wDTO.setwWork(wWork);
-		
+
 		// 저장디렉토리
 		File f = new File("c://upload", wDTO.getwWork());
 
@@ -115,19 +133,18 @@ public class WorkController {
 
 		return "thanks";
 	}
-	
-	
+
 	@RequestMapping("/myWorkList")
 	public ModelAndView myWorkList(HttpSession session, ModelAndView m) {
 
-		MemberADTO aDTO = (MemberADTO)session.getAttribute("login_art");
+		MemberADTO aDTO = (MemberADTO) session.getAttribute("login_art");
 		String artistname = aDTO.getArtistname();
-		
+
 		List<WorkDTO> list = wservice.myWorkList(artistname);
-		
-		m.addObject("workUp",list);
+
+		m.addObject("workUp", list);
 		m.setViewName("myWorkList");
-		
+
 		return m;
 	}
 
@@ -142,6 +159,11 @@ public class WorkController {
 		return "redirect:../sweetList";
 	}
 
+	
+		
+	
+	
+	
 	@RequestMapping("/sweetDel")
 	public String sweetDel(@RequestParam("num") String num) {
 
@@ -155,7 +177,6 @@ public class WorkController {
 	public void delAllSweet(@RequestParam("userid") String userid) {
 		wservice.sweetAllDel(userid);
 
-		
 	}
 
 }
