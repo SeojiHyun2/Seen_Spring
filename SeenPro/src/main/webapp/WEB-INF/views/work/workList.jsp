@@ -53,7 +53,7 @@
 	height: 32px;
 	cursor: pointer;
 }
-#img:hover{opacity: 0.5}
+#img:hover{opacity: 0.}
 </style>
 
 
@@ -87,6 +87,7 @@
 											src="/images/${workUp.wWork}" border="0" align="center"
 											width="200">
 									</a></td>
+									
 								</tr>
 								<tr>
 									<td height="10">
