@@ -25,12 +25,9 @@ public class WeController {
 	MemberService service;
 
 	@RequestMapping(value = "/Mem_Confirm")
-<<<<<<< HEAD
-	public String Mem_Confirm(@RequestParam("userid") String userid,HttpSession session) {
-		
-=======
+
 	public String Mem_Confirm(@RequestParam("userid") String userid, HttpSession session) {
->>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
+
 		session.setAttribute("userid", userid);
 
 		MemberDTO dto = service.memIdConfirm(userid);
@@ -61,17 +58,12 @@ public class WeController {
 		map.put("m_newpasswd", m_newpasswd);
 
 		MemberDTO dto2 = service.login_mem(map);
-<<<<<<< HEAD
-		
-		if (dto2 == null) { 
-			
-			
-=======
+
 
 		if (dto2 == null) {
 
 			System.out.println("<<<<<");
->>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
+
 			attr.addFlashAttribute("passwd", "기존 비밀번호 오류");
 
 		} else if (dto2 != null) {
