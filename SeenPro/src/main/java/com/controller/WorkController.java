@@ -78,22 +78,6 @@ public class WorkController {
 		String wCategory=(String)session.getAttribute("wCategory");
 	session.setAttribute("addok", "sweet에 추가 되었습니다.");
 
-
-		
-		String userid = dto.getUserid();
-		sweet.setUserid(dto.getUserid());
-	
-		
-		session.setAttribute("wCode", wCode);
-		sweet = (SweetDTO) wservice.sweetCheck(userid);
-		
-		if(sweet==null) {
-			session.setAttribute("sweet_check", "0");
-		}else {
-			
-			session.setAttribute("sweet_check", "1");
-		}
-
 		return "redirect:../workList?wCategory=" + wCategory;
 
 	}
