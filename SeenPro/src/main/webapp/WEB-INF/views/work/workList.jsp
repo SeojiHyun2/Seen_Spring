@@ -119,6 +119,7 @@ alert("${no}");
 	cursor: pointer;
 }
 
+
 #box:hover {
 	-webkit-filter: grayscale(100%);
 	-webkit-transition: .1s ease-in-out;
@@ -137,6 +138,7 @@ alert("${no}");
 	-o-filter: grayscale(0%);
 	-o-transition: .1s ease-in-out;
 }
+
 </style>
 
 
@@ -168,8 +170,7 @@ alert("${no}");
 								<tr>
 									<td><div id="box"><a href="workDetail?wCode=${workUp.wCode}" id="img">
 											<img src="/images/${workUp.wWork}" border="0" align="center"
-											width="200">
-									</a>
+											width="200"></a>
 										<div style="position: absolute;">
 											<div style="position: relative; top: -50px; left: 85px;">
 												<fORM name="workListForm" method="GET">
@@ -183,8 +184,7 @@ alert("${no}");
 
 
 											</div></div>
-										</div></td>
-								</tr>
+										</div></td></tr>
 								<tr>
 									<td height="10">
 								</tr>

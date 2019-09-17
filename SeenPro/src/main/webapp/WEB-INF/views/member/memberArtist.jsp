@@ -54,7 +54,9 @@ $(document).ready(function(){
 		
 	});
 });
+
 function openConfirmid(e, input) {
+	console.log("adfadsfasdfadsf");
 	e.preventDefault();
 	if (input.artistname.value == "") {
 
@@ -71,6 +73,7 @@ function openConfirmid(e, input) {
 	//e.stopPropagation();
 
 }
+
 $(document).ready(function(){
 	
 	$("#emailSelect").click(function(){
@@ -84,11 +87,11 @@ $(document).ready(function(){
 </script>
     
 <form action="memberArtAdd" method="get">
-	작가명:<input type="text" name="userid" id="userid" id="name" class="aa"> <span id="result" ></span>
+	작가명:<input type="text" name="artistname" id="artistname" id="name" class="aa"> 
 		 <input type="submit" name="idCheck" value="중복확인"
 				onclick="openConfirmid(event,this.form)"> <br><br>
-	비밀번호:<input type="password" name="m_passwd" id="passwd" id="name" class="aa"><br><br>
-	비빌번호확인:<input type="password" name="m_passwd2" id="passwd2" onkeyup="check()" id="name" class="aa"><span id="result2"></span> <br>
+	비밀번호:<input type="password" name="a_passwd" id="passwd" id="name" class="aa"><br><br>
+	비빌번호확인:<input type="password" name="a_passwd2" id="passwd2" onkeyup="check()" id="name" class="aa"><span id="result2"></span> <br>
 				<span id="result2"></span><br> 
 	이름:<input type="text" name="a_username"><br><br>
 		<input type="text" name="a_post" id="sample4_postcode" placeholder="우편번호">
