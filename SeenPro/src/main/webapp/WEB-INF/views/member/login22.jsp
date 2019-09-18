@@ -5,7 +5,7 @@
 
 
 <c:if test="${! empty mesg}">
-	<script>
+	<script>y
 		alert('${mesg}')
 	</script>
 

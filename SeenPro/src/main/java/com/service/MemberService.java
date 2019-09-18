@@ -80,6 +80,12 @@ public class MemberService {
 		dao.passwdMyChange(map);
 	}
 
+	public void passwdMyChange_art(Map<String, String> map) {
+		
+		dao.passwdMyChange_art(map);
+	}
+	
+	
 	public MemberDTO mailCheck(HashMap<String, String> map) {
 
 		MemberDTO dto = dao.mailCheck(map);
@@ -94,5 +100,6 @@ public class MemberService {
 		return dto;
 
 	}
+
 
 }

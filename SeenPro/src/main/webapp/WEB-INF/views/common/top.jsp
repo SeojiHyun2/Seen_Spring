@@ -150,7 +150,7 @@
 
 
 	<br> 
-	<a href="mem_FirstMypage" id="J">MyPage</a><br><br>
+	<a href="mem_FirstMypage" id="J">MyPage</a><br>
 	<a href="loginCheck/logout" id="J">로그아웃</a>
 	</c:when>
 	<c:when test="${! empty login_art}">
