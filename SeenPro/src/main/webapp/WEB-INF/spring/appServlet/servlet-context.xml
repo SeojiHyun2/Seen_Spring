@@ -35,6 +35,7 @@
 	<mvc:view-controller path="/myWorkList" view-name="myWorkList"/>
 	<mvc:view-controller path="/thanks" view-name="thanks"/>
 	<mvc:view-controller path="/passwdmychange" view-name="passwdmychange"/>
+	<mvc:view-controller path="/passwdmychange_art" view-name="passwdmychange_art"/>
 	<mvc:view-controller path="/mailUI" view-name="mailUI"/>
 	<mvc:view-controller path="/mailUI_art" view-name="mailUI_art"/>
 	<mvc:view-controller path="/board" view-name="board"/>

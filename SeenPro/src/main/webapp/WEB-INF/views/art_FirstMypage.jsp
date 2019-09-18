@@ -76,6 +76,7 @@
 <div class="wrap">
   	<a href="myWorkList" class="button" id="aa">  내작품 보기 </a>
   	<a href="art_mypage" class="button" id="aa"> 내정보 보기 </a>
+  	<a href="passwdmychange_art" class="button" id="aa"> 비밀번호 변경하기 </a>
 </div>
 
 <br>

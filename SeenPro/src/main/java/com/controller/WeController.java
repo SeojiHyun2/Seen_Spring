@@ -72,7 +72,35 @@ public class WeController {
 	}
 	
 	
-	
+	@RequestMapping(value = "/loginCheck/passwdMyChange_art")
+	public String passwdMyChange_art(@RequestParam Map<String, String> map, @RequestParam("a_newpasswd") String a_newpasswd,
+			@RequestParam("a_passwd") String a_passwd, RedirectAttributes attr, HttpSession session) {
+
+		MemberADTO dto = (MemberADTO) session.getAttribute("login_art");
+		String artistname = dto.getArtistname();
+
+		map.put("artistname", artistname);
+		map.put("a_passwd", a_passwd);
+		map.put("a_newpasswd", a_newpasswd);
+
+		MemberADTO dto2 = service.login_art(map);
+
+
+		if (dto2 == null) {
+
+			System.out.println("~~~~~");
+
+			attr.addFlashAttribute("passwd", "기존 비밀번호 오류");
+
+		} else if (dto2 != null) {
+
+			attr.addFlashAttribute("passwdok", "비밀번호가 변경되었습니다.");
+			service.passwdMyChange_art(map);
+
+		}
+		return "redirect:../passwdmychange_art";
+
+	}
 	
 
 	@RequestMapping(value = "/Art_Confirm")

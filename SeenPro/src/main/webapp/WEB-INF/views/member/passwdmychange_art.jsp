@@ -25,7 +25,7 @@
 
 
 <script language="javascript"
-	src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+		src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 
 
 <script type="text/javascript">
@@ -96,12 +96,12 @@ div {
 </style>
 
 <div>
-	<form action="loginCheck/passwdMyChange" method="get">
+	<form action="loginCheck/passwdMyChange_art" method="get">
 		<label for="fname">기존 비밀번호</label><br> <input type="password"
-			name="m_passwd" id="m_passwd"><br> <label for="fname">새
-			비밀번호</label><br> <input type="password" name="m_newpasswd" id="passwd"><br>
+			name="a_passwd" id="a_passwd"><br> <label for="fname">새
+			비밀번호</label><br> <input type="password" name="a_newpasswd" id="passwd"><br>
 		<label for="fname">새 비밀번호 확인</label><br> <input type="password"
-			name="m_newpasswd2" id="passwd2" onkeyup="check()"> <span
+			name="a_newpasswd2" id="passwd2" onkeyup="check()"> <span
 			id="result2"></span><br> <input class="a" type="submit"
 			value="수정"><br> <input class="a" type="reset" value="취소"><br>
 	</form>

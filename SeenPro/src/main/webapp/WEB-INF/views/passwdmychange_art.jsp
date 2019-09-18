@@ -16,7 +16,7 @@
 
 
 <hr>
-<jsp:include page="member/passwdmychange.jsp" flush="true" />
+<jsp:include page="member/passwdmychange_art.jsp" flush="true" />
 
 <hr>
 <jsp:include page="common/bottom.jsp" flush="true" />

@@ -167,4 +167,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 		where userid=#{userid} and m_passwd=#{m_passwd}
 	</update>
+	
+	<update id="passwdmychange_art" parameterType="hashmap">
+		update artist
+		set
+		a_passwd=#{a_newpasswd}
+
+		where artistname=#{artistname} and a_passwd=#{a_passwd}
+	</update>
+	
+	
 </mapper>
