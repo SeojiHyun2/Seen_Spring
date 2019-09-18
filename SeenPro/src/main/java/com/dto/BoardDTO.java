@@ -10,6 +10,7 @@ public class BoardDTO {
 	private String writeday;
 	private String artistname;
 	private String userid;
+	private int boardno;
 	private int viewcnt;
 	
 	public BoardDTO() {
@@ -17,13 +18,15 @@ public class BoardDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BoardDTO(String title, String content, String writeday, String artistname, String userid, int viewcnt) {
+	public BoardDTO(String title, String content, String writeday, String artistname, String userid, int boardno,
+			int viewcnt) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.writeday = writeday;
 		this.artistname = artistname;
 		this.userid = userid;
+		this.boardno = boardno;
 		this.viewcnt = viewcnt;
 	}
 
@@ -67,6 +70,14 @@ public class BoardDTO {
 		this.userid = userid;
 	}
 
+	public int getBoardno() {
+		return boardno;
+	}
+
+	public void setBoardno(int boardno) {
+		this.boardno = boardno;
+	}
+
 	public int getViewcnt() {
 		return viewcnt;
 	}
@@ -78,10 +89,8 @@ public class BoardDTO {
 	@Override
 	public String toString() {
 		return "BoardDTO [title=" + title + ", content=" + content + ", writeday=" + writeday + ", artistname="
-				+ artistname + ", userid=" + userid + ", viewcnt=" + viewcnt + "]";
+				+ artistname + ", userid=" + userid + ", boardno=" + boardno + ", viewcnt=" + viewcnt + "]";
 	}
-
-
 	
 	
 	
