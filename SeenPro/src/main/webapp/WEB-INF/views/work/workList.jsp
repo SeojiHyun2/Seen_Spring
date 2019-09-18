@@ -55,26 +55,31 @@ alert("${no}");
 		$(".sweet").on("click", function() {
 			$("form").attr("action", "loginCheck/sweetAdd");
 			//	$("form").submit(); <input type=button>인경우에만 사용
-
+console.log("11111111111");
 		});
 
 	});
 
 	$(document).ready(function() {
-
-		$("#img").on("mouseover", function() {
-			$("#sweetAdd").attr("type", "submit");
-
-			console.log("asdfasdfasdfasdfsadfsdf");
+		
+		$(".box").on("mouseover", function(e) {
+			var id=$(this).find(".sweet").attr("id");
+		
+		
+			$("#"+id).attr("type", "submit");
+			e.preventDefault();
+		
+	
 		});
 
 	});
 	$(document).ready(function() {
-
-		$("#img").on("mouseout", function() {
-			$("#sweetAdd").attr("type", "hidden");
-
-			console.log("outouotoutoutout");
+		
+		$(".box").on("mouseout", function(e) {
+			var id=$(this).find(".sweet").attr("id");
+			$("#"+id).attr("type", "hidden");
+			e.preventDefault(); 
+			
 		});
 
 	});
@@ -112,7 +117,7 @@ alert("${no}");
 }
 
 .sweet {
-	background: url("images/sweet.png") no-repeat;
+	background: url("images/ssweet.png") no-repeat;
 	border: none;
 	width: 32px;
 	height: 32px;
@@ -120,7 +125,7 @@ alert("${no}");
 }
 
 
-#box:hover {
+#img:hover {
 	-webkit-filter: grayscale(100%);
 	-webkit-transition: .1s ease-in-out;
 	-moz-filter: grayscale(100%);
@@ -130,7 +135,7 @@ alert("${no}");
 	-background-image: url("images/hh.png") no-repeat;
 }
 
-#box {
+#img {
 	-webkit-filter: grayscale(0%);
 	-webkit-transition: .1s ease-in-out;
 	-moz-filter: grayscale(0%);
@@ -168,7 +173,7 @@ alert("${no}");
 						<td>
 							<table style='padding: 15px'>
 								<tr>
-									<td><div id="box"><a href="workDetail?wCode=${workUp.wCode}" id="img">
+									<td><div id="box" class="box"><a href="workDetail?wCode=${workUp.wCode}" id="img">
 											<img src="/images/${workUp.wWork}" border="0" align="center"
 											width="200"></a>
 										<div style="position: absolute;">
@@ -179,12 +184,12 @@ alert("${no}");
 													<input type="hidden" name="wName" value="${workUp.wName}">
 													<input type="hidden" name="wWork" value="${workUp.wWork}">
 													<input type="hidden" name="artistname" value="${workUp.artistname}"> 
-													<input type="hidden" class="sweet" id="sweetAdd" value="">
-												</fORM>
 
+													<input type="hidden" class="sweet" id="sweetAdd${workUp.wCode}"  value="">
+												</fORM></div></div>
+</div></td>
+								</tr>
 
-											</div></div>
-										</div></td></tr>
 								<tr>
 									<td height="10">
 								</tr>
