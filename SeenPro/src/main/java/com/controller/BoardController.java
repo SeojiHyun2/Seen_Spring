@@ -38,8 +38,15 @@ public class BoardController {
 		System.out.println("보드:" + dto);
 		boardService.write(dto);
 
-		return "redirect:../board";
+		return "redirect:../boardList";
 
+	}
+	
+	
+	@RequestMapping("/boardList")
+	public String boardList() {
+		return null;
+		
 	}
 
 	

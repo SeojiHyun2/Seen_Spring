@@ -41,11 +41,6 @@ public class WeController {
 		return "confirmUserId";
 	}
 
-	@RequestMapping(value = "/passwdmychangeUI")
-	public String passwdmychangeUI() {
-		return "passwdmychange";
-	}
-
 	@RequestMapping(value = "/loginCheck/passwdMyChange")
 	public String passwdMyChange(@RequestParam Map<String, String> map, @RequestParam("m_newpasswd") String m_newpasswd,
 			@RequestParam("m_passwd") String m_passwd, RedirectAttributes attr, HttpSession session) {
@@ -75,6 +70,10 @@ public class WeController {
 		return "redirect:../passwdmychange";
 
 	}
+	
+	
+	
+	
 
 	@RequestMapping(value = "/Art_Confirm")
 	public String Art_Confirm(@RequestParam("artistname") String artistname, HttpSession session) {

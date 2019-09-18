@@ -74,8 +74,8 @@
 <br>
 <br>
 <div class="wrap">
-  	<a href="myWorkList" class="button" id="aa">  내작품 보기 </a>
-  	<a href="art_mypage" class="button" id="aa"> 내정보 보기 </a>
+  	<a href="main" class="button" id="aa"> SWEET Chart </a>
+  	<a href="mem_mypage" class="button" id="aa"> 내정보 보기 </a>
 </div>
 
 <br>

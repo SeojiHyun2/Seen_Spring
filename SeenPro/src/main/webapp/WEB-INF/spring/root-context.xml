@@ -38,6 +38,7 @@
 				<value>classpath:com/config/WorkMapper.xml</value>
 				<value>classpath:com/config/SweetMapper.xml</value>
 				<value>classpath:com/config/BoardMapper.xml</value>
+				<value>classpath:com/config/Board_repMapper.xml</value>
 
 
 			</list>
@@ -51,6 +52,7 @@
 				<value>com.dto.PageDTO</value>
 				<value>com.dto.SweetDTO</value>
 				<value>com.dto.BoardDTO</value>
+				<value>com.dto.Board_repDTO</value>
 			</list>
 		</property>
 
