@@ -13,6 +13,16 @@
 		});
 		
 		
+		//제목 클릭 할 경우 상세보기로 이동
+		$("#subject").click(function(){
+            
+            location.href = " /boardView?id="+$(this).attr("boardno");
+             
+        });
+
+		
+		
+		
 	});//finish
 </script>
 <style>
@@ -45,7 +55,7 @@ table.type td {
  .mouseOverHighlight {
                    border-bottom: 1px solid blue;
                    cursor: pointer !important;
-                   color: blue;
+                   color: gray;
                    pointer-events: auto;
                 }
 
@@ -80,8 +90,8 @@ table.type td {
 						<c:forEach var="boardList" items="${boardList}" varStatus="status">
 							<tr>
 								<td align="center">${boardList.id}</td>
-								<td><a name="subject" class="mouseOverHighlight"
-									content_id="${boardList.id}">${boardList.subject}</a></td>
+								<td><a id="subject" class="mouseOverHighlight"
+									boardno="${boardList.boardno}">${boardList.subject}</a></td>
 								<td align="center">${boardList.writer}</td>
 								<td align="center">${boardList.register_datetime}</td>
 							</tr>
