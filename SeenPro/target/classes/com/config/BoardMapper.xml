@@ -5,10 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="BoardMapper">
 
 	<insert id="writeboard" parameterType="BoardDTO">
-        insert into board(boardno,title,content)
-        values(boardno_seq.nextval,#{title},#{content})
-     
+        insert into board(boardno,title,content,userid)
+        values(boardno_seq.nextval,#{title},#{content},#{userid})
     </insert>
+	
+	.
 	
 <select id="boardView" parameterType="string" resultType="SweetDTO">
         select boardno,title,content,userid,artistname

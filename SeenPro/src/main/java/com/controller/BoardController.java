@@ -35,17 +35,17 @@ public class BoardController {
 		dto.setContent(content);
 		dto.setUserid(userid);
 
-		System.out.println("보드:" + dto);
 		boardService.write(dto);
+		System.out.println("보드:" + dto);
 
-		return "redirect:../boardList";
+		return "redirect:../boardListUI";
 
 	}
 	
 	
 	@RequestMapping("/boardList")
 	public String boardList() {
-		return null;
+		return "boardListUI";
 		
 	}
 

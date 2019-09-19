@@ -15,10 +15,6 @@ public class BoardService {
 	@Autowired
 	BoardDAO dao;
 
-	
-
-	
-
 
 	public BoardDTO boardView(String boardno) {
 		
