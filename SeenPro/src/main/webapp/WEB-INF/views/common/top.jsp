@@ -53,7 +53,6 @@
 #J:link {
 	color: gray;
 	text-decoration: none;
-	font-family: Suntech;
 	font-size: 18px;
 }
 
@@ -104,63 +103,34 @@
 
 
 	<c:if test="${empty login_mem and empty login_art }">
-
 		<a href="loginUI" id="J">LOGIN</a>
 		<br>
 		<a href="joinUI" id="J">JOIN</a>
 		<br>
-
 	</c:if>
 
 
-
-<c:if test="${login_mem.userid eq 'admin'}">
-	<a href="admin_Firstpage" id="J">관리자 페이지</a><br>
-	<a href="loginCheck/logout" id="J">로그아웃</a>
-</c:if>
-
+	<c:if test="${login_mem.userid eq 'admin'}">
+		<a href="admin_Firstpage" id="J">관리자 페이지</a>
+		<br>
+		<a href="loginCheck/logout" id="J">로그아웃</a>
+	</c:if>
 
 
 	<c:choose>
-		<c:when test="${! empty login_mem}">
-
-<c:choose>
-	<c:when test="${! empty login_mem and login_mem.userid ne 'admin'}">
-
-	반갑습니다 ${login_mem.m_username }님!<br>
-
-			<br>
-			<a href="mem_FirstMypage" id="J">mypage</a>
-			<br>
-
+		<c:when test="${! empty login_mem and login_mem.userid ne 'admin'}">
+			반갑습니다 ${login_mem.m_username }님!<br><br>
+			<a href="mem_FirstMypage" id="J">MyPage</a><br>
 			<a href="loginCheck/logout" id="J">로그아웃</a>
 		</c:when>
-		
-		<c:when test="${! empty login_art}">
-	반갑습니다 ${login_art.a_username }님!<br>
-			<br>
-			<a href="art_FirstMypage" id="J">mypage</a>
-			<br>
-			<a href="loginCheck/inputWorkUI" id="J">작품올리기</a>
-			<br>
 
+		<c:when test="${! empty login_art}">
+			반갑습니다 ${login_art.a_username }님!<br><br>
+			<a href="art_FirstMypage" id="J">MyPage</a><br>
+			<a href="loginCheck/inputWorkUI" id="J">작품올리기</a><br>
 			<a href="loginCheck/logout" id="J">로그아웃</a>
 		</c:when>
 	</c:choose>
-
-
-	<br> 
-	<a href="mem_FirstMypage" id="J">MyPage</a><br>
-	<a href="loginCheck/logout" id="J">로그아웃</a>
-	</c:when>
-	<c:when test="${! empty login_art}">
-	반갑습니다 ${login_art.a_username }님!<br>
-	<br>
-	<a href="art_FirstMypage" id="J">MyPage</a><br>
-	<a href="loginCheck/inputWorkUI" id="J">작품올리기</a><br>
-	<a href="loginCheck/logout" id="J">로그아웃</a>
-	</c:when>
-</c:choose>
 
 
 </p>
