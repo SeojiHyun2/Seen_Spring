@@ -21,7 +21,7 @@ import com.service.BoardService;
 public class AdminController {
 
 	
-
+	
 	
 
 }

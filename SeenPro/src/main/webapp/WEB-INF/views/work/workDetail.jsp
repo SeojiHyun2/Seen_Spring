@@ -88,24 +88,22 @@ $(document).ready(function(){
 							value="${detail.artistname}"> <input type="submit"
 							value="후원" class="donation">
 					</FORM>
-
 				</td>
-
-			
-
+				<tr>
 				<td id="day" align="center"><span>업로드 날짜 :</span>&nbsp;${detail.inputDay}
 				</td>
-
-			</tr>
+				
+				<tr>
+				<td>
+					<form action="workDel">
+               			 <input type="submit" value="삭제" >
+               		     <input type="hidden" name="wCode" value="${detail.wCode}">
+               		 	 <input type="hidden" name="artistname" value="${detail.artistname}"> 
+             		</form>
+				</td>
+				<tr>
 		</table>
 
 	</td>
 </tr>
 
-
-</table>
-
-</td>
-</tr>
-
-</table>
