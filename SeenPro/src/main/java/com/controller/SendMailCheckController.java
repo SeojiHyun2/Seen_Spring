@@ -19,7 +19,7 @@ import com.dto.MemberADTO;
 import com.dto.MemberDTO;
 
 @Controller
-public class SendMailCheck {
+public class SendMailCheckController {
 	
 	@RequestMapping("/sendMailCheck")
 	public String sendMailCheck(HttpSession session, MemberDTO dto) {
@@ -56,7 +56,7 @@ public class SendMailCheck {
 		     props.put("mail.smtp.socketFactory.fallback", "false");
 
 
-		     Authenticator auth = new SendMail();
+		     Authenticator auth = new SendMailController();
 		     Session mailSession = Session.getDefaultInstance(props,auth);
 		   
 		     Message msg = new MimeMessage(mailSession);
@@ -121,7 +121,7 @@ public class SendMailCheck {
 		     props.put("mail.smtp.socketFactory.fallback", "false");
 
 
-		     Authenticator auth = new SendMail();
+		     Authenticator auth = new SendMailController();
 		     Session mailSession = Session.getDefaultInstance(props,auth);
 		   
 		     Message msg = new MimeMessage(mailSession);

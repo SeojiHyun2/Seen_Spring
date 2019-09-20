@@ -29,7 +29,7 @@ import com.dto.MemberDTO;
 import com.service.MemberService;
 
 @Controller
-public class CheckController {
+public class MailCheckController {
 
 	@Autowired
 	MemberService service;

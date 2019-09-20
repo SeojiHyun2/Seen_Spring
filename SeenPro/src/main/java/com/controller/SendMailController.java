@@ -6,7 +6,7 @@ import javax.mail.PasswordAuthentication;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class SendMail extends Authenticator {
+public class SendMailController extends Authenticator {
 	
 	public PasswordAuthentication getPasswordAuthentication() {
 		System.out.println("PasswordAuthentication");

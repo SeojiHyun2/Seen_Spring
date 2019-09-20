@@ -97,9 +97,11 @@
 
 <a href="main" id="T"><h1>&nbsp;See-N</h1></a>
 
-<a href="board" id="Q">Q & A</a>
+
 
 <p class="join">
+
+<br><a href="board" id="Q">Q & A</a>
 
 
 	<c:if test="${empty login_mem and empty login_art }">
