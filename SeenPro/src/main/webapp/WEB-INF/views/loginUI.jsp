@@ -14,6 +14,14 @@
 <%
 	session.removeAttribute("mesg");
 %>
+<c:if test="${! empty match}">
+	<script>
+		alert('${match}')
+	</script>
+</c:if>
+<%
+	session.removeAttribute("match");
+%>
 </head>
 <body>
 	<style type="text/css">
