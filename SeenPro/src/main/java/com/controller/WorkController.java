@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -158,4 +159,40 @@ public class WorkController {
 
 	}
 
+	@RequestMapping("/sweetChartSource")
+	public String sweetChartSource(HashMap<String, Integer> map) {
+
+		List<String> list = wservice.sweetChartSource();
+		
+		int photo = 0;
+		int draw = 0;
+		int sound = 0;
+		int letter = 0;
+		int video = 0;
+		
+	    for(String str : list) {
+	    	if("Photo".equals(str)){
+	    		photo++;
+	    	}else if("Draw".equals(str)) {
+	    		draw++;
+	        }else if("Sound".equals(str)) {
+	        	sound++;
+	        }else if("Letter".equals(str)) {
+	        	letter++;
+	        }else if("Video".equals(str)) {
+	        	video++;
+	        }
+	     }
+
+	    map.put("photoCount", photo);
+	    map.put("drawCount", draw);
+	    map.put("soundCount", sound);
+	    map.put("letterCount", letter);
+	    map.put("videoCount", video);
+	    
+		
+		return "sweetChart";
+	}
+	
+	
 }

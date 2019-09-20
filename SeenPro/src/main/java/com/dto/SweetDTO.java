@@ -10,6 +10,7 @@ public class SweetDTO {
 	private String wCode;
 	private String wName;
 	private String wWork;
+	private String wCategory; 
 	private String artistname;
 	
 	public SweetDTO() {
@@ -17,13 +18,15 @@ public class SweetDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SweetDTO(int num, String userid, String wCode, String wName, String wWork, String artistname) {
+	public SweetDTO(int num, String userid, String wCode, String wName, String wWork, String wCategory,
+			String artistname) {
 		super();
 		this.num = num;
 		this.userid = userid;
 		this.wCode = wCode;
 		this.wName = wName;
 		this.wWork = wWork;
+		this.wCategory = wCategory;
 		this.artistname = artistname;
 	}
 
@@ -67,6 +70,14 @@ public class SweetDTO {
 		this.wWork = wWork;
 	}
 
+	public String getwCategory() {
+		return wCategory;
+	}
+
+	public void setwCategory(String wCategory) {
+		this.wCategory = wCategory;
+	}
+
 	public String getArtistname() {
 		return artistname;
 	}
@@ -78,8 +89,11 @@ public class SweetDTO {
 	@Override
 	public String toString() {
 		return "SweetDTO [num=" + num + ", userid=" + userid + ", wCode=" + wCode + ", wName=" + wName + ", wWork="
-				+ wWork + ", artistname=" + artistname + "]";
+				+ wWork + ", wCategory=" + wCategory + ", artistname=" + artistname + "]";
 	}
+	
+	
+	
 	
 	
 	
