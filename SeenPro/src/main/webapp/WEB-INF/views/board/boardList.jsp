@@ -18,12 +18,6 @@
 </script>
 
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,7 +57,24 @@
 			</tr>
 		</c:forEach>
 		
+			<c:forEach var="dto" items="${dto}">
+			<tr>
+				<th>${dto.boardno}</th>
+				<th><a href="boardRetrieve?boardno=${dto.boardno}">${dto.title}</a></th>
+				<th>${dto.userid}</th>
+				<th>${dto.writeday}</th>
+				<th>${dto.viewcnt }</th>
+			</tr>
+		</c:forEach>
+		
+		
 		</table>
+		
+		
+		
+		
+		
+		
 		
 		<a href="write"/>글쓰기</a>
 </body>

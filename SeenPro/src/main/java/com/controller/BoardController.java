@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,23 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 
+	
+	//board로 이동하기
+	@RequestMapping("/board")
+	public ModelAndView board() {
+		
+		List<BoardDTO> list = boardService.listAll();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list",list );
+		mav.setViewName("board");
+		
+		return mav;
+	}
+	
+	
+	
+	
+	
 	// 저장 누르면
 	@RequestMapping(value = "/loginCheck/write")
     public String write(@RequestParam("title") String title, @RequestParam("content") String content, BoardDTO dto,
@@ -40,9 +58,11 @@ public class BoardController {
 		boardService.write(dto);
 		System.out.println("boardDTO:" + dto);
 
+		
 		return "redirect:../board";
 
 	}
+	
 	
 	
 	@RequestMapping("/boardList")
@@ -55,12 +75,12 @@ public class BoardController {
 		
 		List<BoardDTO> list = boardService.boardList(map);
 		
+		
 		System.out.println("List"+list);
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
 		mav.setViewName("board");
-		
 		
 		return mav;
 		

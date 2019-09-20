@@ -41,5 +41,16 @@ public class BoardService {
 
 
 
+	public List<BoardDTO> listAll() {
+		List<BoardDTO> list = dao.listAll();
+		return list;
+	}
+
+
+
+
+
+
+
 	
 }

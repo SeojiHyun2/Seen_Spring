@@ -31,9 +31,16 @@ public class BoardDAO {
 
 	public List<BoardDTO> boardList(HashMap<String, String> map) {
 		
-		List<BoardDTO> list = template.selectList("BoardMapper.listAll", map);
+		List<BoardDTO> list = template.selectList("BoardMapper.boardList", map);
 		return list;
 	}
+
+	public List<BoardDTO> listAll() {
+		List<BoardDTO> list = template.selectList("BoardMapper.listAll");
+		return list;
+	}
+
+	
 
 
 }

@@ -56,8 +56,6 @@
 			<tr height="500px">
 				<td colspan="2" valign="top">${retrieve.content}</td>
 			</tr>
-			
-			
 		</table>
 					<br><button id="list" name="list">목록 가기</button>
 </body>

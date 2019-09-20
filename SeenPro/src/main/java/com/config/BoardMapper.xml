@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         values(boardno_seq.nextval,#{title},#{content},#{userid})
     </insert>
 	
-	<select id="listAll" resultType="BoardDTO" parameterType="hashmap">
+	<select id="boardList" resultType="BoardDTO" parameterType="hashmap">
 		select boardno,title,content,userid,
 		to_char(writeday,'yyyy/MM/dd' ) writeday,viewcnt
 		from board
@@ -22,6 +22,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		order by boardno desc
 	</select>
 	
+	
+	<select id="listAll" resultType="BoardDTO" >
+		select boardno,title,content,userid,
+		to_char(writeday,'yyyy/MM/dd' ) writeday,viewcnt
+		from board
+		order by boardno desc
+	</select>
+
    
 	
 <select id="boardView" parameterType="int" resultType="BoardDTO">
