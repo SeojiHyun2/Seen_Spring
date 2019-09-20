@@ -68,8 +68,8 @@ public class WorkController {
 	}
 
 	@RequestMapping("/loginCheck/sweetAdd")
-
 	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr) {
+
 
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		MemberADTO adto = (MemberADTO) session.getAttribute("login_art");
@@ -135,6 +135,30 @@ public class WorkController {
 		m.setViewName("myWorkList");
 
 		return m;
+	}
+	
+	
+	@RequestMapping("/workDel")
+	public ModelAndView workDel(@RequestParam("artistname") String artistname, 
+					  	  @RequestParam("wCode") String wCode, HttpSession session, ModelAndView mnv) {
+		
+		MemberADTO aDTO = (MemberADTO) session.getAttribute("login_art");
+		
+		
+		  if(aDTO == null) {
+	         session.setAttribute("cant", "해당 작품의 작가님만 삭제가능합니다. 홈 메뉴로 돌아갑니다.");
+	         mnv.setViewName("main");
+	      }else if(aDTO.getArtistname().equals(artistname)) {
+	    	  
+	    	 wservice.workDel(wCode);
+	         session.setAttribute("can", "게시물을 삭제하였습니다. 마이페이지 목록으로 돌아갑니다.");
+	         mnv.setViewName("art_FirstMypage");
+	      }else {
+	         session.setAttribute("cant", "작가님 본인의 작품만 삭제가능합니다. 마이페이지 목록으로 돌아갑니다.");
+	         mnv.setViewName("art_FirstMypage");
+	      }
+
+		return mnv;
 	}
 
 	@RequestMapping("/loginCheck/sweetList")
