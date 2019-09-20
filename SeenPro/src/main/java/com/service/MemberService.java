@@ -101,5 +101,10 @@ public class MemberService {
 
 	}
 
+	public void passwdchange(HashMap<String, String> map) {
+		dao.passwdchange(map);
+		
+	}
+
 
 }
