@@ -49,9 +49,10 @@ public class CheckController {
 		System.out.println("DTO나와:" + dto);
 
 		if (dto == null) {
+			session.setAttribute("notmatch", "이름과 이메일이 동일하지 않습니다.");
 			return "mailUI";
 		} else {
-
+			session.setAttribute("match", "회원님의 아이디가 전송되었습니다.");
 			session.setAttribute("mailCheck", dto);
 			return "redirect:sendMailCheck";
 		}
@@ -74,9 +75,11 @@ public class CheckController {
 		System.out.println("DTO나와:" + dto);
 
 		if (dto == null) {
+			session.setAttribute("notmatch", "이름과 이메일이 동일하지 않습니다.");
 			return "mailUI";
+			
 		} else {
-
+			session.setAttribute("match", "회원님의 아이디가 전송되었습니다.");
 			session.setAttribute("mailCheck", dto);
 			return "redirect:sendMailCheck_art";
 		}
