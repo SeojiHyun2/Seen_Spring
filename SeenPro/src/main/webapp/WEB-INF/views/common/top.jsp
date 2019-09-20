@@ -117,7 +117,6 @@
 		<a href="loginCheck/logout" id="J">로그아웃</a>
 	</c:if>
 
-
 	<c:choose>
 		<c:when test="${! empty login_mem and login_mem.userid ne 'admin'}">
 			반갑습니다 ${login_mem.m_username }님!<br><br>
@@ -132,7 +131,6 @@
 			<a href="loginCheck/logout" id="J">로그아웃</a>
 		</c:when>
 	</c:choose>
-
 
 </p>
 
