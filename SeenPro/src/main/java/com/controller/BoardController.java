@@ -1,8 +1,10 @@
 package com.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.dto.BoardDTO;
 import com.dto.MemberDTO;
@@ -23,6 +26,23 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 
+	
+	//board로 이동하기
+	@RequestMapping("/board")
+	public ModelAndView board() {
+		
+		List<BoardDTO> list = boardService.listAll();
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list",list );
+		mav.setViewName("board");
+		
+		return mav;
+	}
+	
+	
+	
+	
+	
 	// 저장 누르면
 	@RequestMapping(value = "/loginCheck/write")
     public String write(@RequestParam("title") String title, @RequestParam("content") String content, BoardDTO dto,
@@ -36,32 +56,49 @@ public class BoardController {
 		dto.setUserid(userid);
 
 		boardService.write(dto);
-		System.out.println("보드:" + dto);
+		System.out.println("boardDTO:" + dto);
 
-		return "redirect:../boardListUI";
+		
+		return "redirect:../board";
 
 	}
 	
 	
+	
 	@RequestMapping("/boardList")
-	public String boardList() {
-		return "boardListUI";
+	public ModelAndView boardList(@RequestParam("searchName") String searchName,
+			@RequestParam("searchValue") String searchValue) {
+		
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("searchName", searchName);
+		map.put("searchValue", searchValue);
+		
+		List<BoardDTO> list = boardService.boardList(map);
+		
+		
+		System.out.println("List"+list);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list", list);
+		mav.setViewName("board");
+		
+		return mav;
 		
 	}
 
 	
 	
-	@RequestMapping("/boardView")
-	public String boardView(@RequestParam("boardno") String boardno, Model model) {
+	@RequestMapping("/boardRetrieve")
+	public ModelAndView boardView(@RequestParam("boardno") String boardno, Model model) {
 
 		BoardDTO dto = boardService.boardView(boardno);
-		// HashMap<String, Object> map2 = boardService.replyList(boardno);
+	
+		ModelAndView mav = new ModelAndView();
 
-		// model.addAttribute("replyList", map2);
+		mav.addObject("retrieve", dto);
+		mav.setViewName("boardView");
 
-		model.addAttribute("boardView", dto);
-
-		return "boardViewUI";
+		return mav;
 
 	}
 

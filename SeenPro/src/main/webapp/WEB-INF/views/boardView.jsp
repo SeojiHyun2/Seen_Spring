@@ -4,14 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>QnA 게시판</title>
 </head>
 <body>
 
 <jsp:include page="common/top.jsp" flush="true" />
 <jsp:include page="common/menu.jsp" flush="true" />
-<jsp:include page="board/boardList.jsp" flush="true" />
+<jsp:include page="board/boardView.jsp" flush="true" />
 <jsp:include page="common/bottom.jsp" flush="true" />
+
+
+
 
 </body>
 </html>
