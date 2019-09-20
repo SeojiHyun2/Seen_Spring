@@ -7,32 +7,37 @@
 
 
 <c:choose>
-		<c:when test="${sweet_check=='1'}">
+	<c:when test="${sweet_check=='1'}">
 	${userid}는 이미 사용 중인 아이디 입니다.
-<br><br><br><form action="Mem_Confirm" method="get">
-				<input type="text" name="userid" id="userid"> <span
-					id="result"></span> <input type="submit" name="idCheck"
-					value="중복확인" onclick="openConfirmid(event,this.form)"><br>
-			</form>
-		</c:when>
-		<c:when test="${mem_confirmId=='0'}">
-	${userid}는 사용 가능한 아이디 입니다.<br><br><br>
-	<input type="button" value="닫기" onclick="Idinput()">
-		</c:when>
-	</c:choose>
+<br>
+		<br>
+		<br>
+		<form action="Mem_Confirm" method="get">
+			<input type="text" name="userid" id="userid"> <span
+				id="result"></span> <input type="submit" name="idCheck" value="중복확인"
+				onclick="openConfirmid(event,this.form)"><br>
+		</form>
+	</c:when>
+	<c:when test="${mem_confirmId=='0'}">
+	${userid}는 사용 가능한 아이디 입니다.<br>
+		<br>
+		<br>
+		<input type="button" value="닫기" onclick="Idinput()">
+	</c:when>
+</c:choose>
 
 
 
 <c:if test="${! empty ok}">
-<script>
-alert("${ok}");
-</script>
+	<script>
+		alert("${ok}");
+	</script>
 </c:if>
 
- <c:if test="${! empty no}">
-<script>
-alert("${no}");
-</script>
+<c:if test="${! empty no}">
+	<script>
+		alert("${no}");
+	</script>
 </c:if>
 
 
@@ -55,42 +60,32 @@ alert("${no}");
 		$(".sweet").on("click", function() {
 			$("form").attr("action", "loginCheck/sweetAdd");
 			//	$("form").submit(); <input type=button>인경우에만 사용
-console.log("11111111111");
+			console.log("11111111111");
 		});
 
 	});
 
 	$(document).ready(function() {
-		
+
 		$(".box").on("mouseover", function(e) {
-			var id=$(this).find(".sweet").attr("id");
-		
-		
-			$("#"+id).attr("type", "submit");
+			var id = $(this).find(".sweet").attr("id");
+
+			$("#" + id).attr("type", "submit");
 			e.preventDefault();
-		
-	
+
 		});
 
 	});
 	$(document).ready(function() {
-		
+
 		$(".box").on("mouseout", function(e) {
-			var id=$(this).find(".sweet").attr("id");
-			$("#"+id).attr("type", "hidden");
-			e.preventDefault(); 
-			
+			var id = $(this).find(".sweet").attr("id");
+			$("#" + id).attr("type", "hidden");
+			e.preventDefault();
+
 		});
 
 	});
-	
-	
-	
-	
-	
-	
-	
-	
 </script>
 
 
@@ -124,7 +119,6 @@ console.log("11111111111");
 	cursor: pointer;
 }
 
-
 #img:hover {
 	-webkit-filter: grayscale(100%);
 	-webkit-transition: .1s ease-in-out;
@@ -143,7 +137,6 @@ console.log("11111111111");
 	-o-filter: grayscale(0%);
 	-o-transition: .1s ease-in-out;
 }
-
 </style>
 
 
@@ -173,21 +166,26 @@ console.log("11111111111");
 						<td>
 							<table style='padding: 15px'>
 								<tr>
-									<td><div id="box" class="box"><a href="workDetail?wCode=${workUp.wCode}" id="img">
-											<img src="/images/${workUp.wWork}" border="0" align="center"
-											width="200"></a>
-										<div style="position: absolute;">
-											<div style="position: relative; top: -50px; left: 85px;">
-												<fORM name="workListForm" method="GET">
+									<td><div id="box" class="box">
+											<a href="workDetail?wCode=${workUp.wCode}" id="img"> <img
+												src="/images/${workUp.wWork}" border="0" align="center"
+												width="200"></a>
+											<div style="position: absolute;">
+												<div style="position: relative; top: -50px; left: 85px;">
+													<fORM name="workListForm" method="GET">
 
-													<input type="hidden" name="wCode" value="${workUp.wCode}">
-													<input type="hidden" name="wName" value="${workUp.wName}">
-													<input type="hidden" name="wWork" value="${workUp.wWork}">
-													<input type="hidden" name="artistname" value="${workUp.artistname}"> 
-
-													<input type="hidden" class="sweet" id="sweetAdd${workUp.wCode}"  value="">
-												</fORM></div></div>
-</div></td>
+														<input type="hidden" name="wCode" value="${workUp.wCode}">
+														<input type="hidden" name="wName" value="${workUp.wName}">
+														<input type="hidden" name="wWork" value="${workUp.wWork}">
+														<input type="hidden" name="wCategory" value="${workUp.wCategory}">
+														<input type="hidden" name="artistname"
+															value="${workUp.artistname}"> <input
+															type="hidden" class="sweet" id="sweetAdd${workUp.wCode}"
+															value="">
+													</fORM>
+												</div>
+											</div>
+										</div></td>
 								</tr>
 
 								<tr>
@@ -244,19 +242,21 @@ console.log("11111111111");
 	</tr>
 </table>
 
+<!-- 페이징처리 -->
 <table align="center">
 	<tr>
-		<td><c:forEach var="num" begin="1" end="${totalPage}"
-				varStatus="status">
+		<td>
+			<c:forEach var="num" begin="1" end="${totalPage}" varStatus="status">
 				<c:choose>
 					<c:when test="${pDTO.curPage == num}">
-            ${num} &nbsp;&nbsp;
-        </c:when>
+           						 ${num} &nbsp;&nbsp;
+     			    </c:when>
 					<c:otherwise>
 						<a href="WorkListServlet?curPage=${num}&wCategory=${wCategory}">${num}</a>&nbsp;&nbsp;
-        </c:otherwise>
+      				</c:otherwise>
 				</c:choose>
-			</c:forEach></td>
+			</c:forEach>
+		</td>
 	</tr>
 </table>
 

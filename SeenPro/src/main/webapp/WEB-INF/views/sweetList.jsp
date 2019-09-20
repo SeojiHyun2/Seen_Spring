@@ -12,30 +12,30 @@
 		});
 
 	});
-	
-	
+
 	$(document).ready(function() {
-	$(".sweetAllDel").on("click", function() {
-		console.log("why?");
-		var userid="${login_mem.userid}"
-		 $.ajax({
-			   url:'sweetAllDel',
-			   type:"get",
-			   dataType:'text',
-			   data:{
-				 userid:userid
-			   },
-			   success:function(data,status,xhr){
-				   console.log("dddd");
-			
-					location.href="loginCheck/sweetList";
-					   
-			   },
-			   error:function(xhr,status,error){
-				   console.log(error);
-			   }
-		       });
-	});	});
+		$(".sweetAllDel").on("click", function() {
+			console.log("why?");
+			var userid = "${login_mem.userid}"
+			$.ajax({
+				url : 'sweetAllDel',
+				type : "get",
+				dataType : 'text',
+				data : {
+					userid : userid
+				},
+				success : function(data, status, xhr) {
+					console.log("dddd");
+
+					location.href = "loginCheck/sweetList";
+
+				},
+				error : function(xhr, status, error) {
+					console.log(error);
+				}
+			});
+		});
+	});
 </script>
 
 <style type="text/css">
@@ -68,21 +68,20 @@
 	position: relative;
 	left: 49%;
 }
-.home {  
- 	
- 		background: url("images/home.png") no-repeat;
-        border: none;
-        width: 48px;
-        height: 48px;
-        cursor: pointer;
 
- 		  }
+.home {
+	background: url("images/home.png") no-repeat;
+	border: none;
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+}
 </style>
 
 
 
 
-<a href="main" id="H" ><input type="button" class="home"></a>
+<a href="main" id="H"><input type="button" class="home"></a>
 <table width="100%" cellspacing="0" cellpadding="0" class="allList">
 
 	<tr>
@@ -100,15 +99,15 @@
 					<td height="10"></td>
 				</tr>
 				<tr>
-				<h1 align="center">${login_mem.m_username}의 sweet</h1>
-</tr>
+					<h1 align="center">${login_mem.m_username}의sweet</h1>
+				</tr>
 				<tr>
 
 					<!-- 반복시작 -->
 					<c:forEach var="sweetList" items="${sweetList}" varStatus="status">
 						<td>
 							<table style='padding: 15px'>
-								
+
 								<tr>
 									<td><a href="workDetail?wCode=${sweetList.wCode}"> <img
 											src="/images/${sweetList.wWork}" border="0" align="center"
@@ -181,22 +180,24 @@
 </table>
 <table>
 	<tr>
-		<input type="button" value="전체삭제" class="sweetAllDel"/>
+		<input type="button" value="전체삭제" class="sweetAllDel" />
 	</tr>
 </table>
+
+<!-- 페이징처리 -->
 <table align="center">
 	<tr>
-		<td><c:forEach var="num" begin="1" end="${totalPage}"
-				varStatus="status">
+		<td><c:forEach var="num" begin="1" end="${totalPage}" varStatus="status">
 				<c:choose>
 					<c:when test="${pDTO.curPage == num}">
-            ${num} &nbsp;&nbsp;
-        </c:when>
+           						${num} &nbsp;&nbsp;
+       				</c:when>
 					<c:otherwise>
 						<a href="WorkListServlet?curPage=${num}&wCategory=${wCategory}">${num}</a>&nbsp;&nbsp;
-        </c:otherwise>
+        			</c:otherwise>
 				</c:choose>
-			</c:forEach></td>
+			</c:forEach>
+		</td>
 	</tr>
 </table>
 

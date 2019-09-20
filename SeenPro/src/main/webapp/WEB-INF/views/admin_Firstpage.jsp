@@ -74,7 +74,7 @@
 <br>
 <br>
 <div class="wrap">
-  	<a href="main" class="button" id="aa"> SWEET Chart </a>
+  	<a href="sweetChart" class="button" id="aa"> SWEET Chart </a>
   	<a href="mem_mypage" class="button" id="aa"> 내정보 보기 </a>
 </div>
 
