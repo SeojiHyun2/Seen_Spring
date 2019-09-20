@@ -87,5 +87,13 @@ public class WorkService {
 	}
 
 
+	public List<String> sweetChartSource() {
+		List<String> list = dao.sweetChartSource();
+		return list;
+	}
+
+
+
+
 
 }

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -68,37 +69,21 @@ public class WorkController {
 
 	@RequestMapping("/loginCheck/sweetAdd")
 
-	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr,
-			@RequestParam("wCode") String wCode) {
-		
+	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr
+			) {
+
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		sweet.setUserid(dto.getUserid());
 		wservice.sweetAdd(sweet);
+
 		
 		String wCategory=(String)session.getAttribute("wCategory");
 	session.setAttribute("addok", "sweet에 추가 되었습니다.");
 
-
-		
-		String userid = dto.getUserid();
-		sweet.setUserid(dto.getUserid());
-	
-		
-		session.setAttribute("wCode", wCode);
-		sweet = (SweetDTO) wservice.sweetCheck(userid);
-		
-		if(sweet==null) {
-			session.setAttribute("sweet_check", "0");
-		}else {
-			
-			session.setAttribute("sweet_check", "1");
-		}
-
 		return "redirect:../workList?wCategory=" + wCategory;
 
 	}
-	
-	
+
 	@RequestMapping("loginCheck/inputWorkUI")
 	public String inputWorkUI() {
 
@@ -159,11 +144,6 @@ public class WorkController {
 		return "redirect:../sweetList";
 	}
 
-	
-		
-	
-	
-	
 	@RequestMapping("/sweetDel")
 	public String sweetDel(@RequestParam("num") String num) {
 
@@ -179,4 +159,40 @@ public class WorkController {
 
 	}
 
+	@RequestMapping("/sweetChartSource")
+	public String sweetChartSource(HashMap<String, Integer> map) {
+
+		List<String> list = wservice.sweetChartSource();
+		
+		int photo = 0;
+		int draw = 0;
+		int sound = 0;
+		int letter = 0;
+		int video = 0;
+		
+	    for(String str : list) {
+	    	if("Photo".equals(str)){
+	    		photo++;
+	    	}else if("Draw".equals(str)) {
+	    		draw++;
+	        }else if("Sound".equals(str)) {
+	        	sound++;
+	        }else if("Letter".equals(str)) {
+	        	letter++;
+	        }else if("Video".equals(str)) {
+	        	video++;
+	        }
+	     }
+
+	    map.put("photoCount", photo);
+	    map.put("drawCount", draw);
+	    map.put("soundCount", sound);
+	    map.put("letterCount", letter);
+	    map.put("videoCount", video);
+	    
+		
+		return "sweetChart";
+	}
+	
+	
 }

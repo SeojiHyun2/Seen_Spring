@@ -4,7 +4,7 @@
 
  
  .menu { text-align: center; }
- #M:link { color: black; text-decoration: none; font-family: Special Elite ; font-size: 18px;}
+ #M:link { color: black; text-decoration: none; font-size: 18px;}
  #M:visited { color: black; text-decoration: none; }
  #M:hover { color: black; text-decoration: underline; }
  

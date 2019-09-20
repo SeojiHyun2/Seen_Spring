@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="SweetMapper">
 
 	<insert id="sweetAdd" parameterType="SweetDTO">
-		insert into sweet(num,userid,wCode,wName,wWork,artistname)
-		values(sweet_seq.nextval,#{userid},#{wCode},#{wName},#{wWork},#{artistname})
+		insert into sweet(num,userid,wCode,wName,wWork,wCategory,artistname)
+		values(sweet_seq.nextval,#{userid},#{wCode},#{wName},#{wWork},#{wCategory},#{artistname})
 	</insert>
 	
 	
@@ -43,6 +43,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where userid=#{userid}
 	</delete>
 	
-	
+
+	<select id="sweetChartSource" resultType="string">
+		select wCategory
+		from sweet
+	</select> 
 	
 </mapper>

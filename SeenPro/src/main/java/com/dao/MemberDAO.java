@@ -75,6 +75,12 @@ public class MemberDAO {
 		int n = template.update("MemberMapper_JS.passwdmychange", map);
 
 	}
+	
+	public void passwdMyChange_art(Map<String, String> map) {
+
+		int n = template.update("MemberMapper_JS.passwdmychange_art", map);
+	
+	}
 
 	public MemberDTO mailCheck(HashMap<String, String> map) {
 
@@ -88,5 +94,6 @@ public class MemberDAO {
 
 		return dto;
 	}
+
 
 }

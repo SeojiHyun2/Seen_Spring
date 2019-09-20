@@ -45,15 +45,7 @@
 	box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
-.button2 {
-	color: rgba(30, 22, 54, 0.6);
-	box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
-}
 
-.button2:hover {
-	color: rgba(255, 255, 255, 0.85);
-	box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
-}
 </style>
 
 
@@ -63,8 +55,8 @@
 <br>
 <div class="wrap">
   	<a href="loginCheck/sweetList" class="button" id="aa"> 좋아요 누른 작품보기 </a>
-  	<a href="mem_mypage" class="button2" id="aa"> 내정보 보기 </a>
-  	<a href="passwdmychange" class="button2" id="aa"> 비밀번호 변경하기 </a>
+  	<a href="mem_mypage" class="button" id="aa"> 내정보 보기 </a>
+  	<a href="passwdmychange" class="button" id="aa"> 비밀번호 변경하기 </a>
 </div>
 
 <br>

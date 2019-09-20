@@ -80,4 +80,9 @@ public class WorkDAO {
 		return list;
 	}
 
+	public List<String> sweetChartSource() {
+		List<String> list = template.selectList("SweetMapper.sweetChartSource");
+		return list;
+	}
+
 }

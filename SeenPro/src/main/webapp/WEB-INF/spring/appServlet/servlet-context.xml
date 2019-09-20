@@ -8,62 +8,97 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-	
-    <mvc:annotation-driven />
-    <mvc:default-servlet-handler/>
-    
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    <!-- one of the properties available; the maximum file size in bytes -->
-    <property name="maxUploadSize" value="10000000000"/>
+
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="10000000000" />
 	</bean>
 
-	
-	<mvc:view-controller path="/" view-name="main"/>
-	<mvc:view-controller path="/joinUI" view-name="joinUI"/>
-	<mvc:view-controller path="/join_mem" view-name="join_mem"/>
-	<mvc:view-controller path="/join_art" view-name="join_art"/>
-	<mvc:view-controller path="/loginUI" view-name="loginUI"/>
-	<mvc:view-controller path="/mem_FirstMypage" view-name="mem_FirstMypage"/>
-	<mvc:view-controller path="/mem_mypage" view-name="mem_mypage"/>
-	<mvc:view-controller path="/art_FirstMypage" view-name="art_FirstMypage"/>
-	<mvc:view-controller path="/art_mypage" view-name="art_mypage"/>
-	<mvc:view-controller path="/inputWorkUI" view-name="inputWorkUI"/>
-	<mvc:view-controller path="/sweetList" view-name="sweetList"/>
-	<mvc:view-controller path="/donationConfirm" view-name="donationConfirm"/>
-	<mvc:view-controller path="/donationDone" view-name="donationDone"/>
-	<mvc:view-controller path="/myWorkList" view-name="myWorkList"/>
-	<mvc:view-controller path="/thanks" view-name="thanks"/>
-	<mvc:view-controller path="/passwdmychange" view-name="passwdmychange"/>
-	<mvc:view-controller path="/mailUI" view-name="mailUI"/>
-	<mvc:view-controller path="/mailUI_art" view-name="mailUI_art"/>
-	<mvc:view-controller path="/board" view-name="board"/>
-	
+
+	<mvc:view-controller path="/" view-name="main" />
+	<mvc:view-controller path="/joinUI"
+		view-name="joinUI" />
+	<mvc:view-controller path="/join_mem"
+		view-name="join_mem" />
+	<mvc:view-controller path="/join_art"
+		view-name="join_art" />
+	<mvc:view-controller path="/loginUI"
+		view-name="loginUI" />
+	<mvc:view-controller path="/mem_FirstMypage"
+		view-name="mem_FirstMypage" />
+	<mvc:view-controller path="/art_FirstMypage"
+		view-name="art_FirstMypage" />
+	<mvc:view-controller path="/admin_Firstpage"
+		view-name="admin_Firstpage" />
+	<mvc:view-controller path="/mem_mypage"
+		view-name="mem_mypage" />
+	<mvc:view-controller path="/art_mypage"
+		view-name="art_mypage" />
+	<mvc:view-controller path="/inputWorkUI"
+		view-name="inputWorkUI" />
+	<mvc:view-controller path="/sweetList"
+		view-name="sweetList" />
+	<mvc:view-controller path="/donationConfirm"
+		view-name="donationConfirm" />
+	<mvc:view-controller path="/donationDone"
+		view-name="donationDone" />
+	<mvc:view-controller path="/myWorkList"
+		view-name="myWorkList" />
+	<mvc:view-controller path="/thanks"
+		view-name="thanks" />
+	<mvc:view-controller path="/passwdmychange"
+		view-name="passwdmychange" />
+	<mvc:view-controller path="/passwdmychange_art"
+		view-name="passwdmychange_art" />
+	<mvc:view-controller path="/mailUI"
+		view-name="mailUI" />
+	<mvc:view-controller path="/mailUI_art"
+		view-name="mailUI_art" />
+
+	<mvc:view-controller path="/write"
+		view-name="write" />
+
+
+
+	<mvc:view-controller path="/sweetChart"
+		view-name="sweetChart" />
+
+
+
 
 	<mvc:interceptors>
-      <mvc:interceptor>
-        <mvc:mapping path="/loginCheck/**"/>
-        <ref bean="loginCheckInterceptor"/>
-      </mvc:interceptor>
-    </mvc:interceptors>
-    
-    <bean id="loginCheckInterceptor" class="com.interceptor.LoginCheckInterceptor"></bean>
-    
-    
-    <mvc:resources location="/WEB-INF/views/images/" mapping="/images/**" />
+		<mvc:interceptor>
+			<mvc:mapping path="/loginCheck/**" />
+			<ref bean="loginCheckInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-     <property name="prefix" value="/WEB-INF/views/" />
-     <property name="suffix" value=".jsp" />
-    </bean>
-    
-   
-    <context:component-scan base-package="com.*" />
-    
-    <!-- scan for mappers and let them be autowired -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.saltlux.rms.rest" />
-        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
-    </bean>
-    
-		
+	<bean id="loginCheckInterceptor"
+		class="com.interceptor.LoginCheckInterceptor"></bean>
+
+
+	<mvc:resources location="/WEB-INF/views/images/"
+		mapping="/images/**" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+	<context:component-scan base-package="com.*" />
+
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.saltlux.rms.rest" />
+		<property name="annotationClass"
+			value="org.springframework.stereotype.Repository" />
+	</bean>
+
+
 </beans>
