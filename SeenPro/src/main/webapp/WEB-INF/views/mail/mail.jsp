@@ -13,7 +13,7 @@
 		<hr>
 		이름<br><input id="input" type="text" name="m_username"
 			placeholder="이름"><br> <br> E-Mail<br> <input
-			id="input" type="text" name="m_email1" placeholder="이메일"> <input
+			id="input" type="text" name="m_email1" placeholder="이메일"> @ <input
 			id="input" type="text" name="m_email2" placeholder="이메일"> <br>
 		<input id="Findbutton" type="submit" value="보내기"> <input
 			id="resetbutton" type="reset" value="취소">
@@ -28,7 +28,7 @@
 		<hr>
 		이름<br> <input id="input" type="text" name="m_username"
 			placeholder="이름"><br> <br> E-Mail<br> <input
-			id="input" type="text" name="m_email1" placeholder="이메일"> <input
+			id="input" type="text" name="m_email1" placeholder="이메일"> @ <input
 			id="input" type="text" name="m_email2" placeholder="이메일"> <br>
 		<input id="Findbutton" type="submit" value="보내기"> <input
 			id="resetbutton" type="reset" value="취소">

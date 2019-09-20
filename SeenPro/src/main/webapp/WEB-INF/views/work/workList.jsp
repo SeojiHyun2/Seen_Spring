@@ -50,6 +50,15 @@
 <%
 	session.removeAttribute("addok");
 %>
+
+<c:if test="${! empty notmem}">
+	<script>
+		alert('${notmem}')
+	</script>
+</c:if>
+<%
+	session.removeAttribute("notmem");
+%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -94,6 +103,13 @@
 
 
 <style type="text/css">
+
+#insidetable {
+    width: 100%;
+    height: 100px;
+
+  }
+  
 #name:link {
 	color: black;
 	text-decoration: none;
@@ -143,33 +159,27 @@
 
 
 
-<table width="100%" cellspacing="0" cellpadding="0" class="allList">
+<table style='padding:3px' align="center" width="60%" cellspacing="0" cellpadding="0" class="allList">
 
 	<tr>
 		<td>
-			<table align="center" width="710" cellspacing="0" cellpadding="0"
+			<table style='padding:3px' align="center" width="50%" cellspacing="0" cellpadding="0"
 				border="0">
 
-				<tr>
-					<td height="5"></td>
-				</tr>
-				<tr>
-					<td height="1" colspan="8" bgcolor="CECECE"></td>
-				</tr>
-				<tr>
-					<td height="10"></td>
-				</tr>
+			
+				
+			
 				<tr>
 
 					<!-- 반복시작 -->
 					<c:forEach var="workUp" items="${workUp}" varStatus="status">
 						<td>
-							<table style='padding: 15px'>
+							<table id="insidetable" style='padding:3px'>
 								<tr>
 									<td><div id="box" class="box">
-											<a href="workDetail?wCode=${workUp.wCode}" id="img"> <img
+											<a href="workDetail?wCode=${workUp.wCode}" id="img"> <img height="200"
 												src="/images/${workUp.wWork}" border="0" align="center"
-												width="200"></a>
+												width="200" ></a>
 											<div style="position: absolute;">
 												<div style="position: relative; top: -50px; left: 85px;">
 													<fORM name="workListForm" method="GET">
@@ -188,47 +198,15 @@
 										</div></td>
 								</tr>
 
-								<tr>
-									<td height="10">
-								</tr>
-								<tr>
-									<td class="td_default" align="center"><a id="name"
-										class="a_black" href="workDetail?wCode=${workUp.wCode}">
-											${workUp.wName}<br>
-									</a> <font color="gray"> ------------------------- </font></td>
-								</tr>
-								<tr>
-									<td height="10">
-								</tr>
-								<tr>
-									<td class="td_gray" align="center">
-
-										<fORM name="workListForm" method="GET">
-
-											<input type="hidden" name="wCode" value="${workUp.wCode}">
-											<input type="hidden" name="wName" value="${workUp.wName}">
-											<input type="hidden" name="wWork" value="${workUp.wWork}">
-											<input type="hidden" name="artistname"
-												value="${workUp.artistname}">
-
-										</fORM>
-									</td>
-
-								</tr>
-								<tr>
-									<td height="5">
-								</tr>
-								<tr>
-									<td class="td_black" align="center"><font color="black"
-										face="나눔바른펜"> <strong>${workUp.artistname}
-												작가님의 작품입니다.</strong></font></td>
-								</tr>
+								
+								
+								
 							</table>
 						</td>
 						<!-- 한 줄에3개씩 -->
-						<c:if test="${status.count %3 ==0}">
+						<c:if test="${status.count %4 ==0}">
 							<tr>
-								<td height="10">
+							
 							</tr>
 						</c:if>
 						<!-- 반복끝-->
@@ -238,7 +216,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td height="10">
+		<td height="0px">
 	</tr>
 </table>
 
