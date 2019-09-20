@@ -9,7 +9,6 @@
 <body>
 
 <jsp:include page="common/top.jsp" flush="true" />
-<jsp:include page="common/menu.jsp" flush="true" />
 <jsp:include page="mail/mail_art.jsp" flush="true" />
 <jsp:include page="common/bottom.jsp" flush="true" />
 
