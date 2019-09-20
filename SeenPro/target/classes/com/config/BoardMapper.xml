@@ -5,46 +5,69 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="BoardMapper">
 
 	<insert id="writeboard" parameterType="BoardDTO">
-        insert into board(boardno,title,content,userid)
-        values(boardno_seq.nextval,#{title},#{content},#{userid})
-    </insert>
-	
-	<select id="boardList" resultType="BoardDTO" parameterType="hashmap">
+		insert into
+		board(boardno,title,content,userid)
+		values(boardno_seq.nextval,#{title},#{content},#{userid})
+	</insert>
+
+	<select id="boardList" resultType="BoardDTO"
+		parameterType="hashmap">
 		select boardno,title,content,userid,
-		to_char(writeday,'yyyy/MM/dd' ) writeday,viewcnt
+		to_char(writeday,'yyyy/MM/dd' )
+		writeday,viewcnt
 		from board
 		<if test="searchName== 'title'">
 			where title LIKE '%'||#{searchValue}||'%'
 		</if>
-	    <if test="searchName== 'userid'">
-	    	where userid LIKE '%'||#{searchValue}||'%'
-	    </if>
+		<if test="searchName== 'userid'">
+			where userid LIKE '%'||#{searchValue}||'%'
+		</if>
 		order by boardno desc
 	</select>
-	
-	
-	<select id="listAll" resultType="BoardDTO" >
-		select boardno,title,content,userid,
-		to_char(writeday,'yyyy/MM/dd' ) writeday,viewcnt
+
+
+	<select id="listAll" resultType="BoardDTO">
+		select
+		boardno,title,content,userid,
+		to_char(writeday,'yyyy/MM/dd' )
+		writeday,viewcnt
 		from board
 		order by boardno desc
 	</select>
 
-   
-	
-<select id="boardView" parameterType="int" resultType="BoardDTO">
-        select boardno,title,content,userid,
-          to_char(writeday,'yyyy/MM/dd' ) writeday,viewcnt
+
+
+	<select id="boardView" parameterType="int" resultType="BoardDTO">
+		select
+		boardno,title,content,userid,
+		to_char(writeday,'yyyy/MM/dd' )
+		writeday,viewcnt
 		from board
 		where boardno =#{boardno}
-    </select>
+	</select>
 
 
+	<update id="update" parameterType="BoardDTO">
+		update board
+		set title=#{title}
+		,
+		userid=#{userid} ,
+		content=#{content}
+		where boardno=#{boardno}
+	</update>
 
 
+	<delete id="delete" parameterType="int">
+		delete from board
+		where
+		boardno
+		=#{boardno}
+	</delete>
 
-
-
-
+	<update id="viewcnt" parameterType="int">
+		update board
+		set viewcnt =viewcnt + 1
+		where boardno =#{boardno}
+	</update>
 
 </mapper>
