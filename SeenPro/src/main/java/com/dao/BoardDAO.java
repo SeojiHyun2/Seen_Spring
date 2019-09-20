@@ -20,11 +20,13 @@ public class BoardDAO {
 
 	public BoardDTO boardView(String boardno) {
 		
+		//자세히 보기 할 경우, 조회수가 하나씩 증가
+		viewcnt(boardno);
 		BoardDTO dto = template.selectOne("BoardMapper.boardView", Integer.parseInt(boardno));
 		return dto;
 	}
 
-	public void save(BoardDTO dto) {
+	public void write(BoardDTO dto) {
 		int n = template.insert("BoardMapper.writeboard",dto);
 		
 	}
@@ -40,7 +42,22 @@ public class BoardDAO {
 		return list;
 	}
 
-	
+	public void update(BoardDTO dto) {
+		
+	int n	= template.update("BoardMapper.update", dto);
+		
+	}
+
+	public void delete(String boardno) {
+		
+		int n	= template.delete("BoardMapper.delete",Integer.parseInt(boardno));
+		
+	}
+
+	private void viewcnt(String boardno) {
+		template.update("BoardMapper.viewcnt",Integer.parseInt(boardno));
+	}
+
 
 
 }

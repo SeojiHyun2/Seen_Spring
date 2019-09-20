@@ -25,9 +25,13 @@ public class BoardService {
 
 
 
+	
+
+
+
 	public void write(BoardDTO dto) {
 	
-		dao.save(dto);
+		dao.write(dto);
 		
 	}
 
@@ -44,6 +48,23 @@ public class BoardService {
 	public List<BoardDTO> listAll() {
 		List<BoardDTO> list = dao.listAll();
 		return list;
+	}
+
+
+
+	public void update(BoardDTO dto) {
+		
+		dao.update(dto);
+		
+		
+	}
+
+
+
+	public void delete(String boardno) {
+	
+		dao.delete(boardno);
+		
 	}
 
 
