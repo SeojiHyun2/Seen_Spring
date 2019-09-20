@@ -66,8 +66,6 @@ public class WorkDAO {
 
 	public void workDel(String wCode) {
 		int n = template.delete("WorkMapper.workDel",wCode);
-		
-
 	}
 
 	public void sweetAllDel(String userid) {

@@ -68,17 +68,21 @@ public class WorkController {
 	}
 
 	@RequestMapping("/loginCheck/sweetAdd")
+	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr) {
 
-	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr
-			) {
 
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
-		sweet.setUserid(dto.getUserid());
-		wservice.sweetAdd(sweet);
+		MemberADTO adto = (MemberADTO) session.getAttribute("login_art");
+		String wCategory = (String) session.getAttribute("wCategory");
+		if (dto != null) {
+			sweet.setUserid(dto.getUserid());
+			wservice.sweetAdd(sweet);
+			session.setAttribute("addok", "sweet에 추가 되었습니다.");
 
-		
-		String wCategory=(String)session.getAttribute("wCategory");
-	session.setAttribute("addok", "sweet에 추가 되었습니다.");
+		} else if (adto != null) {
+			session.setAttribute("notmem", "독자 로그인시 가능합니다.");
+
+		}
 
 		return "redirect:../workList?wCategory=" + wCategory;
 
@@ -132,6 +136,30 @@ public class WorkController {
 
 		return m;
 	}
+	
+	
+	@RequestMapping("/workDel")
+	public ModelAndView workDel(@RequestParam("artistname") String artistname, 
+					  	  @RequestParam("wCode") String wCode, HttpSession session, ModelAndView mnv) {
+		
+		MemberADTO aDTO = (MemberADTO) session.getAttribute("login_art");
+		
+		
+		  if(aDTO == null) {
+	         session.setAttribute("cant", "해당 작품의 작가님만 삭제가능합니다. 홈 메뉴로 돌아갑니다.");
+	         mnv.setViewName("main");
+	      }else if(aDTO.getArtistname().equals(artistname)) {
+	    	  
+	    	 wservice.workDel(wCode);
+	         session.setAttribute("can", "게시물을 삭제하였습니다. 마이페이지 목록으로 돌아갑니다.");
+	         mnv.setViewName("art_FirstMypage");
+	      }else {
+	         session.setAttribute("cant", "작가님 본인의 작품만 삭제가능합니다. 마이페이지 목록으로 돌아갑니다.");
+	         mnv.setViewName("art_FirstMypage");
+	      }
+
+		return mnv;
+	}
 
 	@RequestMapping("/loginCheck/sweetList")
 	public String sweetList(RedirectAttributes attr, HttpSession session) {
@@ -163,36 +191,34 @@ public class WorkController {
 	public String sweetChartSource(HashMap<String, Integer> map) {
 
 		List<String> list = wservice.sweetChartSource();
-		
+
 		int photo = 0;
 		int draw = 0;
 		int sound = 0;
 		int letter = 0;
 		int video = 0;
-		
-	    for(String str : list) {
-	    	if("Photo".equals(str)){
-	    		photo++;
-	    	}else if("Draw".equals(str)) {
-	    		draw++;
-	        }else if("Sound".equals(str)) {
-	        	sound++;
-	        }else if("Letter".equals(str)) {
-	        	letter++;
-	        }else if("Video".equals(str)) {
-	        	video++;
-	        }
-	     }
 
-	    map.put("photoCount", photo);
-	    map.put("drawCount", draw);
-	    map.put("soundCount", sound);
-	    map.put("letterCount", letter);
-	    map.put("videoCount", video);
-	    
-		
+		for (String str : list) {
+			if ("Photo".equals(str)) {
+				photo++;
+			} else if ("Draw".equals(str)) {
+				draw++;
+			} else if ("Sound".equals(str)) {
+				sound++;
+			} else if ("Letter".equals(str)) {
+				letter++;
+			} else if ("Video".equals(str)) {
+				video++;
+			}
+		}
+
+		map.put("photoCount", photo);
+		map.put("drawCount", draw);
+		map.put("soundCount", sound);
+		map.put("letterCount", letter);
+		map.put("videoCount", video);
+
 		return "sweetChart";
 	}
-	
-	
+
 }

@@ -25,8 +25,6 @@
 %>
 
 
-
-
 <style type="text/css">
 #T:link {
 	color: black;
@@ -73,7 +71,7 @@
 
 #Q {
 	text-align: right;
-	margin: 1cm;
+	
 	
 }
 
@@ -102,7 +100,7 @@
 
 <p class="join">
 
-<br><a href="board" id="Q">Q & A</a>
+<a href="board" id="Q">Q & A</a><br><br>
 
 
 	<c:if test="${empty login_mem and empty login_art }">
