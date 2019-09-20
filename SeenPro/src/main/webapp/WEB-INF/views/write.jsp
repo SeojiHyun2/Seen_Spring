@@ -10,7 +10,7 @@
 
 <jsp:include page="common/top.jsp" flush="true" />
 <jsp:include page="common/menu.jsp" flush="true" />
-<jsp:include page="board/edit.jsp" flush="true" />
+<jsp:include page="board/write.jsp" flush="true" />
 <jsp:include page="common/bottom.jsp" flush="true" />
 
 

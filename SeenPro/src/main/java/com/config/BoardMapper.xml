@@ -9,13 +9,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         values(boardno_seq.nextval,#{title},#{content},#{userid})
     </insert>
 	
+	<select id="listAll" resultType="BoardDTO" parameterType="hashmap">
+		select boardno,title,content,userid,
+		to_char(writeday,'yyyy/MM/dd' ) writeday,viewcnt
+		from board
+		<if test="searchName== 'title'">
+			where title LIKE '%'||#{searchValue}||'%'
+		</if>
+	    <if test="searchName== 'userid'">
+	    	where userid LIKE '%'||#{searchValue}||'%'
+	    </if>
+		order by boardno desc
+	</select>
 	
+   
 	
-<select id="boardView" parameterType="string" resultType="SweetDTO">
-        select boardno,title,content,userid,artistname
-            date_format(register_datetime, '%Y-%m-%d %H:%i:%s') register_datetime
-        from board
-        where id = #{id}
+<select id="boardView" parameterType="int" resultType="BoardDTO">
+        select boardno,title,content,userid,
+          to_char(writeday,'yyyy/MM/dd' ) writeday,viewcnt
+		from board
+		where boardno =#{boardno}
     </select>
 
 

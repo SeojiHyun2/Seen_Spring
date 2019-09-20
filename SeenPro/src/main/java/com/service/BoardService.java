@@ -1,6 +1,7 @@
 package com.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,14 @@ public class BoardService {
 	
 		dao.save(dto);
 		
+	}
+
+
+
+	public List<BoardDTO> boardList(HashMap<String, String> map) {
+		
+		List<BoardDTO> list = dao.boardList(map);
+		return list;
 	}
 
 
