@@ -144,6 +144,7 @@ public class WorkController {
 	         session.setAttribute("cant", "해당 작품의 작가님만 삭제가능합니다. 홈 메뉴로 돌아갑니다.");
 	         mnv.setViewName("main");
 	      }else if(aDTO.getArtistname().equals(artistname)) {
+	    	  
 	    	 wservice.workDel(wCode);
 	         session.setAttribute("can", "게시물을 삭제하였습니다. 마이페이지 목록으로 돌아갑니다.");
 	         mnv.setViewName("art_FirstMypage");
