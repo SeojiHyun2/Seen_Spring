@@ -63,5 +63,8 @@
 		</table>
 		<br>
 		<button id="list" name="list">목록 가기</button>
+	<jsp:include page="reply.jsp" flush="true" />
+	
+		
 </body>
 </html>
