@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.BoardDTO;
+import com.dto.Board_repDTO;
 
 @Repository
 public class BoardDAO {
@@ -23,6 +24,8 @@ public class BoardDAO {
 		//자세히 보기 할 경우, 조회수가 하나씩 증가
 		viewcnt(boardno);
 		BoardDTO dto = template.selectOne("BoardMapper.boardView", Integer.parseInt(boardno));
+		System.out.println(boardno);
+		
 		return dto;
 	}
 
@@ -57,6 +60,7 @@ public class BoardDAO {
 	private void viewcnt(String boardno) {
 		template.update("BoardMapper.viewcnt",Integer.parseInt(boardno));
 	}
+
 
 
 

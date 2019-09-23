@@ -59,8 +59,9 @@
 	<mvc:view-controller path="/mailUI_art"
 		view-name="mailUI_art" />
 
-	<mvc:view-controller path="/write"
-		view-name="write" />
+	<mvc:view-controller path="/write" view-name="write" />
+	<mvc:view-controller path="/list" view-name="board" />
+		
 
 
 
