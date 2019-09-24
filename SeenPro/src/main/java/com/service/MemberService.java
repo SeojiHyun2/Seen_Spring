@@ -102,8 +102,15 @@ public class MemberService {
 	}
 
 	public void passwdchange(HashMap<String, String> map) {
+
 		dao.passwdchange(map);
+	
 		
+	}
+
+	public void passwdchange_art(HashMap<String, String> map) {
+		// TODO Auto-generated method stub
+		dao.passwdchange_art(map);
 	}
 
 

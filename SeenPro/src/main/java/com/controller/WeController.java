@@ -225,7 +225,8 @@ public class WeController {
 	@RequestMapping("/loginCheck/memberUpdate")
 	public String memberUpdate(MemberDTO m) {
 		service.memberUpdate(m);
-		return "redirect:../loginCheck/mypage";
+		System.out.println("컨트롤러 멤업뎃");
+		return "redirect:../loginCheck/mem_mypage";
 
 	}
 

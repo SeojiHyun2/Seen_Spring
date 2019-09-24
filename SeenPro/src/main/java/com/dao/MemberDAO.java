@@ -97,8 +97,15 @@ public class MemberDAO {
 
 	public void passwdchange(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
+		
 		int n = template.update("MemberMapper_JS.passwdchange", map);
 	}
+
+	public void passwdchange_art(HashMap<String, String> map) {
+		// TODO Auto-generated method stub
+		int n = template.update("MemberMapper_JS.passwdchange_art", map);
+	}
+
 
 
 }
