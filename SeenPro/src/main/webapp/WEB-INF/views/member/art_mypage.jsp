@@ -88,7 +88,8 @@ value="${login_art.artistname}">
 <br><br>
 <span>이메일</span>&nbsp;&nbsp;&nbsp;<input class="aa" type="text" value="${login_art.a_email1 }" name="a_email1" id="email1">@
        <input class="aa" type="text" value="${login_art.a_email2 }" name="a_email2" id="email2" placeholder="직접입력">
-       <select  class="aa" id="emailSelect">
+       <select class="aa" id="emailSelect" style="width:150px;height:28px;">
+   	    <option value="" selected disabled="disabled" >==선택하세요==</option>
         <option value="daum.net">daum.net</option>
         <option value="naver.com">naver.com</option>
        </select>

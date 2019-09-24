@@ -84,7 +84,8 @@ value="${login_mem.userid}">
 <br><br> 
 <span>이메일</span>&nbsp;&nbsp;&nbsp;<input class="aa" type="text" value="${login_mem.m_email1 }" name="m_email1" id="email1">@
        <input class="aa" type="text" value="${login_mem.m_email2 }" name="m_email2" id="email2" placeholder="직접입력">
-       <select class="aa" id="emailSelect">
+       <select class="aa" id="emailSelect" style="width:150px;height:28px;">
+   	    <option value="" selected disabled="disabled" >==선택하세요==</option>
         <option value="daum.net">daum.net</option>
         <option value="naver.com">naver.com</option>
        </select>
