@@ -18,14 +18,21 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.BoardDTO;
+import com.dto.Board_repDTO;
 import com.dto.MemberDTO;
 import com.service.BoardService;
+import com.service.Board_repService;
 
 @Controller
 public class BoardController {
 
 	@Autowired
 	BoardService boardService;
+	
+	@Autowired
+	Board_repService replyService;
+	
+
 
 	// board로 이동하기
 	@RequestMapping("/board")
@@ -81,12 +88,13 @@ public class BoardController {
 
 	// 게시글 상세히 보기
 	@RequestMapping("/boardRetrieve")
-	public ModelAndView boardView(@RequestParam("boardno") String boardno, Model model) {
+	public ModelAndView boardView(@RequestParam("boardno") String boardno, Model model,Board_repDTO rdto) {
 
 		BoardDTO dto = boardService.boardView(boardno);
-
+        
 		ModelAndView mav = new ModelAndView();
 
+	
 		mav.addObject("retrieve", dto);
 		mav.setViewName("boardView");
 
@@ -128,7 +136,45 @@ public class BoardController {
 
 	}
 	
-	// 조회수 증가
+	// 댓글
+	
+	
+    // 댓글 입력하기 
+	@RequestMapping("/loginCheck/reply")
+	public String reply(HttpSession session, @RequestParam("comment") String reply_content, @RequestParam("boardno") String boardno,
+			HashMap<String, String> map) {
+		
+		System.out.println("reply로 넘어왔나?");
+		MemberDTO mdto = (MemberDTO) session.getAttribute("login_mem");
+		String userid = mdto.getUserid();
+		
+		map.put("reply_content",reply_content);
+		map.put("userid", userid);
+		map.put("boardno", boardno);
+		
+	     replyService.reply(map);
+		
+	     
+		return "redirect:../replyList";
+		
+	}
+	
+	@RequestMapping("/replyList")
+	public ModelAndView replyList(@RequestParam String boardno, ModelAndView mav,RedirectAttributes attr) {
+		
+		System.out.println(boardno);
+		List<Board_repDTO> list = replyService.replyList(boardno);
+		mav.addObject("rere", list);
+		mav.setViewName("boardView");
+		System.out.println("kkkkkkkkkkk");
+		System.out.println("댓글 목록..:"+ list);
+		
+		return mav;
+		
+		
+	}
+	
+	
 	
 	
 

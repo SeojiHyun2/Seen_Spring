@@ -57,9 +57,6 @@ table.type11 .even {
 <title>상세 보기</title>
 </head>
 <body>
-
-	
-		
 			
 				<form action="boardList">
 					검색 <select name="searchName">
