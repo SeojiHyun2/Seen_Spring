@@ -166,7 +166,6 @@ public class BoardController {
 		List<Board_repDTO> list = replyService.replyList(boardno);
 		mav.addObject("rere", list);
 		mav.setViewName("boardView");
-		System.out.println("kkkkkkkkkkk");
 		System.out.println("댓글 목록..:"+ list);
 		
 		return mav;

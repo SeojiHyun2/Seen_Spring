@@ -3,22 +3,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-		 
-
 		$("#list").on("click", function() {
 
 			location.href = "board";
 		}); //#list
 
-		
-
-		}); //#delete
+	
+	
 		
 	
 		
@@ -42,10 +38,13 @@
 			<tr>
 				<td colspan="2" align="right">
 					<form action="loginCehck/delete">
+						
 						<c:if test="${login_mem.userid==retrieve.userid}">
 							<input type="hidden" id="boardno" name="boardno"
 								value="${retrieve.boardno}" />
+							
 							<input type="submit" id="delete" name="delete" value="삭제" />
+						
 						</c:if>
 
 					</form>
