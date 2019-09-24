@@ -18,14 +18,18 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.dto.BoardDTO;
+import com.dto.Board_repDTO;
 import com.dto.MemberDTO;
 import com.service.BoardService;
+import com.service.Board_repService;
 
 @Controller
 public class BoardController {
 
 	@Autowired
 	BoardService boardService;
+	
+
 
 	// board로 이동하기
 	@RequestMapping("/board")
@@ -128,7 +132,9 @@ public class BoardController {
 
 	}
 	
-	// 조회수 증가
+	
+	
+	
 	
 	
 

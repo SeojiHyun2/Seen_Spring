@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.dao.BoardDAO;
 import com.dto.BoardDTO;
+import com.dto.Board_repDTO;
 
 @Service
 public class BoardService {
@@ -22,12 +23,6 @@ public class BoardService {
 		BoardDTO dto = dao.boardView(boardno);
 		return dto;
 	}
-
-
-
-	
-
-
 
 	public void write(BoardDTO dto) {
 	
@@ -60,18 +55,11 @@ public class BoardService {
 	}
 
 
-
 	public void delete(String boardno) {
 	
 		dao.delete(boardno);
 		
 	}
-
-
-
-
-
-
 
 	
 }

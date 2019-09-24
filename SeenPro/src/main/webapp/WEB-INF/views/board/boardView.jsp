@@ -8,6 +8,8 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		
+		 
 
 		$("#list").on("click", function() {
 
@@ -17,8 +19,12 @@
 		
 
 		}); //#delete
-
+		
+	
+		
 	}); //ready finish
+	
+	
 </script>
 
 
@@ -31,16 +37,17 @@
 <body>
 
 
-<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
+	
 	<div align="center">
-		</br></br>
+		</br>
+		</br>
 		<table border="1" width="1200px">
 			<tr>
 				<td colspan="2" align="right">
 					<form action="loginCehck/delete">
 						<input type="hidden" id="boardno" name="boardno"
-							value="${retrieve.boardno}" /> 
-						<input type="submit" id="delete" name="delete" value="삭제" />
+							value="${retrieve.boardno}" /> <input type="submit" id="delete"
+							name="delete" value="삭제" />
 
 					</form>
 
@@ -48,20 +55,24 @@
 			</tr>
 			<tr>
 				<form action="loginCheck/update">
-				<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
-				<td width="900px">제목<input type="text" name="title" value="${retrieve.title}"></td>
-				<td>${retrieve.userid}</td>
+					<input type="hidden" id="boardno" name="boardno"
+						value="${retrieve.boardno}" />
+					<td width="900px">제목<input type="text" name="title"
+						value="${retrieve.title}"></td>
+					<td>${retrieve.userid}</td>
 			</tr>
-			
+
 			<tr height="500px">
-		        <td colspan="2" valign="top">
-		        <textarea rows="10" cols="10" name="content"> ${retrieve.content}</textarea>
-		        </td>
+				<td colspan="2" valign="top"><textarea rows="10" cols="10"
+						name="content"> ${retrieve.content}</textarea></td>
 			</tr>
-				<input type="submit" id="update" name="update" value="수정" />
-				</form>
+			<input type="submit" id="update" name="update" value="수정" />
+			</form>
 		</table>
 		<br>
-		<button id="list" name="list">목록 가기</button>
+
+		<jsp:include page="reply.jsp" flush="true" />
+
+		<input type="submit" id="list" name="list" value="목록가기" />
 </body>
 </html>
