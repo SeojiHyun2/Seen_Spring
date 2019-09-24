@@ -173,9 +173,9 @@ public class WorkController {
 	}
 
 	@RequestMapping("/sweetDel")
-	public String sweetDel(@RequestParam("num") String num) {
+	public String sweetDel(@RequestParam("num") String num,HttpSession session) {
 
-		System.out.println("~~~~~~~~~~~~~@@~~~~~~~~~~~~~~~~~***********" + num);
+session.setAttribute("delok", "해당 sweet이 삭제되었습니다");
 		wservice.sweetDel(num);
 		return "redirect:/loginCheck/sweetList";
 	}
