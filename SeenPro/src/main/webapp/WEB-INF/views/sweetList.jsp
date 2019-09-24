@@ -39,6 +39,11 @@
 </script>
 
 <style type="text/css">
+#insidetable {
+	width: 100%;
+	height: 100px;
+}
+
 #name:link {
 	color: black;
 	text-decoration: none;
@@ -56,11 +61,11 @@
 	text-decoration: underline;
 }
 
-.sweet {
-	background: url("images/sweet.png") no-repeat;
+.del {
+		background: url("images/delone.png") no-repeat;
 	border: none;
-	width: 32px;
-	height: 32px;
+	width: 16px;
+	height: 16px;
 	cursor: pointer;
 }
 
@@ -106,55 +111,31 @@
 					<!-- 반복시작 -->
 					<c:forEach var="sweetList" items="${sweetList}" varStatus="status">
 						<td>
-							<table style='padding: 15px'>
+							<table id="insidetable" style='padding: 3px'>
 
 								<tr>
 									<td><a href="workDetail?wCode=${sweetList.wCode}"> <img
-											src="/images/${sweetList.wWork}" border="0" align="center"
-											width="200">
-									</a></td>
+											height="200" src="/images/${sweetList.wWork}" border="0"
+											align="center" width="200">
+									</a>
+										<div style="position: absolute;">
+											<div style="position: relative; bottom: 190px; left: 178px;">
+												<fORM name="sweetListForm" method="GET">
+													<input type="hidden" name="num" value="${sweetList.num}">
+													<input type="submit" class="del" name="del"
+														id="del" value="">
+												</fORM>
+											</div>
+										</div></td>
 								</tr>
+
 								<tr>
-									<td height="10">
-								</tr>
-								<tr>
-									<td class="td_default" align="center"><a id="name"
-										class="a_black" href="workDetail?wCode=${sweetList.wCode}">
-											${sweetList.wName}<br>
-									</a> <font color="gray"> ------------------------- </font></td>
-								</tr>
-								<tr>
-									<td height="10">
-								</tr>
-								<tr>
-									<td class="td_gray" align="center">
-
-										<fORM name="sweetListForm" method="GET">
-
-
-											<input type="hidden" name="num" value="${sweetList.num}">
-
-
-
-											<input type="submit" class="del" name="del" id="del"
-												value="삭제">
-
-										</fORM>
-
-
-
-
-									</td>
-
+							
 								</tr>
 								<tr>
 									<td height="5">
 								</tr>
-								<tr>
-									<td class="td_black" align="center"><font color="black"
-										face="나눔바른펜"> <strong>${sweetList.artistname}
-												작가님의 작품입니다.</strong></font></td>
-								</tr>
+
 							</table>
 						</td>
 
@@ -187,7 +168,8 @@
 <!-- 페이징처리 -->
 <table align="center">
 	<tr>
-		<td><c:forEach var="num" begin="1" end="${totalPage}" varStatus="status">
+		<td><c:forEach var="num" begin="1" end="${totalPage}"
+				varStatus="status">
 				<c:choose>
 					<c:when test="${pDTO.curPage == num}">
            						${num} &nbsp;&nbsp;
@@ -196,8 +178,7 @@
 						<a href="WorkListServlet?curPage=${num}&wCategory=${wCategory}">${num}</a>&nbsp;&nbsp;
         			</c:otherwise>
 				</c:choose>
-			</c:forEach>
-		</td>
+			</c:forEach></td>
 	</tr>
 </table>
 

@@ -59,7 +59,7 @@
 							<table style='padding: 15px'>
 								<tr>
 									<td><a id="name" class="a_black" href="workDetail?wCode=${myWork.wCode}">
-										<img src="/images/${myWork.wWork}" border="0" align="center" width="200">
+										<img height="200" src="/images/${myWork.wWork}" border="0" align="center" width="200">
 										</a>
 									</td> 
 								</tr>
