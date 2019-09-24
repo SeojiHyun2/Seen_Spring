@@ -70,7 +70,7 @@ div {
 		<td width="40px;">
 		</td>
 		<td width="550px;">
-			<form action="passwdSearch" method="get">
+			<form action="passwdSearch_art" method="get">
 				<h1>비밀번호 찾기</h1>
 				<hr>
 				<label for="fname">이름</label><br> <input id="input" type="text"

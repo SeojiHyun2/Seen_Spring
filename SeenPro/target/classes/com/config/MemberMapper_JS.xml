@@ -159,7 +159,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		m_email2=#{m_email2}
 	</update>
 
+	<update id="passwdchange_art" parameterType="hashmap">
+		update artist
+		set a_passwd=#{a_passwd}
 
+		where a_username=#{a_username} and a_email1=#{a_email1} and
+		a_email2=#{a_email2}
+	</update>
 	<update id="passwdmychange" parameterType="hashmap">
 		update member
 		set

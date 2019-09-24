@@ -210,7 +210,7 @@ public class WeController {
 
 	}
 
-	@RequestMapping(value = "/loginCheck/mypage_art")
+	@RequestMapping(value = "/loginCheck/art_mypage")
 	public String mypage_art(HttpSession session) {
 
 		MemberADTO dto = (MemberADTO) session.getAttribute("login_art");
@@ -218,21 +218,22 @@ public class WeController {
 
 		dto = service.mypage_art(userid);
 		session.setAttribute("login_art", dto);
-		return "redirect:../mypage_art";
+		return "redirect:../art_mypage";
 
 	}
 
 	@RequestMapping("/loginCheck/memberUpdate")
 	public String memberUpdate(MemberDTO m) {
 		service.memberUpdate(m);
-		return "redirect:../loginCheck/mypage";
+
+		return "redirect:../loginCheck/mem_mypage";
 
 	}
 
 	@RequestMapping("/loginCheck/memberUpdate_art")
 	public String memberUpdate_art(MemberADTO m) {
 		service.memberUpdate_art(m);
-		return "redirect:../loginCheck/mypage_art";
+		return "redirect:../loginCheck/art_mypage";
 
 	}
 

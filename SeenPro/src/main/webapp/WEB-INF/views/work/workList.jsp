@@ -5,43 +5,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
-
-<c:choose>
-	<c:when test="${sweet_check=='1'}">
-	${userid}는 이미 사용 중인 아이디 입니다.
-<br>
-		<br>
-		<br>
-		<form action="Mem_Confirm" method="get">
-			<input type="text" name="userid" id="userid"> <span
-				id="result"></span> <input type="submit" name="idCheck" value="중복확인"
-				onclick="openConfirmid(event,this.form)"><br>
-		</form>
-	</c:when>
-	<c:when test="${mem_confirmId=='0'}">
-	${userid}는 사용 가능한 아이디 입니다.<br>
-		<br>
-		<br>
-		<input type="button" value="닫기" onclick="Idinput()">
-	</c:when>
-</c:choose>
-
-
-
-<c:if test="${! empty ok}">
-	<script>
-		alert("${ok}");
-	</script>
-</c:if>
-
-<c:if test="${! empty no}">
-	<script>
-		alert("${no}");
-	</script>
-</c:if>
-
-
-
 <c:if test="${! empty addok}">
 	<script>
 		alert('${addok}')
