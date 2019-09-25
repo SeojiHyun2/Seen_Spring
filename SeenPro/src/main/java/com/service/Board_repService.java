@@ -31,6 +31,12 @@ public List<Board_repDTO> replyList(String boardno) {
 		return list;
 	}
 
+public List<Board_repDTO> boardView_rep(int boardno) {
+	
+	List<Board_repDTO> list = dao.boardView_rep(boardno);
+	return list;
+}
+
 
 
 	

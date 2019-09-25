@@ -1,36 +1,10 @@
+<%@page import="com.dto.PageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		
-		$("#list").on("click", function() {
-
-			location.href = "board";
-		}); //#list
-
-	
-	
-		
-	
-		
-	}); //ready finish
-	
-	
-</script>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>상세 보기</title>
-</head>
-<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 	<div align="center">
 		</br> </br>
@@ -40,11 +14,8 @@
 					<form action="loginCehck/delete">
 						
 						<c:if test="${login_mem.userid==retrieve.userid}">
-							<input type="hidden" id="boardno" name="boardno"
-								value="${retrieve.boardno}" />
-							
+							<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
 							<input type="submit" id="delete" name="delete" value="삭제" />
-						
 						</c:if>
 
 					</form>
@@ -71,17 +42,22 @@
 			</c:if>
 			</form>
 		</table>
+		
 		<br>
-	
-		<c:forEach var="rere" items="${rere}" varStatus="status">
-      	${rere.userid}
-	    ${rere.reply_content}
-	</c:forEach>
-
-
+		
 			<div class="container">
 		<form id="commentForm" action="loginCheck/reply" method="post">
 		<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
+		
+		<div>
+			<table border="1">
+				<tr>
+					
+				</tr>
+			</table>
+		</div>
+		
+		
 			<br> <br>
 			<div>
 				<div>
@@ -108,10 +84,7 @@
 		</form>
 	</div>
 	
-
-
 	<div id="replyList"></div>
 
+
 		<input type="submit" id="list" name="list" value="목록가기" />
-</body>
-</html>

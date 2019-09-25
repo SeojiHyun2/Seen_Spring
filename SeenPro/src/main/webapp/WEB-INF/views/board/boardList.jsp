@@ -75,7 +75,7 @@ table.type11 .even {
 			<th>조회수</th>
 		</tr>
 		
-		<c:forEach var="dto" items="${list}">
+		<c:forEach var="dto" items="${list_a}">
 			<tr>
 				<td class="even">${dto.boardno}</th>
 				<td class="even"><a href="boardRetrieve?boardno=${dto.boardno}">${dto.title}</a></th>

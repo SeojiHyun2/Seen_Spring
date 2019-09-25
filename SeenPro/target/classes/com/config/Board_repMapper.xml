@@ -18,5 +18,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where bor_reply.boardno like #{board.boardno}
 	</select>
 
+	<select id="boardView_rep" parameterType="int" resultType="Board_repDTO">
+		select reply_id, boardno, REPLY_CONTENT,ARTISTNAME,USERID
+		from bor_reply
+		where boardno = #{boardno}
+	</select>
 
 </mapper>

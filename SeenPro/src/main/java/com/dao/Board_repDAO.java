@@ -30,4 +30,10 @@ public class Board_repDAO {
 	}
 
 
+	public List<Board_repDTO> boardView_rep(int boardno) {
+		List<Board_repDTO> list = template.selectList("Board_repMapper.boardView_rep", boardno);
+		return list;
+	}
+
+
 }
