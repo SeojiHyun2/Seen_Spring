@@ -2,6 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<c:if test="${! empty donationcant}">
+	<script>
+		alert('${donationcant}')
+	</script>
+</c:if>
+<%
+	session.removeAttribute("donationcant");
+%>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -86,7 +95,7 @@ $(document).ready(function(){
 						<input type="hidden" name="wWork" value="${detail.wWork}">
 						<input type="hidden" name="artistname"
 							value="${detail.artistname}"> <input type="submit"
-							value="후원" class="donation">
+							value="" class="donation">
 					</FORM>
 				</td>
 				<tr>
