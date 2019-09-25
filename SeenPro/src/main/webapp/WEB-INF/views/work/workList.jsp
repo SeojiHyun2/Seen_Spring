@@ -22,9 +22,7 @@
 <%
 	session.removeAttribute("notmem");
 %>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
@@ -59,10 +57,6 @@
 
 	});
 </script>
-
-
-
-
 
 
 <style type="text/css">
@@ -119,9 +113,6 @@
 </style>
 
 
-
-
-
 <table style='padding:3px' align="center" width="60%" cellspacing="0" cellpadding="0" class="allList">
 
 	<tr>
@@ -129,9 +120,7 @@
 			<table style='padding:3px' align="center" width="50%" cellspacing="0" cellpadding="0"
 				border="0">
 
-			
 				
-			
 				<tr>
 
 					<!-- 반복시작 -->

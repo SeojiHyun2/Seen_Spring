@@ -96,5 +96,7 @@
 			<div id="commentList"></div>
 		</form>
 	</div>
+	
+
 
 	<div id="replyList"></div>

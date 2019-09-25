@@ -5,18 +5,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Board_repMapper">
 
 
-	<insert id="reply" parameterType="HashMap" >
-		insert into bor_reply (reply_id,boardno,reply_content,userid)
+	<insert id="reply" parameterType="HashMap">
+		insert into bor_reply
+		(reply_id,boardno,reply_content,userid)
 		values(reply_id_seq.NEXTVAL,#{boardno},#{reply_content},#{userid})
 	</insert>
- 
- <select id="replyList" resultType="Board_repDTO" >
- 
- select reply_id, boardno, reply_content, artistname, userid
- from bor_reply
- where boardno =#{boardno}
- 
- </select>
+
+	<select id="replyList" parameterType="int" resultType="Board_repDTO">
+		select board.boardno,bor_reply.userid,
+		board.title, board.content, bor_reply.reply_content,bor_reply.boardno
+		from board, bor_reply
+		where bor_reply.boardno like #{board.boardno}
+	</select>
 
 
 </mapper>
