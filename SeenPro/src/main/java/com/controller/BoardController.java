@@ -79,7 +79,7 @@ public class BoardController {
 		System.out.println("List" + list);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list_a", list);
 		mav.setViewName("board");
 
 		return mav;

@@ -6,6 +6,33 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+<style>
+
+table.type11 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+  	margin : 20px 10px;
+}
+table.type11 th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+table.type11 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    }
+
+</style>
+
+
 	<div align="center">
 		</br> </br>
 		<table border="1" width="1200px">
@@ -49,14 +76,6 @@
 		<form id="commentForm" action="loginCheck/reply" method="post">
 		<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
 		
-		<div>
-			<table border="1">
-				<tr>
-					
-				</tr>
-			</table>
-		</div>
-		
 		
 			<br> <br>
 			<div>
@@ -86,5 +105,3 @@
 	
 	<div id="replyList"></div>
 
-
-		<input type="submit" id="list" name="list" value="목록가기" />
