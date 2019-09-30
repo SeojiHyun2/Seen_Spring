@@ -30,7 +30,15 @@ table.type11 td {
     border-bottom: 1px solid #ccc;
     }
 
+<<<<<<< HEAD
+		
+	}); //ready finish
+	
+	
+</script>
+=======
 </style>
+>>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
 
 
 	<div align="center">

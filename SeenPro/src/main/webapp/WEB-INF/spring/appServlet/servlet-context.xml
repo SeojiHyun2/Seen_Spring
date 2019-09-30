@@ -70,7 +70,6 @@
 
 
 
-
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/loginCheck/**" />
@@ -78,8 +77,12 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+
+
 	<bean id="loginCheckInterceptor"
 		class="com.interceptor.LoginCheckInterceptor"></bean>
+
+
 
 
 	<mvc:resources location="/WEB-INF/views/images/"

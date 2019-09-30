@@ -18,6 +18,13 @@
 </script>
 
 <style>
+
+
+
+
+
+
+
 table.type11 {
 	border-collapse: separate;
 	border-spacing: 1px;
@@ -25,9 +32,11 @@ table.type11 {
 	line-height: 1.5;
 	border-top: 1px solid #ccc;
 	margin: 20px 10px;
+
 }
 
 table.type11 th {
+
 	width: 150px;
 	padding: 10px;
 	font-weight: bold;
@@ -42,9 +51,22 @@ table.type11 td {
 	border-bottom: 1px solid #ccc;
 }
 
+}
+
+table.type11 td {
+
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    }
+
+
 #title {
 	width: 1200px;
+
 }
+
 
 .sc {
 	height: 40px;
@@ -71,27 +93,32 @@ table.type11 td {
 	float: right;
 	color: #ffffff;
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
 </style>
 
 <form action="boardList">
 
-	<div class="option">
-		<select name="searchName">
-			<option value="title">제목</option>
-			<option value="userid">작성자</option>
-		</select>
-	</div>
-	<div class="sc">
-		<input type="text" name="searchValue" id="inp"> <input
-			type="submit" value="검색" id="sgo">
-	</div>
-
-</form>
-
-
-
+      
+      <div class="option">
+         <select name="searchName">
+            <option value="title">제목</option>
+            <option value="userid">작성자</option>
+         </select> 
+      </div>
+      <div class="sc">
+         <input type="text" name="searchValue" id="inp"> 
+         <input type="submit" value="검색" id="sgo">
+      </div>
+      
+   </form>
 
 <table class="type11" align="center">
+
 	<tr scope="row">
 		<th>글번호</th>
 		<th id="title">제목</th>
@@ -100,15 +127,19 @@ table.type11 td {
 		<th>조회수</th>
 	</tr>
 
-	<c:forEach var="dto" items="${list_a}">
-		<tr>
-			<td class="even">${dto.boardno}</td>
-			<td class="even"><a href="boardRetrieve?boardno=${dto.boardno}">${dto.title}</a></td>
-			<td class="even">${dto.userid}</td>
-			<td class="even">${dto.writeday}</td>
-			<td class="even">${dto.viewcnt }</td>
-		</tr>
-	</c:forEach>
 
 </table>
-<a href="write">글쓰기</a>
+      
+      <c:forEach var="dto" items="${list_a}">
+         <tr>
+            <td class="even">${dto.boardno}</td>
+            <td class="even"><a href="boardRetrieve?boardno=${dto.boardno}">${dto.title}</a></th>
+            <td class="even">${dto.userid}</td>
+            <td class="even">${dto.writeday}</td>
+            <td class="even">${dto.viewcnt }</td>
+         </tr>
+      </c:forEach>
+      
+      </table>
+      <a href="write">글쓰기</a>
+
