@@ -70,7 +70,6 @@ public class WorkController {
 	@RequestMapping("/loginCheck/sweetAdd")
 	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr) {
 
-
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		MemberADTO adto = (MemberADTO) session.getAttribute("login_art");
 		String wCategory = (String) session.getAttribute("wCategory");

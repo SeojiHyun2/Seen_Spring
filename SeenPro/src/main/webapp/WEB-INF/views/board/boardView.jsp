@@ -13,10 +13,6 @@
 			location.href = "board";
 		}); //#list
 
-	
-	
-		
-	
 		
 	}); //ready finish
 	

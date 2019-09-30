@@ -18,7 +18,6 @@ function delWork(wCode,artistname){
 $(document).ready(function(){
 	$(".donation").on("click",function(){
 
-
 		//var wCode = $(this).attr("data-num");
 		//location.href="loginCheck/donationConfirm?wCode"+wCode;
 		//console.log(wCode);
