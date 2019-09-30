@@ -109,23 +109,33 @@ public class BoardController {
 
 	}
 
+	
+	// 게시글수정 UI
+		@RequestMapping("/boardUpdateUI")
+		public ModelAndView boardUpdateUI(@RequestParam("boardno") int boardno, ModelAndView m) {
+
+			BoardDTO dto = boardService.boardView(boardno);
+
+			m.addObject("upInfo", dto);
+			m.setViewName("boardUpdate");
+			return m;
+
+		}
+	
+	
+
 	// 글 수정하기
-	@RequestMapping("loginCheck/update")
+	@RequestMapping("/boardUpdate")
 	public String update(@RequestParam("boardno") String boardno, @RequestParam("title") String title,
 			@RequestParam("content") String content, HttpSession session, BoardDTO dto, RedirectAttributes attr) {
+
 
 		MemberDTO mdto = (MemberDTO) session.getAttribute("login_mem");
 		String userid = mdto.getUserid();
 
-		dto.setBoardno(Integer.parseInt(boardno));
-		dto.setTitle(title);
-		dto.setContent(content);
-		dto.setUserid(userid);
-
 		boardService.update(dto);
-		System.out.println("수정화면:" + dto);
 
-		return "redirect:../board";
+		return "main";
 
 	}
 

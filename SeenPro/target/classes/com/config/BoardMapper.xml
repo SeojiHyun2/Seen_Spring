@@ -49,10 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<update id="update" parameterType="BoardDTO">
 		update board
-		set title=#{title}
-		,
-		userid=#{userid} ,
-		content=#{content}
+		set title = #{title}, content = #{content}
 		where boardno=#{boardno}
 	</update>
 

@@ -19,7 +19,6 @@ public class BoardService {
 
 
 	public BoardDTO boardView(int boardno) {
-		
 		BoardDTO dto = dao.boardView(boardno);
 		return dto;
 	}

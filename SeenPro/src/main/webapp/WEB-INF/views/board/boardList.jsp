@@ -20,11 +20,6 @@
 <style>
 
 
-
-
-
-
-
 table.type11 {
 	border-collapse: separate;
 	border-spacing: 1px;
@@ -93,16 +88,10 @@ table.type11 td {
 	float: right;
 	color: #ffffff;
 }
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
 </style>
 
 <form action="boardList">
-
       
       <div class="option">
          <select name="searchName">
@@ -117,18 +106,17 @@ table.type11 td {
       
    </form>
 
+   
+   
+      
 <table class="type11" align="center">
-
-	<tr scope="row">
-		<th>글번호</th>
-		<th id="title">제목</th>
-		<th>작성자</th>
-		<th>작성일</th>
-		<th>조회수</th>
-	</tr>
-
-
-</table>
+      <tr scope="row">
+         <th>글번호</th>
+         <th id="title">제목</th>
+         <th>작성자</th>
+         <th>작성일</th>
+         <th>조회수</th>
+      </tr>
       
       <c:forEach var="dto" items="${list_a}">
          <tr>
