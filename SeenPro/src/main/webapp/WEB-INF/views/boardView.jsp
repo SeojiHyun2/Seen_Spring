@@ -9,8 +9,12 @@
 <body>
 
 <jsp:include page="common/top.jsp" flush="true" />
-<jsp:include page="common/menu.jsp" flush="true" />
+<hr>
+
 <jsp:include page="board/boardView.jsp" flush="true" />
+<jsp:include page="board/repTest.jsp" flush="true" />
+
+<hr>
 <jsp:include page="common/bottom.jsp" flush="true" />
 
 

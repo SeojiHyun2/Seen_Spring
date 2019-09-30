@@ -1,32 +1,45 @@
+<%@page import="com.dto.PageDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function() {
-		
-		$("#list").on("click", function() {
+<style>
 
-			location.href = "board";
-		}); //#list
+table.type11 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+  	margin : 20px 10px;
+}
+table.type11 th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+}
+table.type11 td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    }
 
+<<<<<<< HEAD
 		
 	}); //ready finish
 	
 	
 </script>
+=======
+</style>
+>>>>>>> branch 'master' of https://github.com/SeojiHyun2/Seen_Spring.git
 
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>상세 보기</title>
-</head>
-<body>
 
 	<div align="center">
 		</br> </br>
@@ -36,11 +49,8 @@
 					<form action="loginCehck/delete">
 						
 						<c:if test="${login_mem.userid==retrieve.userid}">
-							<input type="hidden" id="boardno" name="boardno"
-								value="${retrieve.boardno}" />
-							
+							<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
 							<input type="submit" id="delete" name="delete" value="삭제" />
-						
 						</c:if>
 
 					</form>
@@ -67,17 +77,14 @@
 			</c:if>
 			</form>
 		</table>
+		
 		<br>
-	
-		<c:forEach var="rere" items="${rere}" varStatus="status">
-      	${rere.userid}
-	    ${rere.reply_content}
-	</c:forEach>
-
-
+		
 			<div class="container">
 		<form id="commentForm" action="loginCheck/reply" method="post">
 		<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
+		
+		
 			<br> <br>
 			<div>
 				<div>
@@ -104,10 +111,5 @@
 		</form>
 	</div>
 	
-
-
 	<div id="replyList"></div>
 
-		<input type="submit" id="list" name="list" value="목록가기" />
-</body>
-</html>

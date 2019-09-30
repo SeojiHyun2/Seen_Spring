@@ -19,11 +19,11 @@ public class BoardDAO {
 
 	
 
-	public BoardDTO boardView(String boardno) {
+	public BoardDTO boardView(int boardno) {
 		
 		//자세히 보기 할 경우, 조회수가 하나씩 증가
 		viewcnt(boardno);
-		BoardDTO dto = template.selectOne("BoardMapper.boardView", Integer.parseInt(boardno));
+		BoardDTO dto = template.selectOne("BoardMapper.boardView", boardno);
 		System.out.println(boardno);
 		
 		return dto;
@@ -57,8 +57,8 @@ public class BoardDAO {
 		
 	}
 
-	private void viewcnt(String boardno) {
-		template.update("BoardMapper.viewcnt",Integer.parseInt(boardno));
+	private void viewcnt(int boardno) {
+		template.update("BoardMapper.viewcnt",boardno);
 	}
 
 

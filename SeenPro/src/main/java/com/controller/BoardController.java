@@ -40,7 +40,7 @@ public class BoardController {
 
 		List<BoardDTO> list = boardService.listAll();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list_a", list);
 		mav.setViewName("board");
 
 		return mav;
@@ -79,7 +79,7 @@ public class BoardController {
 		System.out.println("List" + list);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list_a", list);
 		mav.setViewName("board");
 
 		return mav;
@@ -88,14 +88,21 @@ public class BoardController {
 
 	// 게시글 상세히 보기
 	@RequestMapping("/boardRetrieve")
-	public ModelAndView boardView(@RequestParam("boardno") String boardno, Model model,Board_repDTO rdto) {
+	public ModelAndView boardView(@RequestParam("boardno") int boardno, Board_repDTO r_dto,
+			ModelAndView mav) {
 
 		BoardDTO dto = boardService.boardView(boardno);
+  
+        r_dto.setBoardno(boardno);
         
-		ModelAndView mav = new ModelAndView();
+        List<Board_repDTO> list = (List<Board_repDTO>)replyService.boardView_rep(boardno);
 
-	
+		System.out.println("보드리트라이브에 보드넘: "+boardno);
+		System.out.println(dto);
+		System.out.println(list);
+		
 		mav.addObject("retrieve", dto);
+		mav.addObject("repInfo", list);
 		mav.setViewName("boardView");
 
 		return mav;
@@ -103,7 +110,6 @@ public class BoardController {
 	}
 
 	// 글 수정하기
-
 	@RequestMapping("loginCheck/update")
 	public String update(@RequestParam("boardno") String boardno, @RequestParam("title") String title,
 			@RequestParam("content") String content, HttpSession session, BoardDTO dto, RedirectAttributes attr) {
@@ -124,7 +130,6 @@ public class BoardController {
 	}
 
 	// 게시물 삭제하기
-
 	@RequestMapping("loginCehck/delete")
 	public String delete(@RequestParam("boardno") String boardno, HttpSession session) {
 
@@ -136,9 +141,9 @@ public class BoardController {
 
 	}
 	
+	
+	
 	// 댓글
-	
-	
     // 댓글 입력하기 
 	@RequestMapping("/loginCheck/reply")
 	public String reply(HttpSession session, @RequestParam("comment") String reply_content, @RequestParam("boardno") String boardno,
@@ -155,14 +160,14 @@ public class BoardController {
 	     replyService.reply(map);
 		
 	     
-		return "redirect:../replyList";
+		return "redirect:../boardRetrieve";
 		
 	}
 	
 	@RequestMapping("/replyList")
 	public ModelAndView replyList(@RequestParam String boardno, ModelAndView mav,RedirectAttributes attr) {
 		
-		System.out.println(boardno);
+		System.out.println("리플리리스트에 보드넘: "+boardno);
 		List<Board_repDTO> list = replyService.replyList(boardno);
 		mav.addObject("rere", list);
 		mav.setViewName("boardView");
