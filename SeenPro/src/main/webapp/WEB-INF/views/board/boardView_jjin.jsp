@@ -66,7 +66,7 @@ table.bd td {
 						<input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
 						<input type="submit" id="delete" name="delete" value="삭제" />
 					</c:if>
-				</form>
+				</form>	
 			</td>
 		</tr>
 	</table>
@@ -76,15 +76,22 @@ table.bd td {
 <br>
 <br>
 <div align="center">
-	<div>
-		<span><strong>Comments</strong></span> <span id="cCnt"></span>
-	</div>
-	<div>
-		<table class="table">
-			<tr>
-				<td><textarea style="width: 750px;" rows="3" cols="30"
-						id="comment" name="comment" placeholder="댓글을 입력하세요"></textarea> <br>
-					<input type="submit" class="reply" value="등록" /></td>
+      <form id="commentForm" action="loginCheck/reply" method="post">
+      <input type="hidden" id="boardno" name="boardno" value="${retrieve.boardno}" />
+      
+      
+         <br> <br>
+         <div>
+            <div>
+               <span><strong>Comments</strong></span> <span id="cCnt"></span>
+            </div>
+            <div>
+               <table class="table">
+                  <tr>
+                     <td><textarea style="width: 1100px" rows="3" cols="30"
+                           id="comment" name="comment" placeholder="댓글을 입력하세요"></textarea>
+
+                        <br> <input type="submit" class="reply" value="등록" />
 			</tr>
 		</table>
 	</div>

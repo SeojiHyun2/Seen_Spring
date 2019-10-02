@@ -112,7 +112,7 @@
 					<td height="10"></td>
 				</tr>
 				<tr>
-					<h1 align="center">${login_mem.m_username}의sweet</h1>
+					<h1 align="center">${login_mem.m_username}님의 SWEET!</h1>
 				</tr>
 				<tr>
 

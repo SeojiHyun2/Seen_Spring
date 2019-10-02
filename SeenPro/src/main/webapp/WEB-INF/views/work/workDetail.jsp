@@ -32,72 +32,72 @@ $(document).ready(function(){
 </script>
 
 <style type="text/css">
-.DD {
-	padding-left: 100px;
+
+#p{
+	font-weight: bold;
+	font-size: 20px;
 }
 
-#tt {
-	font-size: 18px;
+#n{
+	font-weight: bold;
+	font-size: 20px;
 }
 
-#ww {
-	font-size: 100px;
+#d{
+	font-size: 12px;
 }
 
-.donation {
-	background: url("images/donation.png") no-repeat;
-	border: none;
-	width: 32px;
-	height: 32px;
-	cursor: pointer;
+#dc{
+	font-family: 맑은고딕;
 }
+
+table{
+	color: #94949e;
+}
+
 </style>
 
 
 <tr>
 	<td>
 
-		<table class="DD">
-			<tr id="ww">
+		<table align="center" style="width: 1200px;">
+			<tr>
+				<td colspan="3" align="left" id="p">"${detail.wName}"</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="left" id="n">${detail.artistname}</td>
+				<td colspan="1" align="right" id="d">${detail.inputDay}</td>
+			</tr>	
+			<tr>
+				<td id="dc"><small>Artist Comment <br>-<br></small>${detail.wDescribe}</td>
+				<td width="40px;"></td>
 				<td rowspan="5"><img src="/images/${detail.wWork}" border="0"
 					width="800"></td>
 			</tr>
+		</table>
+		<br>
+		<table align="center">
 			<tr>
-				<td rowspan="5" width="30px">
-			</tr>
-			<tr id="tt" align="center">
-				<td>"${detail.wName}"</td>
-			</tr>
-			<tr id="tt" align="center">
-				<td><small>작품설명</small><br>${detail.wDescribe}</td>
-			</tr>
-			<tr id="tt" align="center">
-				<td>작가 : ${detail.artistname}</td>
-			</tr>
-
-			<tr>
-				<td>
-					<FORM name="donationForm" method="GET"
-						action="loginCheck/donationConfirm">
-
-						<input type="hidden" name="wCode" value="${detail.wCode}">
-						<input type="hidden" name="wName" value="${detail.wName}">
-						<input type="hidden" name="wWork" value="${detail.wWork}">
-						<input type="hidden" name="artistname"
-							value="${detail.artistname}"> <input type="submit"
-							value="후원" class="donation">
+				<td colspan="2">
+					<FORM name="donationForm" method="GET" action="loginCheck/donationConfirm">
+						<c:if test="${! empty login_mem}">
+							<input type="hidden" name="wCode" value="${detail.wCode}">
+							<input type="hidden" name="wName" value="${detail.wName}">
+							<input type="hidden" name="wWork" value="${detail.wWork}">
+							<input type="hidden" name="artistname" value="${detail.artistname}"> 
+							<input type="submit" value="후원하기" class="donation">
+						</c:if>
 					</FORM>
 				</td>
-				<tr>
-				<td id="day" align="center"><span>업로드 날짜 :</span>&nbsp;${detail.inputDay}
-				</td>
-				
-				<tr>
+			
 				<td>
 					<form action="workDel">
-               			 <input type="submit" value="삭제" >
-               		     <input type="hidden" name="wCode" value="${detail.wCode}">
-               		 	 <input type="hidden" name="artistname" value="${detail.artistname}"> 
+						<c:if test="${login_art.artistname==detail.artistname}">
+               				 <input type="submit" value="삭제" >
+               		   		 <input type="hidden" name="wCode" value="${detail.wCode}">
+               		 	 	 <input type="hidden" name="artistname" value="${detail.artistname}"> 
+               		 	</c:if> 
              		</form>
 				</td>
 				<tr>

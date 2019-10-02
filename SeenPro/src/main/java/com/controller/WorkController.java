@@ -217,6 +217,8 @@ session.setAttribute("delok", "해당 sweet이 삭제되었습니다");
 		map.put("letterCount", letter);
 		map.put("videoCount", video);
 
+		System.out.println(photo);
+		
 		return "sweetChart";
 	}
 
