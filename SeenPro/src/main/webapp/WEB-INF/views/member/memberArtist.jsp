@@ -4,31 +4,101 @@
     
 <style type="text/css">
 
-#name {width: 80px;}
-#sample4_postcode {width: 60px;}
-#sample4_roadAddress {width: 250px;}
-#sample4_jibunAddress {width:80px;}
-
-.a {
-	color: #111111;
-	Font: 10px arial;
-	Background: #FFFFFF;
-	padding: 5px 30px;
-	border: 1px solid;
+#phone{
+	width: 10%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
 
-.aa{
-	Background:#F2F2F2;
-	font:15px Arial;
-    padding: 3px;
-	border:none;
-  	height: 22px;
+#check{
+	width: 8%;
+	background-color: #999999;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-form{
-	position: relative; left:480px;
-	top:10px;
-	}
+
+input[type=text] {
+	width: 20%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=password] {
+	width: 20%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+input[type=submit] {
+	width: 20%;
+	background-color: #999999;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=button] {
+	width: 8%;
+	background-color: #999999;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+
+input[type=reset] {
+	width: 20%;
+	background-color: #999999;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=reset]:hover {
+	background-color: #999999;
+}
+
+div {
+	border-radius: 5px;
+	padding: 20px;
+}
+
+select{
+	width: 10%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
 </style>   
     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -85,32 +155,43 @@ $(document).ready(function(){
 	
 });
 </script>
-    
+
+<div align="center">    
 <form action="memberArtAdd" method="get">
-	작가명:<input type="text" name="artistname" id="artistname" id="name" class="aa"> 
-		 <input type="submit" name="idCheck" value="중복확인"
+	<div align="left">
+	<label for="fname">작가ID</label><br>
+		 <input type="text" name="artistname" id="artistname" id="name" class="aa"> 
+		 <input type="submit" name="idCheck" id="check" value="중복확인"
 				onclick="openConfirmid(event,this.form)"> <br><br>
-	비밀번호:<input type="password" name="a_passwd" id="passwd" id="name" class="aa"><br><br>
-	비빌번호확인:<input type="password" name="a_passwd2" id="passwd2" onkeyup="check()" id="name" class="aa"><span id="result2"></span> <br>
+	<label for="fname">비밀번호</label><br>
+		<input type="password" name="a_passwd" id="passwd" id="name" class="aa"><br>
+	<label for="fname">비밀번호 확인</label><br>
+		<input type="password" name="a_passwd2" id="passwd2" onkeyup="check()" id="name" class="aa"><span id="result2"></span> <br>
 				<span id="result2"></span><br> 
-	이름:<input type="text" name="a_username"><br><br>
+	<label for="fname">이름</label><br>
+		<input type="text" name="a_username"><br><br>
 		<input type="text" name="a_post" id="sample4_postcode" placeholder="우편번호">
-		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+		<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호"><br>
 		<input type="text" name="a_addr1" id="sample4_roadAddress" placeholder="도로명주소">
 		<input type="text" name="a_addr2" id="sample4_jibunAddress" placeholder="지번주소">
 		<span id="guide" style="color:#999"></span><br><br>
-	전화번호:<select name="a_phone1">
+	<label for="fname">전화번호</label><br>
+		  <select name="a_phone1">
   			<option value="010">010</option>
   			<option value="011">011</option>
-		  </select>-<input type="text" name="a_phone2" id="name" class="aa">-<input type="text" name="a_phone3" id="name" class="aa" ><br><br>
-	이메일:<input type="text" name="a_email1" id="email1" id="name" class="aa">@<input type="text" name="a_email2" id="email2" placeholder="직접입력" id="name" class="aa">
+		  </select>-<input type="text" name="a_phone2" id="phone" class="aa">-<input type="text" name="a_phone3" id="phone" class="aa" ><br><br>
+	<label for="fname">이메일</label><br>
+		<input type="text" name="a_email1" id="email1" id="name" class="aa">@<input type="text" name="a_email2" id="email2" placeholder="직접입력" id="name" class="aa">
      		  <select  id="emailSelect">
+     		  	 <option value="" selected disabled="disabled" style="width: 50px;">==선택하세요==</option>
        			 <option value="daum.net">daum.net</option>
         		 <option value="naver.com">naver.com</option>
               </select><br><br>
 	<input type="submit" value="회원가입" class="a">
 	<input type="reset" value="취소" class="a"><br><br>
+	</div>
 </form>
+</div>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
@@ -163,4 +244,5 @@ $(document).ready(function(){
             }
         }).open();
     }
+
 </script>

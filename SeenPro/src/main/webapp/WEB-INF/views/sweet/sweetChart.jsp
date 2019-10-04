@@ -6,47 +6,44 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <style>
-.table8_2 table {
-	width: 100%;
-	margin: 15px 0
+
+#top{
+	font-family: 나눔바른펜;
+	font-size: 20px;
 }
 
-.table8_2 th {
-	background-color: #505050;
-	background: -o-linear-gradient(90deg, #505050, #9b9b9b);
-	background: -moz-linear-gradient(center top, #505050 5%, #9b9b9b 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #505050
-		), color-stop(1, #9b9b9b));
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#505050',
-		endColorstr='#9b9b9b');
-	color: #FFFFFF
+th {
+	width: 100px;
+	background-color: #999999;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-.table8_2, .table8_2 th, .table8_2 td {
-	font-size: 0.95em;
-	text-align: center;
-	padding: 4px;
-	border: 1px solid #efefef;
-	border-collapse: collapse
+td {
+	width: 100px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
 }
 
-.table8_2 tr:nth-child(odd) {
-	background-color: #c4c4c4;
-	background: -o-linear-gradient(90deg, #c4c4c4, #f3f3f3);
-	background: -moz-linear-gradient(center top, #c4c4c4 5%, #f3f3f3 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c4c4c4
-		), color-stop(1, #f3f3f3));
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4c4c4',
-		endColorstr='#f3f3f3');
-}
-
-.table8_2 tr:nth-child(even) {
-	background-color: #fdfdfd; 
-}
 </style>
 
 <form action="sweetChartSource" method="get">
+	<input type="submit" value="See-n SWEET 현황" style="border: none; background-color: #ffffff;" >
+	<br>
+	<br>
+	<br>
+	<br>
 	<table class=table8_2 align="center">
+	<tr>
+		<td id="top" colspan="5" style="border: none;">카테고리 별 Sweet Chart</td>
+	</tr>
 		<tr>
 			<th>Photo</th>
 			<th>Draw</th>
@@ -61,9 +58,12 @@
 			<td>${soundCount} Point</td>
 			<td>${letterCount} Point</td>
 		</tr>
-	
 	</table>
 </form>
+
+	<br>
+		<br>
+			<br>
 
 
 

@@ -70,7 +70,6 @@ public class WorkController {
 	@RequestMapping("/loginCheck/sweetAdd")
 	public String sweetAdd(SweetDTO sweet, HttpSession session, RedirectAttributes attr) {
 
-
 		MemberDTO dto = (MemberDTO) session.getAttribute("login_mem");
 		MemberADTO adto = (MemberADTO) session.getAttribute("login_art");
 		String wCategory = (String) session.getAttribute("wCategory");
@@ -173,9 +172,9 @@ public class WorkController {
 	}
 
 	@RequestMapping("/sweetDel")
-	public String sweetDel(@RequestParam("num") String num) {
+	public String sweetDel(@RequestParam("num") String num,HttpSession session) {
 
-		System.out.println("~~~~~~~~~~~~~@@~~~~~~~~~~~~~~~~~***********" + num);
+session.setAttribute("delok", "해당 sweet이 삭제되었습니다");
 		wservice.sweetDel(num);
 		return "redirect:/loginCheck/sweetList";
 	}
@@ -218,6 +217,8 @@ public class WorkController {
 		map.put("letterCount", letter);
 		map.put("videoCount", video);
 
+		System.out.println(photo);
+		
 		return "sweetChart";
 	}
 

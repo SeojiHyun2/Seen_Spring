@@ -29,6 +29,9 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	
+	@Autowired
+	Board_repService replyService;
+	
 
 
 	// board로 이동하기
@@ -37,7 +40,7 @@ public class BoardController {
 
 		List<BoardDTO> list = boardService.listAll();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list_a", list);
 		mav.setViewName("board");
 
 		return mav;
@@ -76,7 +79,7 @@ public class BoardController {
 		System.out.println("List" + list);
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list_a", list);
 		mav.setViewName("board");
 
 		return mav;
@@ -85,42 +88,58 @@ public class BoardController {
 
 	// 게시글 상세히 보기
 	@RequestMapping("/boardRetrieve")
-	public ModelAndView boardView(@RequestParam("boardno") String boardno, Model model) {
+	public ModelAndView boardView(@RequestParam("boardno") int boardno, Board_repDTO r_dto,
+			ModelAndView mav) {
 
 		BoardDTO dto = boardService.boardView(boardno);
+  
+        r_dto.setBoardno(boardno);
+        
+        List<Board_repDTO> list = (List<Board_repDTO>)replyService.boardView_rep(boardno);
 
-		ModelAndView mav = new ModelAndView();
-
+		System.out.println("보드리트라이브에 보드넘: "+boardno);
+		System.out.println(dto);
+		System.out.println(list);
+		
 		mav.addObject("retrieve", dto);
+		mav.addObject("repInfo", list);
 		mav.setViewName("boardView");
 
 		return mav;
 
 	}
 
-	// 글 수정하기
+	
+	// 게시글수정 UI
+		@RequestMapping("/boardUpdateUI")
+		public ModelAndView boardUpdateUI(@RequestParam("boardno") int boardno, ModelAndView m) {
 
-	@RequestMapping("loginCheck/update")
+			BoardDTO dto = boardService.boardView(boardno);
+
+			m.addObject("upInfo", dto);
+			m.setViewName("boardUpdate");
+			return m;
+
+		}
+	
+	
+
+	// 글 수정하기
+	@RequestMapping("/boardUpdate")
 	public String update(@RequestParam("boardno") String boardno, @RequestParam("title") String title,
 			@RequestParam("content") String content, HttpSession session, BoardDTO dto, RedirectAttributes attr) {
+
 
 		MemberDTO mdto = (MemberDTO) session.getAttribute("login_mem");
 		String userid = mdto.getUserid();
 
-		dto.setBoardno(Integer.parseInt(boardno));
-		dto.setTitle(title);
-		dto.setContent(content);
-		dto.setUserid(userid);
-
 		boardService.update(dto);
-		System.out.println("수정화면:" + dto);
 
-		return "redirect:../board";
+		return "main";
 
 	}
 
 	// 게시물 삭제하기
-
 	@RequestMapping("loginCehck/delete")
 	public String delete(@RequestParam("boardno") String boardno, HttpSession session) {
 
@@ -133,6 +152,41 @@ public class BoardController {
 	}
 	
 	
+	
+	// 댓글
+    // 댓글 입력하기 
+	@RequestMapping("/loginCheck/reply")
+	public String reply(HttpSession session, @RequestParam("comment") String reply_content, @RequestParam("boardno") String boardno,
+			HashMap<String, String> map) {
+		
+		System.out.println("reply로 넘어왔나?");
+		MemberDTO mdto = (MemberDTO) session.getAttribute("login_mem");
+		String userid = mdto.getUserid();
+		
+		map.put("reply_content",reply_content);
+		map.put("userid", userid);
+		map.put("boardno", boardno);
+		
+	     replyService.reply(map);
+		
+	     
+		return "redirect:../boardRetrieve";
+		
+	}
+	
+	@RequestMapping("/replyList")
+	public ModelAndView replyList(@RequestParam String boardno, ModelAndView mav,RedirectAttributes attr) {
+		
+		System.out.println("리플리리스트에 보드넘: "+boardno);
+		List<Board_repDTO> list = replyService.replyList(boardno);
+		mav.addObject("rere", list);
+		mav.setViewName("boardView");
+		System.out.println("댓글 목록..:"+ list);
+		
+		return mav;
+		
+		
+	}
 	
 	
 	

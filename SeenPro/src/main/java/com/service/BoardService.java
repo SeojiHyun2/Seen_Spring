@@ -18,8 +18,7 @@ public class BoardService {
 	BoardDAO dao;
 
 
-	public BoardDTO boardView(String boardno) {
-		
+	public BoardDTO boardView(int boardno) {
 		BoardDTO dto = dao.boardView(boardno);
 		return dto;
 	}

@@ -39,13 +39,6 @@
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>게시판 글쓰기</title>
-</head>
-<body>
 
 
 	<h1>Q&A</h1>
@@ -63,13 +56,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td align="center"><br> <input type="submit" id="write"
-					value="저장">
+				<td align="center"><br> <input type="submit" id="write" value="저장">
 
 					</form>
 					<button id="list" name="list">목록으로 가기</button></td>
 			</tr>
 		</table>
 		</div>
-</body>
-</html>

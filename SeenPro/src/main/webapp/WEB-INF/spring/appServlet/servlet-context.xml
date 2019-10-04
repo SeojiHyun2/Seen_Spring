@@ -58,16 +58,18 @@
 		view-name="mailUI" />
 	<mvc:view-controller path="/mailUI_art"
 		view-name="mailUI_art" />
+	
+
 
 	<mvc:view-controller path="/write" view-name="write" />
-	<mvc:view-controller path="/list" view-name="board" />
+	<mvc:view-controller path="/board" view-name="board" />
+	<mvc:view-controller path="/boardUpdate" view-name="boardUpdate" />
 		
 
 
 
 	<mvc:view-controller path="/sweetChart"
 		view-name="sweetChart" />
-
 
 
 
@@ -78,8 +80,12 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
+
+
 	<bean id="loginCheckInterceptor"
 		class="com.interceptor.LoginCheckInterceptor"></bean>
+
+
 
 
 	<mvc:resources location="/WEB-INF/views/images/"
